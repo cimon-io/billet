@@ -1,0 +1,16 @@
+development: &defaults
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV.fetch('DB_1_ENV_POSTGRES_NAME', 'billet_development') %>
+  host: <%= ENV.fetch('DB_1_PORT_3306_TCP_ADDR', 'localhost') %>
+  template: template0
+
+test:
+  <<: *defaults
+  database: billet_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults

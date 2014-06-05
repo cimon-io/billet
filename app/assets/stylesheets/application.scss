@@ -1,0 +1,48 @@
+$container-large-desktop: 1245px;
+@import 'bootstrap';
+@import 'icons/icons';
+
+[data-link] {
+  cursor: pointer;
+}
+
+.form-control[readonly] {
+  cursor: default;
+}
+
+.translation_missing {
+  color: #ff0000;
+  -webkit-animation: translation_missing_pulse 1s infinite alternate;
+}
+
+@-webkit-keyframes translation_missing_pulse {
+  0% {color: #ff0000;}
+ 25% {color: #f56363;}
+ 50% {color: #c88686;}
+ 75% {color: #923232;}
+ 95% {color: #d20c0c;}
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 50px;
+  font-family: "Source Sans Pro";
+  font-size: 16px;
+}
+
+#footer {
+  border-top: 1px solid #e7e7e7;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f5f5f5;
+
+  p {
+    margin-top: 15px;
+  }
+}

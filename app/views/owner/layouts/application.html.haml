@@ -1,0 +1,99 @@
+!!!
+%html
+  %head
+    = page_title_tag
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    %meta{content: "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %meta{content: "en", "http-equiv" => "Content-Language"}/
+    %meta{content: "no", "http-equiv" => "imagetoolbar"}/
+    %meta{content: "width = device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable = no", name: "viewport"}/
+    %meta{content: "black-translucent", name: "apple-mobile-web-app-status-bar-style"}/
+    %link{href: "/startup.png", rel: "apple-touch-startup-image"}/
+    %meta{content: "True", name: "HandheldFriendly"}/
+    %meta{content: "on", "http-equiv" => "cleartype"}/
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}/
+    %meta{content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{content: "progid:DXImageTransform.Microsoft.Fade(Duration=0.2)", "http-equiv" => "Page-Exit"}/
+    %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+    %meta{content: "all", name: "robots"}/
+
+    %link{href: "", rel: "copyright"}/
+    %link{href: "", rel: "author"}/
+
+    %link{href: "/favicon.ico", rel: "shortcut icon"}/
+    %link{href: "/favicon.png", rel: "icon", type: "image/png"}/
+    %link{href: "/favicon.ico", rel: "icon", type: "image/x-icon"}/
+    %link{href: "/apple-touch-icon-iphone.png", rel: "apple-touch-icon"}/
+    %link{href: "/apple-touch-icon-ipad.png", rel: "apple-touch-icon", sizes: "72x72"}/
+    %link{href: "/apple-touch-icon-iphone4.png", rel: "apple-touch-icon", sizes: "114x114"}/
+
+    /[if IE]
+      <script type='text/javascript'>
+      \//<![CDATA[
+      document.createElement('header');
+      document.createElement('nav');
+      document.createElement('section');
+      document.createElement('article');
+      document.createElement('author');
+      document.createElement('aside');
+      document.createElement('footer');
+      \//]]>
+      </script>
+    :css
+      header, nav, section, article, aside, footer {
+        display: block;
+      }
+
+
+  %body
+    %header.navbar.navbar-inverse.navbar-static-top{role: "navigation"}
+      .container
+        %button.navbar-toggle{"data-target" => "#main-menu", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .navbar-header
+          = link_to "Admin #{Settings.application.name}", root_url, class: 'navbar-brand'
+
+        %nav#main-menu.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            = link_to_menu :companies, :companies, companies_url, icon: Company
+
+    %hr
+
+    %section#content
+      .container.container-center
+        = render 'layouts/flash'
+        = yield
+
+    %hr
+
+    %footer#footer{role: "footer"}
+      .container
+        %ul.nav.navbar-nav
+          %li
+            %span.navbar-text= t 'copyright.html', scope: [:layout], year: Date.current.year
+
+        %ul.nav.navbar-nav.navbar-right
+          %li
+            =link_to Settings.links.twitter, target: '_blank' do
+              = t 'twitter_link.html', scope: [:layout], icon: icon_tag(:twitter)
+          %li
+            =link_to Settings.links.facebook, target: '_blank' do
+              = t 'facebook_link.html', scope: [:layout], icon: icon_tag(:facebook)
+          %li
+            = link_to root_url, target: '_blank' do
+              = t 'privacy_link.html', scope: [:layout]
+          %li
+            = link_to root_url, target: '_blank' do
+              = t 'terms_link.html', scope: [:layout]
+          %li
+            = link_to root_url, target: '_blank' do
+              = t 'support_link.html', scope: [:layout]
+          %li
+            = link_to root_url, target: '_blank' do
+              = t 'blog_link.html', scope: [:layout]

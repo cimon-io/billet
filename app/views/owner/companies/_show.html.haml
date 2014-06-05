@@ -1,0 +1,31 @@
+%dl
+  %dt=ha resource_class, :id
+  %dd= resource.id
+
+%dl
+  %dt=ha resource_class, :name
+  %dd= resource.name
+
+.panel.panel-default
+  .panel-heading
+    .btn-group.pull-right
+      - if can? :create, User
+        = link_to th(:add, 'users'), new_company_user_url(resource), class: "btn btn-default btn-xs"
+
+    %h3.panel-title
+      Users
+
+  .panel-body
+    = render 'users/names', collection: resource.users, resource_class: User, resource_collection_name: 'user'
+  .panel-footer
+    =t :total, scope: [:views, :users], count: resource.users.count
+
+%dl
+  %dt
+    =ha resource_class, :created_at
+    \/
+    =ha resource_class, :updated_at
+  %dd
+    =tw resource.created_at
+    \/
+    =tw resource.updated_at

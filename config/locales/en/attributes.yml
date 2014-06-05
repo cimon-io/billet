@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    attributes:
+      project:
+        name: Project name
+        company: Company
+        id: ID
+        created_at: Created
+        updated_at: Updated
+      company:
+        name: Company name
+        subdomain: Subdomain
+        id: ID
+        created_at: Created
+        updated_at: Updated
+      user:
+        email: Email
+        id: ID
+        created_at: Created
+        updated_at: Updated

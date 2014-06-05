@@ -1,0 +1,1 @@
+PublicController = Public::ApplicationController

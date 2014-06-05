@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      project:
+        one: Project
+        other: Projects
+      company:
+        one: Company
+        other: Companies
+      user:
+        one: User
+        other: Users

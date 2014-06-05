@@ -1,0 +1,15 @@
+application:
+  name: 'Billet'
+  logo_text: 'Billet'
+admin:
+  name: <%= ENV.fetch('APP_SETTINGS_OWNER_LOGIN', 'admin') %>
+  password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'epyfnm3epyfnm') %>
+
+links:
+  facebook: 'https://www.facebook.com/billet'
+  twitter: 'https://twitter.com/billet'
+  support: 'mailto:support@billet.com'
+
+default_user_config:
+  date_format: '%d/%m/%Y'
+  full_date_format: '%d/%m/%Y %H:%I'

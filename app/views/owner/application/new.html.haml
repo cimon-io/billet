@@ -1,0 +1,8 @@
+.page-header
+  .pull-right.btn-group
+    = render 'button_index'
+
+  %h1
+    %span=tv "#{action_name}.header", scope: resource_collection_name
+
+= render 'form', resource: resource

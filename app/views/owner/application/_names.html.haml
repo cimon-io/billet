@@ -1,0 +1,6 @@
+- if collection.any?
+  %ul.nav.nav-pills
+    - collection.each do |resource|
+      %li= link_to resource.display_name, resource
+- else
+  %i=tv 'no_items', scope: resource_collection_name

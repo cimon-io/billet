@@ -1,0 +1,9 @@
+.page-header
+  .pull-right.btn-group
+    = render 'button_index'
+    = render 'button_destroy', resource: resource
+
+  %h1
+    %span=tv "#{action_name}.header", scope: resource_collection_name, id: resource.id
+
+= render 'form', resource: resource

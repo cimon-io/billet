@@ -1,0 +1,42 @@
+en:
+  views:
+    defaults:
+      no_items:
+        "No %{models}"
+      total:
+        one: "(total: %{count} %{model})"
+        few: "(total: %{count} %{models})"
+        other: "(total: %{count} %{models})"
+      menu: "%{Models}"
+      latest:
+        header: "Last updated %{models}"
+      index:
+        header: "%{Models}"
+      new:
+        header: "New %{model}"
+      create:
+        header: "New %{model}"
+      edit:
+        header: "Edit %{model} #%{id}"
+      update:
+        header: "Edit %{model} #%{id}"
+      show:
+        header: "%{Model} #%{id}"
+      destroy:
+        header: "%{Model} #%{id}"
+    dashboards:
+      index:
+        header: "Dashboard"
+    profile:
+      menu: Profile
+    dashboards:
+      index:
+        header: "Dashboard"
+    settings:
+      menu: Settings
+    sign_out:
+      menu: Sign out
+    users:
+      menu: Users
+    companies:
+      menu: Companies

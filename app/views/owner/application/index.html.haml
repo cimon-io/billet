@@ -1,0 +1,17 @@
+.page-header
+  .pull-right.btn-group
+    = render 'button_add', resource_class: resource_class
+
+  %h1
+    %span=tv "#{action_name}.header", scope: resource_collection_name
+
+.panel.panel-default
+  .panel-body.table-responsive
+    %table.table.table-hover
+      %thead
+        = render 'row_header', collection: collection
+      %tbody
+        = render partial: 'row', collection: collection, as: :resource
+
+  .panel-footer
+    =tv :total, scope: resource_collection_name, count: collection.count

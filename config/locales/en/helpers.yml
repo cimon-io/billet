@@ -1,0 +1,28 @@
+en:
+  helpers:
+    cancel:
+      defaults:
+        html: "Cancel"
+    submit:
+      create: "Add %{model}"
+      update: "Save Changes"
+      company:
+        update: "Save settings"
+    index:
+      defaults:
+        html: "Back to view"
+    add:
+      defaults:
+        html: "<span class='icon-add'></span> Add new one"
+    destroy:
+      defaults:
+        html: "Destroy"
+    confirm:
+      defaults:
+        html: "Are you sure that you want to delete %{model}? It can't be restored!"
+    edit:
+      defaults:
+        html: "<span class='icon icon-edit'></span> Edit"
+    show:
+      defaults:
+        html: "Go"
