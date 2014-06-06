@@ -7,12 +7,12 @@
  - Initiate new repo via `git init`
  - Add and commit all files `git add .` and `git commit -m "Initial import from billet"`
  - Add remote repository: `git remote add origin REPO_URL`
- - Push the repo 'git push -u origin master'
+ - Push the repo `git push -u origin master`
 
 ### Rename font
  - `app/assets/fonts/config.json` contains `name` key which should be renamed
- - open http://fontello.com and import `config.json` to generate new font
-[import button](//habrastorage.org/files/e9e/15d/191/e9e15d191acc47e5b5f50bdd12ee53bc.png)
+ - open http://fontello.com and import `config.json` to generate new font via
+[import button](http://habrastorage.org/files/e9e/15d/191/e9e15d191acc47e5b5f50bdd12ee53bc.png)
  - remove `app/assets/fonts/billet.*` font files
  - download and unzip generated font and copy font files to `app/assets/fonts`
  - create new `icons/*.scss` files based on generated font folder and `*.css` files from it
