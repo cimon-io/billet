@@ -11,7 +11,7 @@
 
 ### Rename font
  - `app/assets/fonts/config.json` contains `name` key which should be renamed
- - open http://fontello.com and import `config.json` to generate new font via
+ - open http://fontello.com and import `app/assets/fonts/config.json` to generate new font via this service.
 [import button](http://habrastorage.org/files/e9e/15d/191/e9e15d191acc47e5b5f50bdd12ee53bc.png)
  - remove `app/assets/fonts/billet.*` font files
  - download and unzip generated font and copy font files to `app/assets/fonts`
