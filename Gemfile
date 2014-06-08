@@ -18,7 +18,9 @@ gem 'premailer-rails'
 gem 'nokogiri'
 
 gem 'newrelic_rpm'
+
 gem 'sidekiq'
+gem 'sinatra', require: false # required for the sidekiq
 
 # group :assets do
 # rails 4 doesn't support assets group

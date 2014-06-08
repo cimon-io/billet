@@ -393,6 +393,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form
+  sinatra
   site_prism!
   spring
   therubyracer

@@ -16,7 +16,7 @@ describe 'Registration process' do
       expect(public_home_page).to be_displayed
       expect(public_home_page).to have_sign_out_link
       public_home_page.sign_out_link.click
-      expect(sign_in_page).to be_displayed
+      expect(public_home_page).to be_displayed
     end
   end
 

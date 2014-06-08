@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     scope module: :owner do
       concerns :owner_routes
     end
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   root to: "public/home#index", via: :get
