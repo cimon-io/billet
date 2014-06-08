@@ -50,7 +50,6 @@ module I18nHelper
 
   def custom_time_ago_in_words(date, user=current_user)
     config = user.try(:config).presence || ::Settings.default_user_config
-    p config
     content_tag :span,
       I18n.l(date, format: config.date_format),
       title: I18n.t(:ago, sencence: time_ago_in_words(date), scope: :time_ago_in_words)
