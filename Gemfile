@@ -18,7 +18,7 @@ gem 'premailer-rails'
 gem 'nokogiri'
 
 gem 'newrelic_rpm'
-
+gem 'sidekiq'
 
 # group :assets do
 # rails 4 doesn't support assets group
