@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  include Clearance::PasswordConfirmation
 
   belongs_to :company
 

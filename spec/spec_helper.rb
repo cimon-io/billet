@@ -39,6 +39,8 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = false
 
+  config.include ControllerHelpers
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)

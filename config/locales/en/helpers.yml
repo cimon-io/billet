@@ -26,3 +26,9 @@ en:
     show:
       defaults:
         html: "Go"
+    sign_in:
+      defaults:
+        html: Sign in
+    sign_out:
+      defaults:
+        html: Sign out

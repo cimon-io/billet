@@ -49,6 +49,10 @@
 
   %body
     %header{role: "header"}
+      - if signed_in?
+        = link_to th(:sign_out, ''), sign_out_path, method: :delete
+      - else
+        = link_to th(:sign_in, ''), sign_in_path
       .container
         %div{ role: "menu" }
 
