@@ -18,7 +18,7 @@
   .panel-body
     = render 'users/names', collection: resource.users, resource_class: User, resource_collection_name: 'user'
   .panel-footer
-    =t :total, scope: [:views, :users], count: resource.users.count
+    =tv :total, scope: :users, count: resource.users.count
 
 %dl
   %dt
