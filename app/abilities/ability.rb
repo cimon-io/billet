@@ -6,8 +6,6 @@ class Ability
 
     can :show, :public_home
 
-    can :show, :owner_home if user.persisted?
-
     can :show, :client_home if user.persisted?
     can :login, Company, id: user.company_id
     can :manage, Company, id: user.company_id

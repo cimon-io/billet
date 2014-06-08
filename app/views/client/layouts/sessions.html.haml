@@ -35,14 +35,7 @@
     %header.navbar.navbar-default.navbar-static-top{role: "navigation"}
       .container-fluid
         .navbar-header
-          = link_to Settings.application.name, client_root_path, class: 'navbar-brand'
-
-        %ul.nav.navbar-nav.pull-right
-          - if signed_in?
-            %li= link_to th(:sign_out, ''), sign_out_path, method: :delete
-          - else
-            %li= link_to th(:sign_in, ''), sign_in_path
+          = link_to Settings.application.name, root_path, class: 'navbar-brand'
 
     = render 'container'
     = render 'footer'
-

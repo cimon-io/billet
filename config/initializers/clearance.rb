@@ -3,7 +3,7 @@ Clearance.configure do |config|
   config.httponly = ENV.fetch('APP_COOKIE_HTTP_ONLY', 'false') == 'true' ? true : false
   config.cookie_domain = ENV.fetch('APP_COOKIE_DOMAIN', '.lvh.me')
   config.cookie_expiration = lambda { |cookies| 1.year.from_now.utc }
-  config.allow_sign_up = true
+  config.routes = false
 
   # config.cookie_path = '/'
   # config.password_strategy = Clearance::PasswordStrategies::BCrypt

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   Dir[Rails.root.join("config/routes/**/*.rb")].each { |f| instance_eval(File.read(f)) }
 
+  scope module: :client do
+    get '/sign_in' => 'sessions#new', as: 'sign_in'
+    post '/sign_in' => 'sessions#create'
+    delete '/sign_out' => 'sessions#destroy', as: 'sign_out'
+  end
+
   constraints Constraints::Subdomain.none do
     scope module: :public do
       concerns :public_routes
@@ -10,6 +16,10 @@ Rails.application.routes.draw do
       scope '/@', module: :client do
         concerns :client_routes
       end
+    end
+
+    constraints Clearance::Constraints::SignedOut.new do
+      root to: "public/home#index", as: :signed_out
     end
   end
 

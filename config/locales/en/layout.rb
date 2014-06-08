@@ -2,7 +2,7 @@
   en: {
     layout: {
       copyright: {
-        html: "&copy;&nbsp;%{year}&nbsp;#{Settings.application.name}"
+        html: "&copy;&nbsp;%{year}&nbsp;%{link}"
       },
       twitter_link: {
         html: '%{icon} Twitter'

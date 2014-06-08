@@ -63,37 +63,5 @@
           %ul.nav.navbar-nav
             = link_to_menu :companies, :companies, companies_url, icon: Company
 
-    %hr
-
-    %section#content
-      .container.container-center
-        = render 'layouts/flash'
-        = yield
-
-    %hr
-
-    %footer#footer{role: "footer"}
-      .container
-        %ul.nav.navbar-nav
-          %li
-            %span.navbar-text= t 'copyright.html', scope: [:layout], year: Date.current.year
-
-        %ul.nav.navbar-nav.navbar-right
-          %li
-            =link_to Settings.links.twitter, target: '_blank' do
-              = t 'twitter_link.html', scope: [:layout], icon: icon_tag(:twitter)
-          %li
-            =link_to Settings.links.facebook, target: '_blank' do
-              = t 'facebook_link.html', scope: [:layout], icon: icon_tag(:facebook)
-          %li
-            = link_to root_url, target: '_blank' do
-              = t 'privacy_link.html', scope: [:layout]
-          %li
-            = link_to root_url, target: '_blank' do
-              = t 'terms_link.html', scope: [:layout]
-          %li
-            = link_to root_url, target: '_blank' do
-              = t 'support_link.html', scope: [:layout]
-          %li
-            = link_to root_url, target: '_blank' do
-              = t 'blog_link.html', scope: [:layout]
+    = render 'container'
+    = render 'footer'

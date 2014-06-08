@@ -49,8 +49,10 @@ module I18nHelper
   alias_method :tv, :translate_views
 
   def custom_time_ago_in_words(date, user=current_user)
+    config = user.try(:config).presence || ::Settings.default_user_config
+    p config
     content_tag :span,
-      I18n.l(date, format: user.config.date_format),
+      I18n.l(date, format: config.date_format),
       title: I18n.t(:ago, sencence: time_ago_in_words(date), scope: :time_ago_in_words)
   end
   alias_method :tw, :custom_time_ago_in_words

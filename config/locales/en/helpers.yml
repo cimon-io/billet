@@ -26,6 +26,9 @@ en:
     show:
       defaults:
         html: "Go"
+    application:
+      defaults:
+        html: Application
     sign_in:
       defaults:
         html: Sign in

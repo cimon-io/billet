@@ -3,7 +3,7 @@ ruby `cat .ruby-version`.strip
 
 gem 'rails', '4.1.1'
 gem 'pg'
-gem 'clearance'
+gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_config'
