@@ -9,12 +9,13 @@ en:
         updated_at: Updated
       company:
         name: Company name
-        subdomain: Subdomain
         id: ID
         created_at: Created
         updated_at: Updated
       user:
         email: Email
+        password: Password
+        password_confirmation: Password again
         id: ID
         created_at: Created
         updated_at: Updated
