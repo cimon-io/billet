@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/ArtyomTs/menuseful.git
+  revision: db76aff8552ccf2a790fec3c65b750755ec77c65
+  specs:
+    menuseful (0.0.1)
+
+GIT
   remote: git://github.com/aratak/liqueur.git
   revision: 96f78f015190ed3dc10934188cd743c8d24a80e1
   specs:
@@ -371,6 +377,7 @@ DEPENDENCIES
   jquery-rails
   liqueur!
   mailcatcher
+  menuseful!
   newrelic_rpm
   nokogiri
   paper_trail

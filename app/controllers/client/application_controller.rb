@@ -3,7 +3,7 @@ module Client
     prepend_view_path "app/views/client"
     respond_to :html
 
-    include ::MenuItem
+    include ::Menuseful::Item
     include ::PageTitle
 
     helper_method :title_prefix, :current_company

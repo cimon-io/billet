@@ -35,6 +35,8 @@ gem 'underscore-rails'
 gem 'ejs'
 # end
 
+gem 'menuseful', github: 'ArtyomTs/menuseful'
+
 group :doc do
   gem 'sdoc', require: false
 end

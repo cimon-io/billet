@@ -4,7 +4,7 @@ module Owner
     prepend_view_path "app/views/owner"
     respond_to :html
 
-    include ::MenuItem
+    include ::Menuseful::Item
     include ::PageTitle
 
     helper_method :title_prefix
