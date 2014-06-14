@@ -10,7 +10,7 @@ en:
         update: "Save settings"
     index:
       defaults:
-        html: "Back to view"
+        html: "Back"
     add:
       defaults:
         html: "<span class='icon-add'></span> Add new one"
@@ -29,9 +29,16 @@ en:
     application:
       defaults:
         html: Application
+    sign_up:
+      defaults:
+        html: Sign up
+      sign_in:
+        html: Want to sign up?
     sign_in:
       defaults:
         html: Sign in
+      sign_up:
+        html: Need to sign in?
     sign_out:
       defaults:
         html: Sign out

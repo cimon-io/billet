@@ -2,11 +2,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'capybara/rails'
-require 'capybara'
-require 'capybara/dsl'
-require 'capybara/webkit'
-require 'capybara/rspec'
 require 'site_prism'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -38,8 +33,6 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   config.use_transactional_fixtures = false
-
-  config.include ControllerHelpers
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

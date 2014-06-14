@@ -1,7 +1,7 @@
 require "spec_helper"
 
 
-describe 'Registration process' do
+describe 'Sign in process' do
   let!(:user) { create :user, email: 'user@qwe.qwe' }
   let(:public_home_page) { PublicHomePage.new }
   let(:sign_in_page) { SignInPage.new }
