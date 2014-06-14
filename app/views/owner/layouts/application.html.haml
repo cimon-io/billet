@@ -61,7 +61,7 @@
 
         %nav#main-menu.navbar-collapse.collapse
           %ul.nav.navbar-nav
-            = link_to_menu :companies, translate_views('menu', scope: :companies), companies_url, prefix: icon_tag(Company)
+            = link_to_menu :companies, tv('menu', scope: :companies), companies_url, prefix: icon_tag(Company)
 
     = render 'container'
     = render 'footer'
