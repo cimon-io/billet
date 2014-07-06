@@ -1,9 +1,5 @@
 .page-header
-  .pull-right.btn-group
-    = render 'button_index'
-    = render 'button_destroy', resource: resource
-
-  %h1
-    %span=tv "#{action_name}.header", scope: resource_collection_name, id: resource.id
+  = render 'buttons_edit', resource_class: resource_class, resource: resource
+  = render 'header_edit', resource_collection_name: resource_collection_name, resource: resource
 
 = render 'form', resource: resource
