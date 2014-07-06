@@ -1,44 +1,34 @@
 en:
   helpers:
-    cancel:
-      defaults:
+    defaults:
+      cancel:
         html: "Cancel"
-    submit:
-      create: "Add %{model}"
-      update: "Save Changes"
-      company:
-        update: "Save settings"
-    index:
-      defaults:
+      submit:
+        create:
+          html: "Add %{model}"
+        update:
+          html: "Save Changes"
+      index:
         html: "Back"
-    add:
-      defaults:
+      add:
         html: "<span class='icon-add'></span> Add new one"
-    destroy:
-      defaults:
+      destroy:
         html: "Destroy"
-    confirm:
-      defaults:
+      confirm:
         html: "Are you sure that you want to delete %{model}? It can't be restored!"
-    edit:
-      defaults:
+      edit:
         html: "<span class='icon icon-edit'></span> Edit"
-    show:
-      defaults:
+      show:
         html: "Go"
-    application:
-      defaults:
+      application:
         html: Application
-    sign_up:
-      defaults:
+      sign_up:
         html: Sign up
       sign_in:
-        html: Want to sign up?
-    sign_in:
-      defaults:
         html: Sign in
-      sign_up:
-        html: Need to sign in?
-    sign_out:
-      defaults:
+      sign_out:
         html: Sign out
+      search:
+        html: Search...
+        button:
+          html: 'Go'
