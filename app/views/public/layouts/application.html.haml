@@ -55,10 +55,10 @@
 
         %ul.nav.navbar-nav.pull-right
           - if signed_in?
-            %li= link_to th(:application, ''), client_root_url
-            %li= link_to th(:sign_out, ''), sign_out_url, method: :delete
+            %li= link_to th(:application), client_root_url
+            %li= link_to th(:sign_out), sign_out_url, method: :delete
           - else
-            %li= link_to th(:sign_in, ''), sign_in_url
+            %li= link_to th(:sign_in), sign_in_url
 
     = render 'container'
     = render 'footer'

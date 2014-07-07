@@ -2,5 +2,5 @@
 = simple_form_for :session, html: { role: :form } do |f|
   = f.input :email, placeholder: 'Email'
   = f.input :password, placeholder: 'Password'
-  = f.submit th(:sign_in, 'sign_in'), class: 'btn btn-primary'
-  = link_to th(:sign_up, 'sign_in'), sign_up_path, class: 'btn btn-link pull-right'
+  = f.submit th(:sign_in, scope: 'sign_in'), class: 'btn btn-primary'
+  = link_to th(:sign_up, scope: 'sign_in'), sign_up_path, class: 'btn btn-link pull-right'

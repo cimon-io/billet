@@ -2,4 +2,4 @@
   = render 'form_fields', f: f
   .btn-group
     = f.submit class: 'btn btn-success'
-    = link_to th(:cancel, controller_name), resource.persisted? ? resource : collection_url, class: 'btn btn-default'
+    = link_to th(:cancel), resource.persisted? ? resource : collection_url, class: 'btn btn-default'
