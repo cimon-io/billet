@@ -13,6 +13,13 @@ GIT
       wiskey
 
 GIT
+  remote: git://github.com/aratak/susanin.git
+  revision: 39d7622a181292ecbf1eafc9d2c88e731ca04a62
+  specs:
+    susanin (0.0.1)
+      actionpack (~> 4.1.1)
+
+GIT
   remote: git://github.com/mdeering/attribute_normalizer.git
   revision: 0b3e8fcdb79eddaf6bece056097309a18b0ebaf5
   specs:
@@ -403,6 +410,7 @@ DEPENDENCIES
   sinatra
   site_prism!
   spring
+  susanin!
   therubyracer
   thin
   turbolinks
