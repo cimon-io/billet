@@ -1,5 +1,5 @@
 set :application, 'billet'
-set :repo_url, 'APPLICATION_REPO'
+set :repo_url, 'git@gitlab.cssum.net:all/billet.git'
 
 set :deploy_to, '/var/www/billet'
 set :web_service_name, 'billet:web'
@@ -10,6 +10,9 @@ set :linked_files, %w{.env}
 
 set :bundle_binstubs, nil
 
+SSHKit.config.command_map[:rake] = 'bin/rake'
+SSHKit.config.command_map.prefix[:rake].push('honcho run')
+
 set :newrelic_revision, -> { fetch(:current_revision) }
 
 namespace :deploy do
@@ -17,8 +20,8 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute :sudo, '/usr/bin/supervisorctl', 'restart', fetch(:web_service_name)
-      execute :sudo, '/usr/bin/supervisorctl', 'restart', fetch(:worker_service_name)
+      execute :supervisorctl, 'restart', fetch(:web_service_name)
+      execute :supervisorctl, 'restart', fetch(:worker_service_name)
     end
   end
 
