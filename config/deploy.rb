@@ -5,20 +5,22 @@ set :deploy_to, '/var/www/billet'
 set :web_service_name, 'billet:web'
 set :worker_service_name, 'billet:worker'
 
-set :rake_cmd, 'bin/rake'
 set :linked_files, %w{.env}
 
 set :bundle_binstubs, nil
 
 set :newrelic_revision, -> { fetch(:current_revision) }
 
+SSHKit.config.command_map[:rake]  = 'bin/rake'
+SSHKit.config.command_map.prefix[:rake].push('honcho run')
+
 namespace :deploy do
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      execute :sudo, '/usr/bin/supervisorctl', 'restart', fetch(:web_service_name)
-      execute :sudo, '/usr/bin/supervisorctl', 'restart', fetch(:worker_service_name)
+      execute :supervisorctl, 'restart', fetch(:web_service_name)
+      execute :supervisorctl, 'restart', fetch(:worker_service_name)
     end
   end
 
