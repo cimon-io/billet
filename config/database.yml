@@ -2,7 +2,10 @@ development: &defaults
   adapter: postgresql
   encoding: unicode
   database: <%= ENV.fetch('DB_1_ENV_POSTGRES_NAME', 'billet_development') %>
-  host: <%= ENV.fetch('DB_1_PORT_3306_TCP_ADDR', 'localhost') %>
+  login: <%= ENV.fetch('DB_1_ENV_POSTGRES_USER', nil) %>
+  password: <%= ENV.fetch('DB_1_ENV_POSTGRES_PASS', nil) %>
+  host: <%= ENV.fetch('DB_1_PORT_5432_TCP_ADDR', 'localhost') %>
+  port: <%= ENV.fetch('DB_1_PORT_5432_TCP_PORT', 5432).to_i %>
   template: template0
 
 test:
