@@ -36,6 +36,7 @@ gem 'ejs'
 # end
 
 gem 'menuseful', github: 'ArtyomTs/menuseful'
+gem 'susanin', github: 'aratak/susanin'
 
 group :doc do
   gem 'sdoc', require: false
