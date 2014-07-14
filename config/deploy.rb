@@ -5,7 +5,6 @@ set :deploy_to, '/var/www/billet'
 set :web_service_name, 'billet:web'
 set :worker_service_name, 'billet:worker'
 
-set :rake_cmd, 'bin/rake'
 set :linked_files, %w{.env}
 
 set :bundle_binstubs, nil
