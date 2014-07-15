@@ -1,5 +1,5 @@
 ---
-pidfile: tmp/pids/sidekiq.pid
-concurrency: 1
-production:
-  concurrency: 5
+:pidfile: tmp/pids/worker.pid
+:concurrency: 1
+:production:
+  :concurrency: 5
