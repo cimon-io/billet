@@ -79,6 +79,6 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
+  gem 'unicorn-rails'
   gem 'therubyracer', require: 'v8'
 end
