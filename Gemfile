@@ -73,8 +73,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'selenium-webdriver'
+  gem 'poltergeist'
   gem 'site_prism', github: 'natritmeyer/site_prism', branch: 'master'
   gem 'email_spec'
   gem 'webmock'

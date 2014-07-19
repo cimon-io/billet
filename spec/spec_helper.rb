@@ -53,7 +53,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  Capybara.javascript_driver = :webkit
+  Capybara.javascript_driver = :poltergeist
   Capybara.default_host = "http://#{DEFAULT_HOST}"
   Capybara.server_port = DEFAULT_PORT
 
