@@ -4,7 +4,7 @@ ruby `cat .ruby-version`.strip
 gem 'rails', '4.1.1'
 gem 'pg'
 gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
-gem 'haml-rails'
+gem 'haml'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_config'
 gem 'cancancan'
@@ -54,6 +54,8 @@ group :development do
   gem 'quiet_assets'
 
   gem 'mailcatcher'
+
+  gem 'haml-rails'
 end
 
 group :development, :test do

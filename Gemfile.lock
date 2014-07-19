@@ -379,6 +379,7 @@ DEPENDENCIES
   ejs
   email_spec
   factory_girl_rails
+  haml
   haml-rails
   inherited_resources
   jbuilder (~> 2.0)
