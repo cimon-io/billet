@@ -23,7 +23,6 @@ actionmailer_config_DONOTVERSION.rb
 /doc/plugins
 /nbproject
 /.idea
-db/schema.rb
 /public/javascripts/cache/*
 /public/stylesheets/cache/*
 /public/stylesheets/compiled
