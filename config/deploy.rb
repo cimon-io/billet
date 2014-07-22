@@ -14,6 +14,9 @@ SSHKit.config.command_map.prefix[:rake].push('honcho run')
 
 set :newrelic_revision, -> { fetch(:current_revision) }
 
+SSHKit.config.command_map[:rake]  = 'bin/rake'
+SSHKit.config.command_map.prefix[:rake].push('honcho run')
+
 namespace :deploy do
 
   desc 'Restart application'
