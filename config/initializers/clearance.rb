@@ -1,7 +1,7 @@
 Clearance.configure do |config|
   config.mailer_sender = ENV.fetch('SMTP_1_REPLY_ADDRESS', 'reply@lvh.me')
   config.httponly = ENV.fetch('APP_COOKIE_HTTP_ONLY', 'false') == 'true' ? true : false
-  config.cookie_domain = ENV.fetch('APP_COOKIE_DOMAIN', '.lvh.me')
+  config.cookie_domain = ENV.fetch('APP_1_DOMAIN', '.lvh.me')
   config.cookie_expiration = lambda { |cookies| 1.year.from_now.utc }
   config.routes = false
 
