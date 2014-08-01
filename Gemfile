@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby `cat .ruby-version`.strip
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.4'
 gem 'pg'
 gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
 gem 'haml'
