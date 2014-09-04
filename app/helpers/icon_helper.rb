@@ -1,28 +1,13 @@
 module IconHelper
 
-  ICON_NAMES = {
-    :dashboard => "dashboard",
-    :yes => "yes",
-    :no => "no",
-    :settings => "settings",
-    :campaign => "campaign",
-    :company => "company",
-    :external => "external",
-    :cancel => "cancel",
-    :search => "search",
-    :user => "user",
-    :logout => "logout",
-    :back => "back",
-    :refresh => "refresh",
-    :add => "add",
-    :save => "save",
-    :edit => "edit",
-    :password => "password",
-    :updated => "updated",
-    :created => "created",
-    :deleted => "deleted",
-    :comment => "comment"
+  ICON_PATH = Rails.root.join('app', 'assets', 'fonts', 'icons')
+  ICON_EXTENTION = '.svg'
+  ICON_NAMES = Dir[ICON_PATH.join("*#{ICON_EXTENTION}")].map {|i| File.basename(i, ICON_EXTENTION) }
+  ICON_SYNONIMS = {
+    add: 'plus',
+    check: 'yes'
   }.with_indifferent_access
+  ICON_SYNONIMS.default = ->(i) { i }
 
 
   def icon_key(n)
@@ -36,8 +21,10 @@ module IconHelper
     end
   end
 
-  def icon_name(name)
-    ICON_NAMES[icon_key(name)]
+  def icon_name(key)
+    name = ICON_NAMES[ICON_SYNONIMS[icon_key(key)]]
+    logger.warn "No icon '#{key}' in `#{ICON_PATH}`" if name.nil?
+    name || key
   end
 
   def icon_tag(name, additional_classes="")

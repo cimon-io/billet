@@ -9,14 +9,6 @@
  - Add remote repository: `git remote add origin REPO_URL`
  - Push the repo `git push -u origin master`
 
-### Rename font
- - `app/assets/fonts/config.json` contains `name` key which should be renamed
- - open http://fontello.com and import `app/assets/fonts/config.json` to generate new font via this service.
-[import button](http://habrastorage.org/files/e9e/15d/191/e9e15d191acc47e5b5f50bdd12ee53bc.png)
- - remove `app/assets/fonts/billet.*` font files
- - download and unzip generated font and copy font files to `app/assets/fonts`
- - create new `icons/*.scss` files based on generated font folder and `*.css` files from it
-
 ### Rename application
  - Rename module application in `config/application.rb`
  - Rename default database for development and test in `config/database.yml`
@@ -44,6 +36,15 @@
 * Production site: https://example.com
 
 ## Initial setup
+
+Install requirements:
+
+1. Go to the XQuartz web page https://xquartz.macosforge.org Download and install XQuartz. Fontcustom works on it.
+2. Install another dependencies from `Brewfile` via
+
+```console
+$ brew bundle
+```
 
 Run
 
@@ -74,6 +75,30 @@ sidekiq -C config/sidekiq.yml
 ```
 
 That's it.
+
+## Fonts and Fontcustom
+
+We are using the FontCustom to generate the special iconsfont with name "icons".
+To add new icon to the set place the new proper *.svg file to /assets/svgs folder and run:
+
+```shell
+  fontcustom compile
+```
+
+Also you may want to run the
+
+```shell
+  fontcustom watch app/assets/svgs
+```
+
+command to generate new font each time the new .svg file added to directory.
+
+Usage:
+/lib/styleguide/educlipper-preview.html
+
+Config:
+/config/fontcustom.yml
+
 
 ## Run tests
 
