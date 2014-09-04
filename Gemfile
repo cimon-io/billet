@@ -3,6 +3,7 @@ ruby `cat .ruby-version`.strip
 
 gem 'rails', '4.1.5'
 gem 'pg'
+gem 'puma'
 gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
 gem 'haml'
 gem 'jbuilder', '~> 2.0'
@@ -83,6 +84,6 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn-rails'
+  gem 'rails_12factor'
   gem 'therubyracer', require: 'v8'
 end
