@@ -13,7 +13,7 @@ input:
 
 output:
   fonts: app/assets/fonts
-  css: app/assets/stylesheets/icons/
+  css: app/assets/stylesheets/
   preview: app/assets/fonts/styleguide
 
 templates: ['scss-rails', 'preview']
