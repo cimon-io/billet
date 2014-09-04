@@ -1,6 +1,5 @@
-module Client
-  class SessionsController < ::ClientController
-    layout 'sessions'
+module Authentification
+  class SessionsController < ::AuthentificationController
     helper_method :resource
 
     def new
@@ -32,14 +31,6 @@ module Client
 
     def resource
       @user
-    end
-
-    def url_after_create
-      Clearance.configuration.redirect_url
-    end
-
-    def url_after_destroy
-      root_url
     end
 
   end

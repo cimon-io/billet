@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
   include ::PasswordConfirmation
+  include ::EmailConfirmationGuard::User
 
   belongs_to :company
 
