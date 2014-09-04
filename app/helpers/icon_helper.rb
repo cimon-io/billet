@@ -2,12 +2,16 @@ module IconHelper
 
   ICON_PATH = Rails.root.join('app', 'assets', 'fonts', 'icons')
   ICON_EXTENTION = '.svg'
-  ICON_NAMES = Dir[ICON_PATH.join("*#{ICON_EXTENTION}")].map {|i| File.basename(i, ICON_EXTENTION) }
+  ICON_NAMES = Hash[
+    Dir[ICON_PATH.join("*#{ICON_EXTENTION}")].map {|i|
+      [File.basename(i, ICON_EXTENTION), File.basename(i, ICON_EXTENTION)]
+    }
+  ]
   ICON_SYNONIMS = {
     add: 'plus',
     check: 'yes'
   }.with_indifferent_access
-  ICON_SYNONIMS.default_proc = ->(_, i) { i }
+  ICON_SYNONIMS.default_proc = ->(_, i) { i.to_s }
 
 
   def icon_key(n)
