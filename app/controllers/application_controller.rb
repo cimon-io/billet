@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ::Clearance::Controller
   include ::Susanin
 
-  # polymorphic_url_prefix do
+  # susanin do
   #   {
   #     User => ->(resource) { [resource.company, resource] }
   #   }
