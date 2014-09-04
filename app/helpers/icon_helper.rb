@@ -32,7 +32,7 @@ module IconHelper
   end
 
   def icon_tag(name, additional_classes="")
-    content_tag :i, '', class: "icon icon-#{icon_name(name)} #{additional_classes}"
+    content_tag :i, '', class: "icon-#{icon_name(name)} #{additional_classes}" , data: { icon: 'icon' }
   end
 
 end
