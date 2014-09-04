@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby `cat .ruby-version`.strip
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.5'
 gem 'pg'
 gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
 gem 'haml'
@@ -24,12 +24,15 @@ gem 'sinatra', require: false # required for the sidekiq
 
 # group :assets do
 # rails 4 doesn't support assets group
-gem 'sass-rails', '~> 4.0.3'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'fontcustom'
+gem 'sass', '3.4.1'
+gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'bootstrap-sass'
+gem 'wiskey', github: 'aratak/wiskey'
 gem 'liqueur', github: 'aratak/liqueur'
 gem 'underscore-rails'
 gem 'ejs'

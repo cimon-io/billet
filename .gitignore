@@ -29,3 +29,5 @@ actionmailer_config_DONOTVERSION.rb
 /public/assets/**/*
 /sqlnet.log
 .sass-cache/
+/.fontcustom-manifest.json
+
