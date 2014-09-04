@@ -5,10 +5,10 @@
         html: "&copy;&nbsp;%{year}&nbsp;%{link}"
       },
       twitter_link: {
-        html: '%{icon} Twitter'
+        html: 'Twitter'
       },
       facebook_link: {
-        html: '%{icon} Facebook'
+        html: 'Facebook'
       },
       privacy_link: {
         html: 'Privacy Policy'

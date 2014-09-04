@@ -1,28 +1,27 @@
 Rails.application.routes.draw do
   Dir[Rails.root.join("config/routes/**/*.rb")].each { |f| instance_eval(File.read(f)) }
 
-  scope module: :client do
+  scope module: :authentification do
     get '/sign_in' => 'sessions#new', as: 'sign_in'
     post '/sign_in' => 'sessions#create'
     delete '/sign_out' => 'sessions#destroy', as: 'sign_out'
     get '/sign_up' => 'registration#new', as: 'sign_up'
     post '/sign_up' => 'registration#create'
+    get '/confirm' => 'confirmation#create', as: 'confirmation'
   end
 
-  constraints Constraints::Subdomain.none do
-    scope module: :public do
-      concerns :public_routes
-    end
+  scope module: :public do
+    concerns :public_routes
+  end
 
-    constraints Clearance::Constraints::SignedIn.new do
-      scope '/@', module: :client do
-        concerns :client_routes
-      end
+  constraints Clearance::Constraints::SignedIn.new do
+    scope '/@', module: :client do
+      concerns :client_routes
     end
+  end
 
-    constraints Clearance::Constraints::SignedOut.new do
-      root to: "public/home#index", as: :signed_out
-    end
+  constraints Clearance::Constraints::SignedOut.new do
+    root to: "public/home#index", as: :signed_out
   end
 
   constraints Constraints::Subdomain.api do
@@ -35,11 +34,9 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints Constraints::Subdomain.owner do
+  scope '/__owner', module: :owner, as: :owner do
     # http_basic_authenticate_with inside controller
-    scope module: :owner do
-      concerns :owner_routes
-    end
+    concerns :owner_routes
     mount Sidekiq::Web => '/sidekiq'
   end
 

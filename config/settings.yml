@@ -5,6 +5,8 @@ admin:
   name: <%= ENV.fetch('APP_SETTINGS_OWNER_LOGIN', 'admin') %>
   password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'epyfnm3epyfnm') %>
 
+unconfirmed_days: 3
+
 links:
   facebook: 'https://www.facebook.com/billet'
   twitter: 'https://twitter.com/billet'

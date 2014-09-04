@@ -1,0 +1,8 @@
+%div{:data => {:grid => "row row3"}}
+  %div{:data => {:grid => "col col1 offset1"}}
+    %h2 Sign In
+    = simple_form_for :session, html: { role: :form } do |f|
+      = f.input :email, placeholder: 'Email'
+      = f.input :password, placeholder: 'Password'
+      = f.submit th(:sign_in, scope: 'sign_in'), class: 'btn btn-primary'
+      = link_to th(:sign_up, scope: 'sign_in'), sign_up_path, class: 'btn btn-link pull-right'
