@@ -7,7 +7,7 @@ module IconHelper
     add: 'plus',
     check: 'yes'
   }.with_indifferent_access
-  ICON_SYNONIMS.default = ->(i) { i }
+  ICON_SYNONIMS.default_proc = ->(_, i) { i }
 
 
   def icon_key(n)
