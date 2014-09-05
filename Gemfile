@@ -70,6 +70,7 @@ group :development, :test do
 
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'rspec-its', '~> 1.0.1'
+  gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
