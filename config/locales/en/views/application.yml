@@ -1,10 +1,9 @@
 en:
   application:
     app_link:
-      owner:
-        html: Application
-      tenant:
-        html: Application
+      owner: Application
+      client: Application
+      public: Application
     sign_up:
       button: Sign up
       header: Sign up
@@ -54,7 +53,3 @@ en:
     show:
       html: "Go"
       header: "%{Model} #%{id}"
-    companies:
-      menu: 'Companies'
-    users:
-      menu: 'Users'
