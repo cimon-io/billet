@@ -3,7 +3,6 @@ module Public
     page_title "Welcome"
 
     def index
-      authorize! :show, :public_home
     end
   end
 end

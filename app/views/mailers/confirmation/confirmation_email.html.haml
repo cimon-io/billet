@@ -1,0 +1,9 @@
+Hi, #{@resource.full_name} and welcome to #{Settings.application.name}
+
+The last step of registration process is to confirm your email address.
+
+You can do this be following the link below:
+
+= link_to 'Confirm my account', confirmation_url(:confirmation => @resource.confirmation_token)
+
+

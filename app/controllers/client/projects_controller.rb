@@ -3,7 +3,6 @@ module Client
     respond_to :json
     inherit_resources
     authorize_resource
-    defaults route_prefix: nil
     menu_item :projects
     page_title "Projects"
 

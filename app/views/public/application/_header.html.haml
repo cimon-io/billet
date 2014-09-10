@@ -1,0 +1,13 @@
+%header.navbar.navbar-default.navbar-static-top{role: "navigation"}
+  .container.container-center
+    .navbar-header
+      = link_to Settings.application.name, root_url, class: 'navbar-brand'
+
+    %ul.nav.navbar-nav.pull-right
+      - if signed_in?
+        %li= link_to th('#application'), :client_root
+
+      - if signed_in?
+        %li= link_to th('#sign_out.button'), :sign_out, method: :delete
+      - else
+        %li= link_to th('#sign_in.button'), :sign_in

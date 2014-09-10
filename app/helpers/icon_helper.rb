@@ -9,7 +9,8 @@ module IconHelper
   ]
   ICON_SYNONIMS = {
     add: 'plus',
-    check: 'yes'
+    check: 'yes',
+    company: 'briefcase'
   }.with_indifferent_access
   ICON_SYNONIMS.default_proc = ->(_, i) { i.to_s }
 

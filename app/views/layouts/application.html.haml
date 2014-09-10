@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    = page_title_tag
+    = csrf_meta_tags
+    = render 'metas'
+    = render 'favicon'
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+
+    %link{href: Settings.application.name, rel: "copyright"}/
+    %link{href: Settings.application.name, rel: "author"}/
+
+  %body
+    = render 'header'
+    = render 'container'
+    = render 'footer'

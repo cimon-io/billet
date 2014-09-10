@@ -1,0 +1,7 @@
+en:
+  owner:
+    profiles:
+      user_info: 'User info'
+      button: 'Save & Update'
+    companies:
+      menu: 'Companies'

@@ -1,3 +1,3 @@
 concern :public_routes do
-  match "/", to: "home#index", via: :get, as: 'public_root'
+  match "/", to: "home#index", via: :get, as: 'root'
 end

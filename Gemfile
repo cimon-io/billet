@@ -11,7 +11,7 @@ gem 'rails_config'
 gem 'cancancan'
 gem 'paper_trail'
 gem 'inherited_resources'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0.rc2'
 gem 'attribute_normalizer', github: 'mdeering/attribute_normalizer'
 gem 'rails-observers'
 

@@ -1,16 +1,16 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(user, company)
     user ||= User.new # guest user (not logged in)
 
     can :show, :public_home
 
     can :show, :client_home if user.persisted?
-    can :login, Company, id: user.company_id
-    can :manage, Company, id: user.company_id
-    can :manage, Project, company_id: user.company_id
-    can :manage, User, company_id: user.company_id
+    can :login, Company, id: company.id
+    can :manage, Company, id: company.id
+    can :manage, Project, company_id: company.id
+    can :manage, User, company_id: company.id
     can :invite, User
 
     # Define abilities for the passed in user here. For example:

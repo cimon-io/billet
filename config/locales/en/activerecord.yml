@@ -1,0 +1,31 @@
+en:
+  activerecord:
+    models:
+      project:
+        one: Project
+        other: Projects
+      company:
+        one: Company
+        other: Companies
+      user:
+        one: User
+        other: Users
+    attributes:
+      project:
+        name: Project name
+        company: Company
+        id: ID
+        created_at: Created
+        updated_at: Updated
+      company:
+        name: Company name
+        id: ID
+        created_at: Created
+        updated_at: Updated
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Password again
+        id: ID
+        created_at: Created
+        updated_at: Updated

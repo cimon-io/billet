@@ -10,7 +10,7 @@
   .panel-heading
     .btn-group.pull-right
       - if can? :create, User
-        = link_to th(:add, scope: 'users'), new_company_user_url(resource), class: "btn btn-default btn-xs"
+        = link_to th('#add'), [:new, resource, :user], class: "btn btn-default btn-xs"
 
     %h3.panel-title
       Users
@@ -18,7 +18,7 @@
   .panel-body
     = render 'users/names', collection: resource.users, resource_class: User, resource_collection_name: 'user'
   .panel-footer
-    =tv :total, scope: :users, count: resource.users.count
+    =th '#total', count: resource.users.count, model: 'user'
 
 %dl
   %dt

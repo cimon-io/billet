@@ -17,33 +17,6 @@ module I18nHelper
   end
   alias_method :pl, :plur
 
-  def translate_general(kind, key, options)
-    html = options.delete(:html) ? :html : nil
-    scope = options.delete(:scope).to_s
-    default_options = {
-      :model => scope.singularize,
-      :models => scope.pluralize,
-      :Model => scope.singularize.titleize,
-      :Models => scope.pluralize.titleize
-    }
-
-
-    key_with_scope = [kind, scope, *key.to_s.split('.'), html].compact.join('.').to_sym
-    default_key_with_scope = [kind, 'defaults', *key.to_s.split('.'), html].compact.join('.').to_sym
-
-    translate key_with_scope, default_options.merge(default: default_key_with_scope).merge(options)
-  end
-
-  def translate_helper(key, options={})
-    translate_general :helpers, key, ({html: true}).merge(options)
-  end
-  alias_method :th, :translate_helper
-
-  def translate_views(key, options={})
-    translate_general :views, key, ({html: false}).merge(options)
-  end
-  alias_method :tv, :translate_views
-
   def custom_time_ago_in_words_ago(date, user=current_user)
     config = user.try(:config).presence || ::Settings.default_user_config
     content_tag :span,
@@ -64,5 +37,50 @@ module I18nHelper
     date.past? ? custom_time_ago_in_words_ago(date, user) : custom_time_ago_in_words_since(date, user)
   end
   alias_method :tw, :custom_time_ago_in_words
+
+  def translate(key, options = {})
+    lookup_keys = scope_keys_by_controller(key.to_s)
+    if options.delete(:html)
+      lookup_keys = lookup_keys.flat_map {|k| ["#{k}.html", k]}
+    end
+    lookup_keys.map!(&:to_sym)
+    super(
+      lookup_keys[0],
+      options.reverse_merge(default_interpolations(options)).merge(
+        default: lookup_keys[1..-1] + Array.wrap(options[:default])
+      )
+    )
+  end
+  alias_method :t, :translate
+
+  def translate_with_html(key, options = {})
+    translate(key, options.reverse_merge(html: true))
+  end
+  alias_method :th, :translate_with_html
+
+  private def scope_keys_by_controller(key)
+    letter, rest = key[0], key[1..-1]
+    if letter.first == "#"
+      if lookup_context
+        lookup_context.prefixes.map { |cp|
+          cp.gsub(%r{/_?}, ".") + '.' + rest
+        }
+      else
+        raise "Cannot use t(#{key.inspect}) shortcut because path is not available"
+      end
+    else
+      Array.wrap(key)
+    end
+  end
+
+  private def default_interpolations(options)
+    model_name = options.delete(:model) || controller_name
+    {
+      :model => model_name.singularize,
+      :models => model_name.pluralize,
+      :Model => model_name.singularize.titleize,
+      :Models => model_name.pluralize.titleize
+    }
+  end
 
 end

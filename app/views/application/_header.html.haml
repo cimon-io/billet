@@ -1,0 +1,11 @@
+%header.navbar.navbar-default.navbar-static-top{role: "navigation"}
+  .container.container-center
+    %button.navbar-toggle{"data-target" => "#main-menu", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .navbar-header
+      = render 'logo'
+      = render 'primary_menu'
+    = render 'secondary_menu'

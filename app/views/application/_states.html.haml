@@ -1,0 +1,9 @@
+.btn-group
+  %button.btn.dropdown-toggle{ class: state_styleclass(resource.state, :button), type: 'button', data: { toggle: 'dropdown' } }
+    /= icon_tag :state
+    = resource.human_state_name
+    %span.caret
+  %ul.dropdown-menu{ role: 'menu' }
+    - resource.state_events.each do |event_name|
+      %li
+        = link_to resource.class.human_state_event_name(event_name), [resource, { ActiveModel::Naming.param_key(resource) => { :state_event => event_name } }], method: :patch

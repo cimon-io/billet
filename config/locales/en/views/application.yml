@@ -1,0 +1,60 @@
+en:
+  application:
+    app_link:
+      owner:
+        html: Application
+      tenant:
+        html: Application
+    sign_up:
+      button: Sign up
+      header: Sign up
+    sign_in:
+      button: Sign in
+      header: Sign in
+    sign_out:
+      button: Sign out
+      html: Sign out
+    search:
+      html: Search...
+      button:
+        html: 'Go'
+    saved: Saved
+
+    no_items:
+      "No %{models}"
+    total:
+      one: "(total: %{count} %{model})"
+      few: "(total: %{count} %{models})"
+      other: "(total: %{count} %{models})"
+    menu: "%{Models}"
+    latest:
+      header: "Last updated %{models}"
+    index:
+      header: "%{Models}"
+      button: "Back"
+    new:
+      button:
+        html: "Add new one"
+      header: "New %{model}"
+    create:
+      header: "New %{model}"
+    edit:
+      button: "Edit"
+      header: "Edit %{model} #%{id}"
+    update:
+      header: "Edit %{model} #%{id}"
+    destroy:
+      button: "Destroy"
+      header: "%{Model} #%{id}"
+    cancel: "Cancel"
+    submit:
+      create: "Add %{model}"
+      update: "Save Changes"
+    confirm: "Are you sure that you want to delete %{model}? It can't be restored!"
+    show:
+      html: "Go"
+      header: "%{Model} #%{id}"
+    companies:
+      menu: 'Companies'
+    users:
+      menu: 'Users'

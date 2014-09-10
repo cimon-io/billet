@@ -1,8 +1,6 @@
 module Owner
   class CompaniesController < ::OwnerController
     inherit_resources
-    authorize_resource
-    defaults route_prefix: nil
     menu_item :companies
     page_title "Companies"
 
