@@ -39,7 +39,7 @@ en:
       header: "New %{model}"
     edit:
       button: "Edit"
-      header: "Edit %{model} #%{id}"
+      header: "Edit %{display_name}"
     update:
       header: "Edit %{model} #%{id}"
     destroy:
