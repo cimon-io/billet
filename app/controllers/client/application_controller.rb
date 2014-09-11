@@ -12,7 +12,8 @@ module Client
     before_filter :authorize_company!
 
     susanin(
-      root: ->(r) { [:client, r] }
+      root: ->(r) { [:client, r] },
+      Project => ->(r) { [:client, r] }
     )
 
     rescue_from CanCan::AccessDenied do |exception|
