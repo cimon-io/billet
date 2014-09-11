@@ -3,7 +3,7 @@ module Owner
     inherit_resources
     menu_item :users
     page_title "Users"
-    belongs_to :company
+    belongs_to :company, parent_class: Company
 
     protected
 
