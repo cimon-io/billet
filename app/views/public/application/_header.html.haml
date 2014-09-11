@@ -5,7 +5,7 @@
 
     %ul.nav.navbar-nav.pull-right
       - if signed_in?
-        %li= link_to th('#application'), :client_root
+        %li= link_to th('#app_link.public'), :client_root
 
       - if signed_in?
         %li= link_to th('#sign_out.button'), :sign_out, method: :delete

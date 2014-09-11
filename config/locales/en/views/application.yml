@@ -32,24 +32,19 @@ en:
       header: "%{Models}"
       button: "Back"
     new:
-      button:
-        html: "Add new one"
-      header: "New %{model}"
+      button: "Add new one"
+      header: "%{display_name}"
     create:
-      header: "New %{model}"
+      button: "Add %{model}"
     edit:
       button: "Edit"
       header: "Edit %{display_name}"
     update:
-      header: "Edit %{model} #%{id}"
+      button: "Save Changes"
     destroy:
       button: "Destroy"
       confirm: "Are you sure that you want to delete %{model}? It can't be restored!"
-      header: "%{Model} #%{id}"
     cancel: "Cancel"
-    submit:
-      create: "Add %{model}"
-      update: "Save Changes"
     show:
       html: "Go"
       header: "%{Model} #%{id}"

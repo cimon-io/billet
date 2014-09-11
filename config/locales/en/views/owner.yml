@@ -6,7 +6,5 @@ en:
         button: 'Save & Update'
       companies:
         menu: 'Companies'
-      companies:
-        menu: 'Companies'
       users:
         menu: 'Users'

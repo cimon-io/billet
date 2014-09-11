@@ -10,7 +10,7 @@
   .panel-heading
     .btn-group.pull-right
       - if can? :create, User
-        = link_to th('#add'), [:new, resource, :user], class: "btn btn-default btn-xs"
+        = link_to th('#new.button'), [:new, resource, :user], class: "btn btn-default btn-xs"
 
     %h3.panel-title
       Users
