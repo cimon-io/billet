@@ -1,6 +1,5 @@
 class NamespaceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
-  argument :scaffold_name, :type => :string, required: true, banner: 'Name of namespace'
 
   class_option :basic_http_auth, type: 'boolean', default: false, desc: 'Add basic http authentification'
   class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
@@ -25,18 +24,19 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def views
-
   end
 
   def routes
-
   end
 
   def i18n
-
   end
 
   private
+
+  def scaffold_name
+    name
+  end
 
   # model_name
   def singular_name
