@@ -9,12 +9,13 @@ module <%= class_name %>
       root: ->(r) { [:client, r] }
     )
 
-    <% if %>
+    <% if @access == 'fake' %>
     inlcude MockAuthorization
     check_authorization
     rescue_from CanCan::AccessDenied do |exception|
       redirect_to destroy_user_session_url, :alert => exception.message
     end
+    <% end %>
 
     http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
 

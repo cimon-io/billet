@@ -3,31 +3,20 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   argument :scaffold_name, :type => :string, required: true, banner: 'Name of namespace'
 
   class_option :basic_http_auth, type: 'boolean', default: false, desc: 'Add basic http authentification'
-  class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access'
+  class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
   class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access'
 
   def initialize(*args, &block)
     super
     @basic_http_auth = options.basic_http_auth?
 
-    case options.access
-      when 'cancan', 'can'
-        @cancan = true
-        @public_access = false
-        @access = 'cancan'
-      when 'fakecancan', 'fake'
-        @cancan = true
-        @public_access = false
-        @access = 'fake'
-      when 'none', 'false'
-        @cancan = false
-        @public_access = true
-        @access = 'none'
-      else
-        @cancan = false
-        @public_access = true
-        @access = 'none'
-    end
+    @access = case options.access
+      when 'cancan', 'can' then 'cancan'
+      when 'http' then 'http'
+      when 'fakecancan', 'fake' then 'fake'
+      when 'none', 'false' then 'none'
+      else 'none'
+    end.inquiry
 
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
   end
