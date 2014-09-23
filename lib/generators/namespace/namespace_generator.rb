@@ -1,13 +1,11 @@
 class NamespaceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
 
-  class_option :basic_http_auth, type: 'boolean', default: false, desc: 'Add basic http authentification'
   class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
   class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access'
 
   def initialize(*args, &block)
     super
-    @basic_http_auth = options.basic_http_auth?
 
     @access = case options.access
       when 'cancan', 'can' then 'cancan'
@@ -21,6 +19,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def controllers
+    template 'controllers/application_controller.rb.erb', "app/controllers/#{instance_name}/application_controller.rb"
   end
 
   def views
