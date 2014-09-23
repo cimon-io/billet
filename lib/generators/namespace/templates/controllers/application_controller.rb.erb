@@ -2,40 +2,56 @@ module <%= class_name %>
   class ApplicationController < ::ApplicationController
     prepend_view_path 'app/views/<%= model_path %>'
 
-    before_filter :authorize_company!
-    helper_method :current_company
+    <% if @access.cancan? && @begin_chain %>
+    before_filter :authorize_<%= @begin_chain %>!
+    <% end %>
+
+    <% if @begin_chain %>
+    helper_method :<%= begin_chain %>
+    <% end %>
 
     susanin(
       root: ->(r) { [:client, r] }
     )
 
-    <% if @access == 'fake' %>
+    <% if @access.fake? %>
     inlcude MockAuthorization
+    <% end %>
+
+    <% if @access.cancan? %>
     check_authorization
     rescue_from CanCan::AccessDenied do |exception|
       redirect_to destroy_user_session_url, :alert => exception.message
     end
     <% end %>
 
+    <% if @access.http? %>
     http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
+    <% end %>
 
     protected
 
+    <% if @begin_chain %>
     def title_prefix
-      current_company.name
+      <%= @begin_chain %>.name
+    end
+    <% end %>
+
+    def <%= @begin_chain %>
+      @<%= @begin_chain %> ||= current_user.company
     end
 
-    def current_company
-      @current_company ||= current_user.company
-    end
-
+    <% if @begin_chain %>
     def current_ability
-      @current_ability ||= Ability.new(current_user, current_company)
+      @current_ability ||= Ability.new(current_user, <%= @begin_chain %>)
     end
+    <% end %>
 
-    def authorize_company!
-      authorize! :login, current_company
+    <% if @access.cancan? && @begin_chain %>
+    def authorize_<%= @begin_chain %>!
+      authorize! :login, <%= @begin_chain %>
     end
+    <% end %>
 
   end
 end
