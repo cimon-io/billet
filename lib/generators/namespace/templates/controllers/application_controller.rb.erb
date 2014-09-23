@@ -6,7 +6,8 @@ module <%= class_name -%>
     prepend_view_path 'app/views/<%= model_path -%>'
 
     susanin(
-      root: ->(r) { [:client, r] }
+      root: ->(r) { [:<%= instance_name %>, r] }
+      # Project: ->(r) { [:<%= instance_name %>, r] }
     )
 
     <%- if @access.cancan? && @begin_chain -%>
