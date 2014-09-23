@@ -1,1 +1,0 @@
-OwnerController = Owner::ApplicationController
