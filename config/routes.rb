@@ -9,16 +9,6 @@ Rails.application.routes.draw do
     root to: "public/home#index", as: :signed_out
   end
 
-  constraints Constraints::Subdomain.api do
-    constraints Constraints::ApiAuthentificate.new do
-      scope module: :api, as: :api do
-        scope '/v1', module: :v1 do
-          concerns :api_v1_routes
-        end
-      end
-    end
-  end
-
   scope module: :public, as: :public do
     concerns :public_routes
   end
@@ -30,9 +20,9 @@ Rails.application.routes.draw do
   scope '/__owner', module: :owner, as: :owner do
     # http_basic_authenticate_with inside controller
     concerns :owner_routes
-    mount Sidekiq::Web => '/sidekiq'
   end
 
+  mount Sidekiq::Web => '/sidekiq'
   root to: "public/home#index", via: :get
 
 end
