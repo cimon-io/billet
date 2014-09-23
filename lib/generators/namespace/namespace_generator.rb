@@ -30,6 +30,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
 
   def routes
     template 'routes/routes.rb.erb', "config/routes/#{instance_name}_routes.rb"
+    route read_template('routes/main_routes.rb.erb')
   end
 
   def i18n
@@ -74,6 +75,10 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   # model_names
   def instances_name
     instance_name.pluralize
+  end
+
+  def read_template(relative_path)
+    ERB.new(File.read(find_in_source_paths(relative_path)), nil, '-').result(binding)
   end
 
 end
