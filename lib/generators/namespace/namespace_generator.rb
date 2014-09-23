@@ -29,7 +29,6 @@ class NamespaceGenerator < Rails::Generators::NamedBase
         @access = 'none'
     end
 
-    @public_module =
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
   end
 
