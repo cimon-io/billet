@@ -2,7 +2,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
 
   class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
-  class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access'
+  class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access. \'false\' if no chain begginning.'
 
   def initialize(*args, &block)
     super
@@ -11,7 +11,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
       when 'cancan', 'can' then 'cancan'
       when 'http' then 'http'
       when 'fakecancan', 'fake' then 'fake'
-      when 'none', 'false' then 'none'
+      when 'none', 'false', 'all' then 'none'
       else 'none'
     end.inquiry
 
@@ -19,13 +19,17 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def controllers
+    template 'controllers/controller.rb.erb', "app/controllers/#{instance_name}_controller.rb"
     template 'controllers/application_controller.rb.erb', "app/controllers/#{instance_name}/application_controller.rb"
+    template 'controllers/home_controller.rb.erb', "app/controllers/#{instance_name}/home_controller.rb"
   end
 
   def views
+    template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
   end
 
   def routes
+    template 'routes/routes.rb.erb', "config/routes/#{instance_name}_routes.rb"
   end
 
   def i18n

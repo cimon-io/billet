@@ -26,7 +26,9 @@ module <%= class_name -%>
     http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
     <%- end -%>
 
+    <%- if @begin_chain || (@access.cancan? && @begin_chain) -%>
     protected
+    <%- end -%>
 
     <%- if @begin_chain -%>
     def title_prefix
@@ -34,9 +36,11 @@ module <%= class_name -%>
     end
     <%- end -%>
 
+    <%- if @begin_chain -%>
     def <%= @begin_chain %>
       @<%= @begin_chain %> ||= current_user.company
     end
+    <%- end -%>
 
     <%- if @begin_chain -%>
     def current_ability

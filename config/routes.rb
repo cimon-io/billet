@@ -19,24 +19,18 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints Constraints::Subdomain.none do
+  scope module: :public, as: :public do
+    concerns :public_routes
+  end
 
-    scope module: :public, as: :public do
-      concerns :public_routes
-    end
+  scope '/@', module: :client, as: :client do
+    concerns :client_routes
+  end
 
-    constraints Clearance::Constraints::SignedIn.new do
-      scope '/@', module: :client, as: :client do
-        concerns :client_routes
-      end
-    end
-
-    scope '/__owner', module: :owner, as: :owner do
-      # http_basic_authenticate_with inside controller
-      concerns :owner_routes
-      mount Sidekiq::Web => '/sidekiq'
-    end
-
+  scope '/__owner', module: :owner, as: :owner do
+    # http_basic_authenticate_with inside controller
+    concerns :owner_routes
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   root to: "public/home#index", via: :get
