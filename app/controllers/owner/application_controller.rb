@@ -2,12 +2,8 @@ module Owner
 
   class ApplicationController < ::ApplicationController
     prepend_view_path 'app/views/owner'
-    respond_to :html
 
-    include ::Menuseful::Item
-    include ::PageTitle
-
-    helper_method :title_prefix, :can?
+    helper_method :can?
 
     http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
 

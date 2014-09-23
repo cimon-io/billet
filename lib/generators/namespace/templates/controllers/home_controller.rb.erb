@@ -1,0 +1,7 @@
+module <%= class_name %>
+  class HomeController < ::<%= class_name %>Controller
+    def index
+      authorize! :show, :client_home
+    end
+  end
+end
