@@ -2,6 +2,7 @@ FactoryGirl.define do
 
   factory :company do
     name { |n| "Company #{n}" }
+    subdomain { |n| "subdomain#{n}" }
   end
 
   factory :user do

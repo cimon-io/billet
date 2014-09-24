@@ -18,6 +18,8 @@ en:
       button:
         html: 'Go'
     saved: Saved
+    copyright:
+      html: "&copy;&nbsp;%{year}&nbsp;%{link}"
 
     no_items:
       "No %{models}"
