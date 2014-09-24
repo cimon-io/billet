@@ -1,4 +1,4 @@
-company = Company.create name: 'Ghost'
+company = Company.create name: 'Ghost', subdomain: 'ghost'
 
 User.create email: 'example@example.com', password: 'epyfnm', password_confirmation: 'epyfnm', company: company
 

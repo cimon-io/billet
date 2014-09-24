@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20140807113853) do
 
   create_table "companies", force: true do |t|
     t.string   "name",       null: false
+    t.string   "subdomain",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

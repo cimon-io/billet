@@ -34,11 +34,15 @@ module Authentification
     end
 
     def permitted_params
-      params.require(:company).permit(:name, :users_attributes => [:email, :password, :password_confirmation])
+      params.require(:company).permit(:name, :subdomain, :users_attributes => [:email, :password, :password_confirmation])
     end
 
     def title_prefix
       'Registration'
+    end
+
+    def resource
+      company_from_params
     end
 
   end
