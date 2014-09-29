@@ -3,8 +3,8 @@ module DisplayName
 
   module ClassMethods
     def display_name(alias_method=nil)
-      content_proc = block_given? ? Proc.new : Proc.new { self.public_send(alias_method) }
       define_method(:display_name) do
+        content_proc = block_given? ? Proc.new : Proc.new { self.public_send(alias_method) }
         instance_exec(&content_proc).presence || self.display_name_backward
       end
     end
@@ -15,11 +15,13 @@ module DisplayName
   end
 
   def display_name_assumptions
-    %w{full_name name title subject default_display_name}
+    %w{full_name name title subject display_name_default}
   end
 
   def display_name_assumption
-    Array.wrap(self.display_name_assumptions).find { |method_name| self.respond_to?(method_name) }
+    Array.wrap(self.display_name_assumptions).find do |method_name|
+      self.respond_to?(method_name) && self.public_send(method_name)
+    end
   end
 
   def display_name_default
