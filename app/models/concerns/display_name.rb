@@ -10,6 +10,10 @@ module DisplayName
     end
   end
 
+  def display_name
+    self.display_name_backward
+  end
+
   def display_name_backward
     self.public_send(self.display_name_assumption)
   end
