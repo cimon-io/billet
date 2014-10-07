@@ -1,7 +1,6 @@
 %h2 Sign Up
 = simple_form_for @company, url: sign_up_url, html: { role: :form } do |f|
   = f.input :name, placeholder: 'Company name'
-  = f.input :subdomain, placeholder: 'Company subdomain'
 
   = f.fields_for :users do |fu|
     = fu.input :email, placeholder: 'Email'
