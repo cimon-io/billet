@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'belongs directly' do
+describe 'grabs' do
 
   context 'lib' do
     before(:each) do
@@ -9,36 +9,36 @@ describe 'belongs directly' do
         include ActiveRecord::Callbacks
         attr_accessor :parent_id
 
-        def parent
-          OpenStruct.new id: 12388, another_id: 34522
+        def parent_id_holder
+          OpenStruct.new id: 12388, parent_id: 34522
         end
 
-        include BelongsDirectly
-        belongs_directly_to :parent
+        extend Grabs
+        grabs :parent_id, from: :parent_id_holder
       end
       A2 = Class.new do
         include ActiveModel::Validations
         include ActiveRecord::Callbacks
-        attr_accessor :parent_another_id
+        attr_accessor :grandfather_id
 
-        def parent
-          OpenStruct.new id: 12388, another_id: 34522
+        def parent_id_holder
+          OpenStruct.new id: 12388, parent_id: 34522
         end
 
-        include BelongsDirectly
-        belongs_directly_to :parent, foreign_key: 'parent_another_id', primary_key: 'another_id'
+        extend Grabs
+        grabs :parent_id, from: :parent_id_holder, as: :grandfather_id
       end
       A3 = Class.new do
         include ActiveModel::Validations
         include ActiveRecord::Callbacks
         attr_accessor :parent_id
 
-        def parent
+        def parent_id_holder
           nil
         end
 
-        include BelongsDirectly
-        belongs_directly_to :parent
+        extend Grabs
+        grabs :parent_id, from: :parent_id_holder
       end
     end
 
@@ -66,18 +66,18 @@ describe 'belongs directly' do
       end
 
       it "should set correct parent_id" do
-        expect(subject.parent_id).to be(12388)
+        expect(subject.parent_id).to be(34522)
       end
     end
 
-    context ":foreign_key and :primary_key" do
+    context ":from" do
       subject { A2.new }
       before(:each) do
         subject.valid?
       end
 
       it "should set correct parent_id" do
-        expect(subject.parent_another_id).to be(34522)
+        expect(subject.grandfather_id).to be(34522)
       end
     end
   end

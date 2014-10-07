@@ -1,2 +1,2 @@
-ActiveRecord::Base.include BelongsDirectly
+ActiveRecord::Base.extend Grabs
 ActiveRecord::Base.extend AttributesForForm
