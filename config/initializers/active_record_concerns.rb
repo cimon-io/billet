@@ -1,2 +1,3 @@
-ActiveRecord::Base.send :include, BelongsDirectly
-ActiveRecord::Base.send :include, AttributesForForm
+ActiveRecord::Base.extend Grabs
+ActiveRecord::Base.extend AggregateRoot
+ActiveRecord::Base.extend AttributesForForm

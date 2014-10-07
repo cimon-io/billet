@@ -3,14 +3,14 @@ module Authentification
     before_filter :avoid_sign_in, only: [:create, :new], if: :signed_in?
 
     def new
-      @user = User.new
+      @company = Company.new(users: [User.new])
     end
 
     def create
-      @user = user_from_params
+      @company = company_from_params
 
-      if @user.save
-        sign_in(@user) do |status|
+      if @company.save
+        sign_in(@company.users.first) do |status|
           if status.success?
             redirect_back_or url_after_create
           else
@@ -29,12 +29,12 @@ module Authentification
       redirect_to url_after_create
     end
 
-    def user_from_params
-      User.new(permitted_params)
+    def company_from_params
+      Company.new(permitted_params)
     end
 
     def permitted_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :is_owner)
+      params.require(:company).permit(:name, :users_attributes => [:email, :password, :password_confirmation])
     end
 
     def title_prefix
