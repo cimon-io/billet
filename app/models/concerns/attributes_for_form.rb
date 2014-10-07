@@ -1,15 +1,5 @@
 module AttributesForForm
-  extend ActiveSupport::Concern
-
-  included do
+  def attributes_for_form
+    self.attribute_names - ["id", "created_at", "updated_at"]
   end
-
-  module ClassMethods
-
-    def attributes_for_form
-      result = self.attribute_names - ["id", "created_at", "updated_at"]
-    end
-
-  end
-
 end
