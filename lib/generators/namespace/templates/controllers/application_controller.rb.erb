@@ -1,0 +1,58 @@
+module <%= class_name %>
+  class ApplicationController < ::ApplicationController
+    <%- if @access.fake? -%>
+    inlcude MockAuthorization
+    <%- end -%>
+    prepend_view_path 'app/views/<%= model_path -%>'
+
+    susanin(
+      root: ->(r) { [:<%= instance_name %>, r] }
+      # Project: ->(r) { [:<%= instance_name %>, r] }
+    )
+
+    <%- if @access.cancan? && @begin_chain -%>
+    before_filter :authorize_<%= @begin_chain -%>!
+    <%- end -%>
+    <%- if @begin_chain -%>
+    helper_method :<%= @begin_chain -%>
+    <%- end -%>
+
+    <%- if @access.cancan? -%>
+    check_authorization
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to destroy_user_session_url, :alert => exception.message
+    end
+    <%- end -%>
+    <%- if @access.http? -%>
+    http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
+    <%- end -%>
+
+    <%- if @begin_chain || (@access.cancan? && @begin_chain) -%>
+    protected
+    <%- end -%>
+
+    <%- if @begin_chain -%>
+    def title_prefix
+      <%= @begin_chain -%>.name
+    end
+    <%- end -%>
+
+    <%- if @begin_chain -%>
+    def <%= @begin_chain %>
+      @<%= @begin_chain %> ||= current_user.company
+    end
+    <%- end -%>
+
+    <%- if @begin_chain -%>
+    def current_ability
+      @current_ability ||= Ability.new(current_user, <%= @begin_chain -%>)
+    end
+    <%- end -%>
+
+    <%- if @access.cancan? && @begin_chain -%>
+    def authorize_<%= @begin_chain %>!
+      authorize! :login, <%= @begin_chain %>
+    end
+    <%- end -%>
+  end
+end

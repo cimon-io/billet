@@ -15,3 +15,4 @@ links:
 default_user_config:
   date_format: '%d/%m/%Y'
   full_date_format: '%d/%m/%Y %H:%I'
+  percentage_format: "%n %"

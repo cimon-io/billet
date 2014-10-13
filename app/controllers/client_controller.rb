@@ -1,1 +1,0 @@
-ClientController = Client::ApplicationController

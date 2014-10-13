@@ -1,3 +1,8 @@
+require 'capybara/rails'
+require 'capybara'
+require 'capybara/dsl'
+require 'capybara/rspec'
+
 RSpec.configure do |config|
 
   def sign_in(user = double('user'))

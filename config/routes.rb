@@ -6,39 +6,15 @@ Rails.application.routes.draw do
   end
 
   constraints Clearance::Constraints::SignedOut.new do
-    root to: "public/home#index", as: :signed_out
+    match '/', to: "public/home#index", via: :get, as: :signed_out
   end
 
-  constraints Constraints::Subdomain.api do
-    constraints Constraints::ApiAuthentificate.new do
-      scope module: :api, as: :api do
-        scope '/v1', module: :v1 do
-          concerns :api_v1_routes
-        end
-      end
-    end
-  end
-
-  constraints Constraints::Subdomain.none do
-
-    scope module: :public, as: :public do
-      concerns :public_routes
-    end
-
-    constraints Clearance::Constraints::SignedIn.new do
-      scope '/@', module: :client, as: :client do
-        concerns :client_routes
-      end
-    end
-
-    scope '/__owner', module: :owner, as: :owner do
-      # http_basic_authenticate_with inside controller
-      concerns :owner_routes
-      mount Sidekiq::Web => '/sidekiq'
-    end
-
+  scope module: :public, as: :public do
+    concerns :public_routes
   end
 
   root to: "public/home#index", via: :get
+
+  mount Sidekiq::Web => '/sidekiq'
 
 end

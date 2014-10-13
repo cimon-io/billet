@@ -17,6 +17,14 @@ module I18nHelper
   end
   alias_method :pl, :plur
 
+  def custom_number_to_percentage(number, user=current_user)
+    config = user.try(:config).presence || ::Settings.default_user_config
+    content_tag :span, class: 'percentage' do
+      number_to_percentage number, precision: 1, format: config.percentage_format
+    end
+  end
+  alias_method :ntp, :custom_number_to_percentage
+
   def custom_time_ago_in_words_ago(date, user=current_user)
     config = user.try(:config).presence || ::Settings.default_user_config
     content_tag :span,

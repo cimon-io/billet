@@ -1,1 +1,0 @@
-ApiController = Api::ApplicationController
