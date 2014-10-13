@@ -2,19 +2,29 @@ module DisplayName
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def display_name(alias_method=nil)
-      define_method(:display_name) do
-        content_proc = block_given? ? Proc.new : Proc.new { self.public_send(alias_method) }
-        instance_exec(&content_proc).presence || self.display_name_backward
+    def display_name(method_symbol=nil)
+      if block_given?
+        define_method :__display_name, &Proc.new
+      elsif method_symbol
+        # alias_method :__display_name, method_symbol
+        define_method :__display_name do
+          self.public_send method_symbol
+        end
+      else
+        raise "And what would you like me to do?" # or noop
       end
     end
   end
 
   def display_name
-    self.display_name_backward
+    __display_name.presence || display_name_guess
   end
 
-  def display_name_backward
+  def __display_name
+    nil
+  end
+
+  def display_name_guess
     self.public_send(self.display_name_assumption)
   end
 
