@@ -45,7 +45,7 @@ module AggregateRoot
   alias_method :belongs_directly_to, :aggregate_root
 
   private def get_through_options(through, root)
-    parent_class = reflect_on_association(foreign_key_source.to_sym).klass
+    parent_class = reflect_on_association(through.to_sym).klass
     parent_class.reflect_on_association(root).options
   end
 
