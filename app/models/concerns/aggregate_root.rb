@@ -37,7 +37,7 @@ module AggregateRoot
       grabs foreign_key, from: through, as: as, on: on
 
       belongs_to root, get_through_options(through, through_root).merge(options)
-      remove_method "#{root}=", "build_#{root}", "create_#{root}", "create_#{root}!"
+      undef_method "#{root}=", "build_#{root}", "create_#{root}", "create_#{root}!"
     else
       belongs_to root, options
     end
