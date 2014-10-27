@@ -47,7 +47,7 @@ module I18nHelper
   alias_method :tw, :custom_time_ago_in_words
 
   def translate(key, options = {})
-    lookup_keys = scope_keys_by_controller(key.to_s)
+    lookup_keys = scope_keys_by_controller(key.to_s, options.delete(:lookup))
     if options.delete(:html)
       lookup_keys = lookup_keys.flat_map {|k| ["#{k}.html", k]}
     end
@@ -66,10 +66,14 @@ module I18nHelper
   end
   alias_method :th, :translate_with_html
 
-  private def scope_keys_by_controller(key)
+  private def scope_keys_by_controller(key, custom_lookup_context=nil)
     letter, rest = key[0], key[1..-1]
     if letter.first == "#"
-      if lookup_context
+      if custom_lookup_context
+        Array.wrap(custom_lookup_context).map { |cp|
+          cp.gsub(%r{/_?}, ".") + '.' + rest
+        }
+      elsif lookup_context
         lookup_context.prefixes.map { |cp|
           cp.gsub(%r{/_?}, ".") + '.' + rest
         }
