@@ -1,6 +1,6 @@
 module ErbHelper
 
-  def e *args, &block
+  def e(*args, &block)
     escape_javascript *args, &block
   end
 

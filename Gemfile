@@ -14,6 +14,9 @@ gem 'inherited_resources'
 gem 'simple_form', '~> 3.1.0.rc2'
 gem 'attribute_normalizer', github: 'mdeering/attribute_normalizer'
 gem 'rails-observers'
+gem 'mini_magick'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'sentient_user'
 
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -33,10 +36,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'bootstrap-sass'
+gem 'jquery-fileupload-rails'
+gem 'underscore-rails'
+gem 'chosen-rails'
+gem 'ejs'
 gem 'wiskey', github: 'aratak/wiskey'
 gem 'liqueur', github: 'aratak/liqueur'
-gem 'underscore-rails'
-gem 'ejs'
 # end
 
 gem 'menuseful', github: 'ArtyomTs/menuseful'
@@ -68,8 +73,8 @@ group :development, :test do
   gem 'pry-nav', require: false
   gem 'pry-doc', require: false
 
-  gem 'rspec-rails', '~> 3.0.0.beta2'
-  gem 'rspec-its', '~> 1.0.1'
+  gem 'rspec-rails'
+  gem 'rspec-its'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
   gem 'database_cleaner'

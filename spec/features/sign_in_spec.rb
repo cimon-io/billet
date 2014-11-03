@@ -1,5 +1,4 @@
-require "spec_helper"
-
+require 'rails_helper'
 
 describe 'Sign in process' do
   let!(:user) { create :user, email: 'user@qwe.qwe' }

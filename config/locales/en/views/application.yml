@@ -13,6 +13,9 @@ en:
     sign_out:
       button: Sign out
       html: Sign out
+    passwords:
+      button: Change password
+      html: Password
     search:
       html: Search...
       button:

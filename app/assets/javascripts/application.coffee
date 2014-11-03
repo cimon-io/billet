@@ -2,8 +2,11 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require bootstrap
-#= require bootstrap-clickablerow
 #= require underscore
 
-#= require liqueur/footer-float-height
+#= require bootstrap-clickablerow
+#= require chosen-activator
+#= require fileupload-activator
+#= require form-autosubmit
+
 #= require_tree ../templates

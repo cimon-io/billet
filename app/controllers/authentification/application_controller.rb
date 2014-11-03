@@ -3,14 +3,11 @@ module Authentification
     prepend_view_path 'app/views/authentification'
     respond_to :html
 
-    include ::Menuseful::Item
-    include ::PageTitle
-
     helper_method :title_prefix
 
     susanin do
       {
-        :root => ->(r) { [(signed_in? ? :client : :public), r] }
+        # :root => ->(r) { [(signed_in? ? :client : :public), r] }
       }
     end
 

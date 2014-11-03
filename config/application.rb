@@ -9,6 +9,10 @@ Bundler.require(*Rails.groups)
 module Billet
   class Application < Rails::Application
 
+    config.active_record.observers = []
+    config.active_record.observers += Dir[Rails.root.join('app', 'observers', '*_observer.rb')].map { |i| File.basename(i, '.rb') }
+    config.active_record.observers += Dir[Rails.root.join('app', 'trackers', '*_tracker.rb')].map { |i| File.basename(i, '.rb') }
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.generators do |g|
@@ -19,6 +23,9 @@ module Billet
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', "**", '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     I18n.config.enforce_available_locales = true
+
+    config.middleware.use "::BackDoor"
+    config.middleware.use JQuery::FileUpload::Rails::Middleware
 
     config.assets.precompile += %w(mail.css)
 

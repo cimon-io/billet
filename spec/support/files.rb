@@ -34,4 +34,8 @@ RSpec.configure do |config|
     File.open photo_path(filename)
   end
 
+  def get_file(*args)
+    get_photo(*args)
+  end
+
 end

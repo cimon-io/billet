@@ -1,0 +1,7 @@
+%div{:data => {:grid => "row row3"}}
+  %div{:data => {:grid => "col col1 offset1"}}
+    %h2 Change password
+    = simple_form_for resource, url: :passwords, html: { role: :form } do |f|
+      = f.input :password, placeholder: 'Password'
+      = f.input :password_confirmation, placeholder: 'Password confirmaiton'
+      = f.submit th('#passwords.button'), class: 'btn btn-primary'
