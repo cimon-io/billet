@@ -4,7 +4,7 @@ ruby `cat .ruby-version`.strip
 gem 'rails', '4.1.5'
 gem 'pg'
 gem 'puma'
-gem 'clearance', github: 'thoughtbot/clearance', branch: '2.0'
+gem 'clearance', '~> 1.8.1'
 gem 'haml'
 gem 'jbuilder', '~> 2.0'
 gem 'rails_config'
@@ -12,11 +12,12 @@ gem 'cancancan'
 gem 'paper_trail'
 gem 'inherited_resources'
 gem 'simple_form', '~> 3.1.0.rc2'
+gem 'postrank-uri'
 gem 'attribute_normalizer', github: 'mdeering/attribute_normalizer'
 gem 'rails-observers'
 gem 'mini_magick'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'sentient_user'
+gem 'glipper', github: 'cimon-io/glipper'
 
 gem 'premailer-rails'
 gem 'nokogiri'
@@ -24,6 +25,8 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 
 gem 'sidekiq'
+gem 'sidetiq'
+gem 'sidekiq-limit_fetch'
 gem 'sinatra', require: false # required for the sidekiq
 
 # group :assets do
@@ -40,12 +43,12 @@ gem 'jquery-fileupload-rails'
 gem 'underscore-rails'
 gem 'chosen-rails'
 gem 'ejs'
-gem 'wiskey', github: 'aratak/wiskey'
-gem 'liqueur', github: 'aratak/liqueur'
+gem 'wiskey', github: 'cimon-io/wiskey'
+gem 'liqueur', github: 'cimon-io/liqueur'
 # end
 
-gem 'menuseful', github: 'ArtyomTs/menuseful'
-gem 'susanin', github: 'aratak/susanin'
+gem 'menuseful', github: 'cimon-io/menuseful'
+gem 'susanin', github: 'cimon-io/susanin'
 
 group :doc do
   gem 'sdoc', require: false
@@ -55,15 +58,7 @@ group :development do
   gem 'spring'
   gem 'thin'
   gem 'parallel_tests'
-
-  gem 'capistrano', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rails', require: false
-
   gem 'quiet_assets'
-
-  gem 'mailcatcher'
-
   gem 'haml-rails'
 end
 

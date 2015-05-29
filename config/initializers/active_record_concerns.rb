@@ -1,4 +1,4 @@
-ActiveRecord::Base.extend Grabs
-ActiveRecord::Base.extend AggregateRoot
-ActiveRecord::Base.extend AttributesForForm
-ActiveRecord::Base.include DisplayName
+ActiveRecord::Base.send :include, BelongsDirectly
+ActiveRecord::Base.send :include, AttributesForForm
+ActiveRecord::Base.send :include, AttrAccessorWithDefault
+ActiveRecord::Base.send :include, DenyDestroy

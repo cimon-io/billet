@@ -1,32 +1,4 @@
 GIT
-  remote: git://github.com/ArtyomTs/menuseful.git
-  revision: 4dba26b1b155013c14f146d567e48e0d998e4424
-  specs:
-    menuseful (0.0.1)
-
-GIT
-  remote: git://github.com/aratak/liqueur.git
-  revision: c32b4f08bb451ee139cb0a99f1179ea3002fa366
-  specs:
-    liqueur (0.0.5)
-      sass (>= 3.1)
-      wiskey
-
-GIT
-  remote: git://github.com/aratak/susanin.git
-  revision: 9af17aa4295611793a039e95aa1a5e08f29fe0c9
-  specs:
-    susanin (0.0.1)
-      actionpack (~> 4.1.1)
-
-GIT
-  remote: git://github.com/aratak/wiskey.git
-  revision: 085bc0520c4186473558c2ea9fe6b7da9e122668
-  specs:
-    wiskey (0.0.8)
-      sass (>= 3.1)
-
-GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
   revision: 87bd4fcf2843414451bfb85c4f371940bdfb9521
   specs:
@@ -35,6 +7,41 @@ GIT
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+
+GIT
+  remote: git://github.com/cimon-io/glipper.git
+  revision: dab921f07f88a4c30d722047ecbaca1c04d3faca
+  specs:
+    glipper (0.0.1)
+      actionpack (>= 4.1.1, < 5.0)
+
+GIT
+  remote: git://github.com/cimon-io/liqueur.git
+  revision: c32b4f08bb451ee139cb0a99f1179ea3002fa366
+  specs:
+    liqueur (0.0.5)
+      sass (>= 3.1)
+      wiskey
+
+GIT
+  remote: git://github.com/cimon-io/menuseful.git
+  revision: b0809fecc60b18fc650807a2646ac30b36df6bc2
+  specs:
+    menuseful (0.0.1)
+
+GIT
+  remote: git://github.com/cimon-io/susanin.git
+  revision: eada0586070dc839dacd2c652184355526fe5f12
+  specs:
+    susanin (0.0.1)
+      actionpack (>= 4.1.1, < 5.0)
+
+GIT
+  remote: git://github.com/cimon-io/wiskey.git
+  revision: 085bc0520c4186473558c2ea9fe6b7da9e122668
+  specs:
+    wiskey (0.0.8)
+      sass (>= 3.1)
 
 GIT
   remote: git://github.com/mdeering/attribute_normalizer.git
@@ -50,16 +57,6 @@ GIT
     site_prism (2.6)
       addressable (~> 2.3.3)
       capybara (>= 2.1, < 3.0)
-
-GIT
-  remote: git://github.com/thoughtbot/clearance.git
-  revision: 1292c2d1403b19db6bc73c7d002d304d7a3853df
-  branch: 2.0
-  specs:
-    clearance (2.0.0.alpha)
-      bcrypt
-      email_validator (~> 1.4)
-      rails (>= 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -92,21 +89,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
-    bcrypt (3.1.7)
+    bcrypt (3.1.10)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.2)
     cancancan (1.9.2)
-    capistrano (3.2.1)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (~> 1.3)
-    capistrano-bundler (1.1.3)
-      capistrano (~> 3.1)
-      sshkit (~> 1.2)
-    capistrano-rails (1.1.2)
-      capistrano (~> 3.1)
-      capistrano-bundler (~> 1.1)
     capybara (2.4.1)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -121,6 +108,10 @@ GEM
       railties (>= 3.0)
       sass-rails (>= 3.2)
     chunky_png (1.3.3)
+    clearance (1.8.1)
+      bcrypt
+      email_validator (~> 1.4)
+      rails (>= 3.1)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -130,7 +121,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    colorize (0.7.3)
     compass (1.0.1)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.1)
@@ -157,7 +147,7 @@ GEM
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
-    email_validator (1.4.0)
+    email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -184,7 +174,8 @@ GEM
       activesupport (>= 3.2, < 5)
     hike (1.2.3)
     htmlentities (4.3.2)
-    i18n (0.6.11)
+    i18n (0.7.0)
+    ice_cube (0.11.1)
     inherited_resources (1.5.0)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0)
@@ -197,7 +188,7 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.8.1)
+    json (1.8.2)
     launchy (2.4.2)
       addressable (~> 2.3)
     libv8 (3.16.14.3)
@@ -208,26 +199,13 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mailcatcher (0.2.4)
-      eventmachine
-      haml
-      i18n
-      json
-      mail
-      sinatra
-      skinny (>= 0.1.2)
-      sqlite3-ruby
-      thin
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.8.1)
       subexec (~> 0.2.1)
     mini_portile (0.6.0)
-    minitest (5.4.2)
+    minitest (5.7.0)
     multi_json (1.10.1)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.9.1)
     newrelic_rpm (3.9.3.241)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -244,6 +222,10 @@ GEM
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
     polyglot (0.3.5)
+    postrank-uri (1.0.18)
+      addressable (~> 2.3.0)
+      nokogiri (~> 1.6.1)
+      public_suffix (~> 1.1.3)
     premailer (1.8.2)
       css_parser (>= 1.3.5)
       htmlentities (>= 4.0.0)
@@ -261,14 +243,15 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    public_suffix (1.1.3)
     puma (2.9.0)
       rack (>= 1.1, < 2.0)
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
-    rack (1.5.2)
+    rack (1.5.3)
     rack-protection (1.5.3)
       rack
-    rack-test (0.6.2)
+    rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.5)
       actionmailer (= 4.1.5)
@@ -337,8 +320,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    sentient_user (0.3.3)
-      railties (>= 3.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
     sidekiq (3.2.3)
@@ -347,6 +328,12 @@ GEM
       json
       redis (>= 3.0.6)
       redis-namespace (>= 1.3.1)
+    sidekiq-limit_fetch (2.4.2)
+      sidekiq (>= 2.6.5, < 4.0)
+    sidetiq (0.6.3)
+      celluloid (>= 0.14.1)
+      ice_cube (= 0.11.1)
+      sidekiq (>= 3.0.0)
     simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -354,9 +341,6 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
-    skinny (0.2.3)
-      eventmachine (~> 1.0.0)
-      thin (~> 1.5.0)
     slop (3.6.0)
     spring (1.1.3)
     spring-commands-rspec (1.0.2)
@@ -370,13 +354,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.9)
-    sqlite3-ruby (1.3.3)
-      sqlite3 (>= 1.3.3)
-    sshkit (1.5.1)
-      colorize
-      net-scp (>= 1.1.2)
-      net-ssh (>= 2.8.0)
     subexec (0.2.3)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
@@ -386,7 +363,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.19.1)
-    thread_safe (0.3.4)
+    thread_safe (0.3.5)
     tilt (1.4.1)
     timers (1.1.0)
     treetop (1.4.15)
@@ -415,19 +392,17 @@ DEPENDENCIES
   attribute_normalizer!
   bootstrap-sass
   cancancan
-  capistrano
-  capistrano-bundler
-  capistrano-rails
   capybara
   carrierwave!
   chosen-rails
-  clearance!
+  clearance (~> 1.8.1)
   coffee-rails
   database_cleaner
   ejs
   email_spec
   factory_girl_rails
   fontcustom
+  glipper!
   haml
   haml-rails
   inherited_resources
@@ -435,7 +410,6 @@ DEPENDENCIES
   jquery-fileupload-rails
   jquery-rails
   liqueur!
-  mailcatcher
   menuseful!
   mini_magick
   newrelic_rpm
@@ -444,6 +418,7 @@ DEPENDENCIES
   parallel_tests
   pg
   poltergeist
+  postrank-uri
   premailer-rails
   pry
   pry-doc
@@ -460,9 +435,10 @@ DEPENDENCIES
   sass (= 3.4.1)
   sass-rails (~> 5.0.0.beta1)
   sdoc
-  sentient_user
   shoulda-matchers
   sidekiq
+  sidekiq-limit_fetch
+  sidetiq
   simple_form (~> 3.1.0.rc2)
   sinatra
   site_prism!

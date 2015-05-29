@@ -1,6 +1,10 @@
 class SampleWorker
   include Sidekiq::Worker
-  # sidekiq_options retry: false
+  # include Sidetiq::Schedulable
+
+  # sidekiq_options queue: :custom, retry: false
+
+  # recurrence { daily }
 
   def perform
     puts "Place worker code here"
