@@ -1,5 +1,6 @@
 module I18nHelper
 
+  # TODO: move such methods into the drapper
   def human_attribute_name(object, attr_name, options={})
     return object.human_attribute_name(attr_name, options) if object.respond_to? :human_attribute_name
     return human_attribute_name(object.object, attr_name, options) if object.respond_to? :object
@@ -9,6 +10,7 @@ module I18nHelper
   end
   alias_method :ha, :human_attribute_name
 
+  # TODO: move such methods into the drapper
   def plur(object, count=2)
     return object.model_name.human(count: count) if object.respond_to? :model_name
     return plur(object.object, attr_name, options) if object.respond_to? :object
@@ -17,34 +19,13 @@ module I18nHelper
   end
   alias_method :pl, :plur
 
-  def custom_number_to_percentage(number, user=current_user)
-    config = user.try(:config).presence || ::Settings.default_user_config
+  # TODO: move such methods into the drapper
+  def custom_number_to_percentage(number, config=current_config)
     content_tag :span, class: 'percentage' do
       number_to_percentage number, precision: 1, format: config.percentage_format
     end
   end
   alias_method :ntp, :custom_number_to_percentage
-
-  def custom_time_ago_in_words_ago(date, user=current_user)
-    config = user.try(:config).presence || ::Settings.default_user_config
-    content_tag :span,
-      I18n.t(:ago, sencence: time_ago_in_words(date), scope: :time_ago_in_words),
-      title: I18n.l(date, format: config.date_format)
-  end
-
-  def custom_time_ago_in_words_since(date, user=current_user)
-    config = user.try(:config).presence || ::Settings.default_user_config
-    content_tag :span,
-      I18n.t(:ago, sencence: time_ago_in_words(date), scope: :time_ago_in_words),
-      data: { toggle: "tooltip", placement: "bottom" },
-      title: I18n.l(date, format: config.full_date_format)
-  end
-
-  def custom_time_ago_in_words(date, user=current_user)
-    return "-" if date.nil?
-    date.past? ? custom_time_ago_in_words_ago(date, user) : custom_time_ago_in_words_since(date, user)
-  end
-  alias_method :tw, :custom_time_ago_in_words
 
   def translate(key, options = {})
     lookup_keys = scope_keys_by_controller(key.to_s, options.delete(:lookup))

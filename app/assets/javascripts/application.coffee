@@ -3,6 +3,7 @@
 #= require turbolinks
 #= require bootstrap
 #= require underscore
+#= require timestamp
 
 #= require bootstrap-clickablerow
 #= require chosen-activator

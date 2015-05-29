@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
   include ::PasswordConfirmation
   include ::EmailConfirmationGuard::User
 
-  display_name { self.email.to_s.split('@').first }
-
   belongs_to :company
 
   def config
