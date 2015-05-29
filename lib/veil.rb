@@ -14,8 +14,7 @@ class Veil
         :user => current_user,
         :user_id => current_user.try(:id),
         :request_id => request.uuid,
-        :config => current_config,
-        :company => current_company
+        :config => current_config
       }
     end
   end
