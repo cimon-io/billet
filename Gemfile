@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby `cat .ruby-version`.strip
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.1'
 gem 'pg'
 gem 'clearance', '~> 1.8.1'
 gem 'haml'
