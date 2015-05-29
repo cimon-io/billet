@@ -6,7 +6,6 @@
 #= require timestamp
 
 #= require bootstrap-clickablerow
-#= require chosen-activator
 #= require fileupload-activator
 #= require form-autosubmit
 
