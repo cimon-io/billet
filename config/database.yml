@@ -1,16 +1,11 @@
 development: &defaults
   adapter: postgresql
   encoding: unicode
-  database: <%= ENV.fetch('DB_1_ENV_POSTGRES_NAME', 'billet_development') %>
-  user: <%= ENV.fetch('DB_1_ENV_POSTGRES_USER', nil) %>
-  password: <%= ENV.fetch('DB_1_ENV_POSTGRES_PASS', nil) %>
-  host: <%= ENV.fetch('DB_1_PORT_5432_TCP_ADDR', 'localhost') %>
-  port: <%= ENV.fetch('DB_1_PORT_5432_TCP_PORT', 5432).to_i %>
-  template: template0
+  url: <%= ENV.fetch('DATABASE_URL', 'postgres://localhost:5432/billet_development') %>
 
 test:
   <<: *defaults
-  database: billet_test<%= ENV['TEST_ENV_NUMBER'] %>
+  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_test#{ENV['TEST_ENV_NUMBER']}") %>
 
 staging:
   <<: *defaults
