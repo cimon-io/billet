@@ -3,7 +3,6 @@ ruby `cat .ruby-version`.strip
 
 gem 'rails', '4.1.5'
 gem 'pg'
-gem 'puma'
 gem 'clearance', '~> 1.8.1'
 gem 'haml'
 gem 'jbuilder', '~> 2.0'
@@ -21,8 +20,6 @@ gem 'glipper', github: 'cimon-io/glipper'
 
 gem 'premailer-rails'
 gem 'nokogiri'
-
-gem 'newrelic_rpm'
 
 gem 'sidekiq'
 gem 'sidetiq'
@@ -84,6 +81,8 @@ group :test do
 end
 
 group :production do
+  gem 'unicorn'
   gem 'rails_12factor'
   gem 'therubyracer', require: 'v8'
+  gem 'newrelic_rpm'
 end
