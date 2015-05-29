@@ -8,12 +8,15 @@ Bundler.require(*Rails.groups)
 
 module Billet
   class Application < Rails::Application
+    require 'veil'
 
     config.active_record.observers = []
     config.active_record.observers += Dir[Rails.root.join('app', 'observers', '*_observer.rb')].map { |i| File.basename(i, '.rb') }
     config.active_record.observers += Dir[Rails.root.join('app', 'trackers', '*_tracker.rb')].map { |i| File.basename(i, '.rb') }
 
     config.autoload_paths += %W(#{config.root}/lib)
+    config.eager_load_paths += [Rails.root.join('app', 'drappers')]
+    config.eager_load_paths += [Rails.root.join('app', 'drappers', 'concerns')]
 
     config.generators do |g|
       g.template_engine :haml
