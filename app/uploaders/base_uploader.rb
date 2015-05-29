@@ -37,4 +37,8 @@ class BaseUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def basename
+    Pathname.new(self.path).basename.to_s
+  end
+
 end
