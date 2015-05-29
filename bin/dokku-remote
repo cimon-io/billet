@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -e
+
+remote="$(git remote show $1 -n | grep Push | cut -d : -f 2)"
+exec ssh -t $remote "${*:2}"
