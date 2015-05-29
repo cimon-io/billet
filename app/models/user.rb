@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include SentientUser
   include Clearance::User
   include ::PasswordConfirmation
   include ::EmailConfirmationGuard::User
