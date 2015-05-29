@@ -1,5 +1,10 @@
 ---
 :pidfile: tmp/pids/worker.pid
-:concurrency: 1
-:production:
-  :concurrency: 5
+:queues:
+  - default
+  - rollbar
+  # - custom
+:limits:
+  default: 2
+  runner: <%= ENV.fetch('SIDEKIQ_CONCURRENCY', 2).to_i %>
+  # custom: 1

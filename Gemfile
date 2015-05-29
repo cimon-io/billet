@@ -25,6 +25,8 @@ gem 'nokogiri'
 gem 'newrelic_rpm'
 
 gem 'sidekiq'
+gem 'sidetiq'
+gem 'sidekiq-limit_fetch'
 gem 'sinatra', require: false # required for the sidekiq
 
 # group :assets do
@@ -56,15 +58,7 @@ group :development do
   gem 'spring'
   gem 'thin'
   gem 'parallel_tests'
-
-  gem 'capistrano', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rails', require: false
-
   gem 'quiet_assets'
-
-  gem 'mailcatcher'
-
   gem 'haml-rails'
 end
 
