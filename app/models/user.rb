@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_paper_trail
   include Clearance::User
   include ::PasswordConfirmation
   include ::EmailConfirmationGuard::User
