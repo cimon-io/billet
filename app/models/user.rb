@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   has_paper_trail
   include Clearance::User
-  include ::PasswordConfirmation
-  include ::EmailConfirmationGuard::User
 
-  belongs_to :company
+  has_many :user_identities, -> { with_default_order }
+  has_many :company_users, -> { with_default_order }
+  has_many :companies, -> { with_default_order }, through: :company_users
+
+  scope :with_default_order, -> { order(priority: :asc) }
 
   def config
     Settings.default_user_config

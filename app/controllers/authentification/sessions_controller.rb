@@ -6,7 +6,7 @@ module Authentification
     end
 
     def create
-      @user = authenticate(params)
+      @user = self.authenticate(auth_hash)
 
       sign_in(@user) do |status|
         if status.success?
@@ -31,6 +31,14 @@ module Authentification
 
     def resource
       @user
+    end
+
+    def authenticate(hash)
+
+    end
+
+    def auth_hash
+      request.env['omniauth.auth']
     end
 
   end

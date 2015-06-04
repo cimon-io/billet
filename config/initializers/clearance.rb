@@ -31,7 +31,7 @@ Clearance.configure do |config|
   config.cookie_domain = '.' + ENV.fetch('APP_1_DOMAIN', 'lvh.me')
   config.cookie_expiration = lambda { |cookies| 1.year.from_now.utc }
   config.routes = false
-  config.sign_in_guards = [EmailConfirmationGuard]
+  config.sign_in_guards = []
 
   # config.cookie_path = '/'
   # config.password_strategy = Clearance::PasswordStrategies::BCrypt
