@@ -1,3 +1,5 @@
+OmniAuth.config.logger = Rails.logger
+
 module OmniAuth
   class Builder < ::Rack::Builder
     class << self
