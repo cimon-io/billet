@@ -4,7 +4,7 @@ services:
   redis:
     from: redis
   rails:
-    from: ruby:2.1.2
+    from: ruby:2.2.2
     cache:
       - /bundle
     build:
