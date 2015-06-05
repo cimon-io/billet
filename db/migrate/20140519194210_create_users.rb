@@ -12,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :email
       t.string :avatar_url
-      t.string :nickname
+      t.string :name
       t.string :uid, null: false
       t.string :provider, null: false
       t.timestamps null: false

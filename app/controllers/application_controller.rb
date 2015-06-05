@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  include ::Clearance::Controller
   include ::Veil::Controller
+  include ::CurrentIdentity
   include ::Susanin
   include ::Menuseful::Item
   include ::PageTitle

@@ -11,7 +11,7 @@ module UserIdentities
         self.create(
           uid: auth['uid'],
           name: auth['info']['name'],
-          nickname: auth['info']['nickname'],
+          name: auth['info']['nickname'],
           avatar_url: auth['info']['image'],
           email: auth['info']['email'],
           token: auth['credentials']['token']
@@ -21,7 +21,7 @@ module UserIdentities
       def update_with_omniauth_facebook(resource, auth)
         resource.update(
           name: auth['info']['name'],
-          nickname: auth['info']['nickname'],
+          name: auth['info']['nickname'],
           avatar_url: auth['info']['image'],
           email: auth['info']['email'],
           token: auth['credentials']['token']

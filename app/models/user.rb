@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_paper_trail
-  include Clearance::User
 
   has_many :user_identities, -> { with_default_order }
   has_many :company_users, -> { with_default_order }

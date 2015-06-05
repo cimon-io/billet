@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     concerns :authentification_routes
   end
 
-  constraints Clearance::Constraints::SignedOut.new do
-    match '/', to: "public/home#index", via: :get, as: :signed_out
-  end
-
   scope module: :public, as: :public do
     concerns :public_routes
   end

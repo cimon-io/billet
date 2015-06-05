@@ -5,6 +5,8 @@ class UserIdentity < ActiveRecord::Base
 
   scope :with_default_order, -> { order(created_at: :asc) }
 
+  before_create :autocreate_user
+
   PROVIDERS = []
   include UserIdentities::Developer if OmniAuth::Builder.providers.include?(:developer)
   include UserIdentities::Facebook if OmniAuth::Builder.providers.include?(:facebook)
@@ -31,8 +33,14 @@ class UserIdentity < ActiveRecord::Base
 
     def find_or_create_with_omniauth(auth)
       raise ActiveRecord::RecordNotFound unless omniauthable?(auth)
-      find_with_omniauth(auth).tap { |ui| self.update_with_omniauth(ui, auth) } || self.create_with_omniauth_github(auth)
+      find_with_omniauth(auth).tap { |ui| self.update_with_omniauth(ui, auth) if ui } || self.create_with_omniauth(auth)
     end
+  end
+
+  protected
+
+  def autocreate_user
+    self.create_user
   end
 
 end

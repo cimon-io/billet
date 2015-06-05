@@ -27,7 +27,6 @@ module Billet
     config.i18n.default_locale = :en
     I18n.config.enforce_available_locales = true
 
-    config.middleware.use "::BackDoor"
     config.middleware.use JQuery::FileUpload::Rails::Middleware
 
     config.assets.precompile += %w(mail.css)
