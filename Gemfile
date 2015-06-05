@@ -8,11 +8,9 @@ end
 gem 'rails', '4.2.1'
 gem 'pg'
 
-gem 'clearance', '~> 1.8.1'
 gem 'omniauth'
 gem 'omniauth-github', github: 'intridea/omniauth-github'
 gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
-
 
 gem 'haml'
 gem 'jbuilder', '~> 2.0'

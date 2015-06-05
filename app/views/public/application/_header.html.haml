@@ -5,6 +5,6 @@
 
     %ul.nav.navbar-nav.pull-right
       - if signed_in?
-        %li= link_to th('#sign_out.button'), :sign_out, method: :delete
+        %li= link_to th('#sign_out.button'), :auth_out
       - else
-        %li= link_to th('#sign_in.button'), :sign_in
+        %li= link_to th('#sign_in.button'), :auth_in

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   Dir[Rails.root.join("config/routes/**/*.rb")].each { |f| instance_eval(File.read(f)) }
 
-  scope module: :authentification do
+  scope module: :authentification, as: :auth do
     concerns :authentification_routes
   end
 

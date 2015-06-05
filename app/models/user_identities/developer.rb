@@ -9,6 +9,7 @@ module UserIdentities
     module ClassMethods
       def create_with_omniauth_developer(auth)
         self.create(
+          provider: auth['provider'],
           uid: auth['uid'],
           name: auth['info']['name'],
           email: auth['info']['email']

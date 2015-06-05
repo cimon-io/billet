@@ -7,8 +7,16 @@ class User < ActiveRecord::Base
 
   scope :with_default_order, -> { order(priority: :asc) }
 
+  before_create :generate_remember_token
+
   def config
     Settings.default_user_config
+  end
+
+  protected
+
+  def generate_remember_token
+    self.remember_token = SecureRandom.hex(20).encode('UTF-8')
   end
 
 end

@@ -2,4 +2,4 @@
   %div{:data => {:grid => "col col1 offset1"}}
     %h2 Sign In
     - OmniAuth::Builder.providers.each do |provider|
-      = link_to provider, auth_url(provider: provider)
+      = link_to provider, auth_provider_url(provider: provider)

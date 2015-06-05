@@ -116,7 +116,6 @@ GEM
     autoprefixer-rails (5.2.0)
       execjs
       json
-    bcrypt (3.1.10)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -130,10 +129,6 @@ GEM
       xpath (~> 2.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    clearance (1.8.1)
-      bcrypt
-      email_validator (~> 1.4)
-      rails (>= 3.1)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -158,8 +153,6 @@ GEM
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
-    email_validator (1.6.0)
-      activemodel
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -445,7 +438,6 @@ DEPENDENCIES
   cancancan
   capybara
   carrierwave!
-  clearance (~> 1.8.1)
   coffee-rails
   database_cleaner
   dotenv-rails
