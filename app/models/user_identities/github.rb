@@ -7,8 +7,8 @@ module UserIdentities
     end
 
     module ClassMethods
-      def create_with_omniauth_github(auth)
-        self.create(
+      def build_with_omniauth_github(auth)
+        self.new(
           provider: auth['provider'],
           uid: auth['uid'],
           name: auth['info']['name'],

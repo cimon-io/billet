@@ -28,7 +28,7 @@ module Authentification
     end
 
     def authenticate!
-      sign_in(UserIdentity.find_or_create_with_omniauth(request.env['omniauth.auth']).user)
+      sign_in UserIdentity.find_or_create_with_omniauth(request.env['omniauth.auth'], current_user).user
     end
 
   end
