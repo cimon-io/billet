@@ -6,8 +6,9 @@ class UserIdentity < ActiveRecord::Base
   scope :with_default_order, -> { order(created_at: :asc) }
 
   PROVIDERS = []
-  include UserIdentities::Facebook
-  include UserIdentities::Github
+  include UserIdentities::Developer if OmniAuth::Builder.providers.include?(:developer)
+  include UserIdentities::Facebook if OmniAuth::Builder.providers.include?(:facebook)
+  include UserIdentities::Github if OmniAuth::Builder.providers.include?(:github)
 
   class << self
 
