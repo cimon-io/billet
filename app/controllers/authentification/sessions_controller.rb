@@ -1,20 +1,18 @@
 module Authentification
   class SessionsController < ::AuthentificationController
+    skip_before_filter :verify_authenticity_token
     helper_method :resource
+    before_action :authenticate!, only: :create
 
     def new
     end
 
     def create
-      @user = authenticate(params)
-
-      sign_in(@user) do |status|
-        if status.success?
-          redirect_back_or url_after_create
-        else
-          flash.now.notice = status.failure_message
-          render 'new', status: :unauthorized
-        end
+      if signed_in?
+        redirect_to url_after_create
+      else
+        flash.now.notice = "Login failure"
+        redirect_to url_after_destroy
       end
     end
 
@@ -29,8 +27,8 @@ module Authentification
       'Authentification'
     end
 
-    def resource
-      @user
+    def authenticate!
+      sign_in UserIdentity.find_or_create_with_omniauth(request.env['omniauth.auth'], current_user).user
     end
 
   end

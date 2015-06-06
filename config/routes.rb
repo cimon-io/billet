@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   Dir[Rails.root.join("config/routes/**/*.rb")].each { |f| instance_eval(File.read(f)) }
 
-  scope module: :authentification do
+  scope module: :authentification, as: :auth do
     concerns :authentification_routes
-  end
-
-  constraints Clearance::Constraints::SignedOut.new do
-    match '/', to: "public/home#index", via: :get, as: :signed_out
   end
 
   scope module: :public, as: :public do

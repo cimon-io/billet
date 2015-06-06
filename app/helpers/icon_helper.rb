@@ -14,7 +14,6 @@ module IconHelper
   }.with_indifferent_access
   ICON_SYNONIMS.default_proc = ->(_, i) { i.to_s }
 
-
   def icon_key(n)
     case n
     when Symbol, String

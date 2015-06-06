@@ -5,5 +5,12 @@ class CreateCompanies < ActiveRecord::Migration
       t.timestamps
     end
     add_index :companies, :name, unique: true
+
+    create_table :company_users do |t|
+      t.belongs_to :user
+      t.belongs_to :company
+
+      t.timestamps null: false
+    end
   end
 end

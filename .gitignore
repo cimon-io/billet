@@ -1,3 +1,4 @@
+.env
 pkg
 .bundle
 .DS_Store
@@ -30,4 +31,3 @@ actionmailer_config_DONOTVERSION.rb
 /sqlnet.log
 .sass-cache/
 /.fontcustom-manifest.json
-

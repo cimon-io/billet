@@ -16,3 +16,11 @@ default_user_config:
   date_format: '%d/%m/%Y'
   full_date_format: '%d/%m/%Y %H:%I'
   percentage_format: "%n %"
+
+providers:
+  github:
+    key: <%= ENV.fetch('GITHUB_ID', nil) %>
+    secret: <%= ENV.fetch('GITHUB_SECRET', nil) %>
+  facebook:
+    key: <%= ENV.fetch('FACEBOOK_ID', nil) %>
+    secret: <%= ENV.fetch('FACEBOOK_SECRET', nil) %>

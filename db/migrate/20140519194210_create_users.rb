@@ -1,21 +1,21 @@
 class CreateUsers < ActiveRecord::Migration
-  def self.up
+  def change
     create_table :users  do |t|
-      t.timestamps null: false
-      t.string :email, null: false
-      t.string :encrypted_password, limit: 128, null: false
-      t.string :confirmation_token, limit: 128
       t.string :remember_token, limit: 128, null: false
-
-      t.belongs_to :company
+      t.timestamps null: false
     end
 
-    add_index :users, :email
-    add_index :users, :remember_token
-    add_index :users, :company_id
-  end
+    create_table :user_identities do |t|
+      t.belongs_to :user
 
-  def self.down
-    drop_table :users
+      t.string :token
+
+      t.string :email
+      t.string :avatar_url
+      t.string :name
+      t.string :uid, null: false
+      t.string :provider, null: false
+      t.timestamps null: false
+    end
   end
 end
