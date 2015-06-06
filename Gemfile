@@ -49,6 +49,7 @@ gem 'underscore-rails'
 gem 'ejs'
 gem 'wiskey', github: 'cimon-io/wiskey'
 gem 'liqueur', github: 'cimon-io/liqueur'
+gem 'purpur', github: 'cimon-io/purpur'
 # end
 
 gem 'menuseful', github: 'cimon-io/menuseful'
