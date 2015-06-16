@@ -3,7 +3,7 @@
 module DisplayNameHelper
 
   def display_link_to(resource, *args)
-    link_to(glip(resource).display_name, resource, *args)
+    link_to(glip(resource).display_name, [resource], *args)
   end
 
   def display_name(resource, options={})
