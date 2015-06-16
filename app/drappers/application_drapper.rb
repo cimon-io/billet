@@ -1,6 +1,7 @@
 class ApplicationDrapper < Glipper::Base
   decorates ActiveRecord::Base
 
+  include MoneyGlipper
   include DisplayNameGlipper
   include TypeGlipper
   include StateMachineGlipper
