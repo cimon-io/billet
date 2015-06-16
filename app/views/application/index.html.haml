@@ -11,6 +11,6 @@
         %tbody
           = render partial: 'row', collection: collection, as: :resource
     - else
-      %i=th '#no_items', scope: resource_collection_name
+      %i=th '#no_items'
   .panel-footer
     =th '#total', count: collection.count
