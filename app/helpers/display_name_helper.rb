@@ -16,7 +16,7 @@ module DisplayNameHelper
   end
 
   def label_method
-    ->(i) { blank_display_name(i) }
+    ->(i) { display_name(i) }
   end
 
 end
