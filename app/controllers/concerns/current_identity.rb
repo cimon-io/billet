@@ -4,6 +4,7 @@ module CurrentIdentity
   included do
     helper_method :current_user, :signed_in?, :signed_out?, :url_after_create, :url_after_destroy, :url_after_confirmation
     hide_action(
+      :current_config,
       :current_user,
       :current_user=,
       :sign_in,
@@ -14,6 +15,10 @@ module CurrentIdentity
       :url_after_destroy,
       :url_after_confirmation,
     )
+  end
+
+  def current_config
+    @current_config ||= (current_user ? current_user.config : ::Settings.default_user_config)
   end
 
   def current_user

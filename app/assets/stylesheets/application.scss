@@ -2,16 +2,5 @@
 @import 'bootstrap';
 @import 'purpur';
 @import 'data-link';
+@import 'form';
 @import 'translations-missing';
-
-.form-control[readonly] {
-  cursor: default;
-}
-
-html {
-  min-height: 100%;
-}
-
-body {
-  font-size: 16px;
-}
