@@ -5,7 +5,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.2'
 gem 'pg'
 
 gem 'omniauth'
