@@ -2,7 +2,7 @@ module CurrentIdentity
   extend ActiveSupport::Concern
 
   included do
-    helper_method :current_user, :signed_in?, :signed_out?, :url_after_create, :url_after_destroy, :url_after_confirmation
+    helper_method :current_config, :current_user, :signed_in?, :signed_out?, :url_after_create, :url_after_destroy, :url_after_confirmation
     hide_action(
       :current_config,
       :current_user,
@@ -15,6 +15,18 @@ module CurrentIdentity
       :url_after_destroy,
       :url_after_confirmation,
     )
+
+    before_action :set_remember_token, if: :signed_in?
+    before_action :set_session_id, if: :signed_out?
+
+    rescue_from CanCan::AccessDenied do |exception|
+      redirect_to auth_in_url, :alert => exception.message
+    end
+
+  end
+
+  def current_ability
+    @current_ability ||= Ability.new(current_user)
   end
 
   def current_config
@@ -39,11 +51,12 @@ module CurrentIdentity
   end
 
   def sign_in(user)
-    session[:user_id] = user.id
+    set_session_id_for(user)
+    set_remember_token_for(user)
   end
 
   def sign_out
-    session[:user_id] = nil
+    set_session_id_for(nil)
   end
 
   def signed_in?
@@ -64,6 +77,22 @@ module CurrentIdentity
 
   def url_after_confirmation
     root_url
+  end
+
+  def set_remember_token
+    set_remember_token_for(current_user)
+  end
+
+  def set_session_id
+    set_session_id_for(User.where(remember_token: cookies[:remember_token]).first) if cookies[:remember_token]
+  end
+
+  private def set_session_id_for(user)
+    session[:user_id] = user.try(:id)
+  end
+
+  private def set_remember_token_for(user)
+    cookies[:remember_token] = { value: user.remember_token, expires: Settings.remember_user_days.days.from_now, httponly: true }
   end
 
 end
