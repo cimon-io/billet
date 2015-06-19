@@ -57,6 +57,7 @@ module CurrentIdentity
 
   def sign_out
     set_session_id_for(nil)
+    set_remember_token_for(nil)
   end
 
   def signed_in?
@@ -88,10 +89,12 @@ module CurrentIdentity
   end
 
   private def set_session_id_for(user)
-    session[:user_id] = user.try(:id)
+    session.delete(:user_id) and return if user.nil?
+    session[:user_id] = user.id
   end
 
   private def set_remember_token_for(user)
+    cookies.delete(:remember_token) and return if user.nil?
     cookies[:remember_token] = { value: user.remember_token, expires: Settings.remember_user_days.days.from_now, httponly: true }
   end
 
