@@ -37,10 +37,7 @@
 
 ## Initial setup
 
-Install requirements:
-
-1. Go to the XQuartz web page https://xquartz.macosforge.org Download and install XQuartz. Fontcustom works on it.
-2. Install another dependencies from `Brewfile` via
+Install another dependencies from `Brewfile` via
 
 ```console
 $ brew bundle
