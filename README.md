@@ -112,16 +112,3 @@ rake parallel:prepare # when you have migrations
 rake parallel:spec # run specs
 rake parallel # you run all tests
 ```
-
-## Deploying
-
-We use Capistrano. If you are familiar with it (as you should) all is
-trivial. We also use Capistrano multistaging and the default stage is
-staging.
-
-So the cheatsheet:
-
-```console
-cap staging deploy            # deploy to staging
-cap production deploy         # deploy to live server
-```
