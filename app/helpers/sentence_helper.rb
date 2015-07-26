@@ -12,8 +12,8 @@ module SentenceHelper
     from = (length * 0.7).to_i
     to = length - from
 
-    return str if str.size < length
     str = str.gsub /^http(s)?\:\/\//, ''
+    return str if str.size < length
     [str[0..from], '...', str[-to..-1]].join()
   end
 
