@@ -24,6 +24,7 @@ server: &server
   except: master
   prepare:
     - pwd
+    - bundle config --local path /bundl1
     - bundle config --local path /bundle
     - cat /app/.bundle/config
     - bundle install
