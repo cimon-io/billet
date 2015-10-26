@@ -63,12 +63,6 @@ GIT
       omniauth-oauth2 (>= 1.1.1, < 2.0)
 
 GIT
-  remote: git://github.com/mdeering/attribute_normalizer.git
-  revision: 7e39313402a93bd6a8ab5bea70062f147e4dae6d
-  specs:
-    attribute_normalizer (1.2.0)
-
-GIT
   remote: git://github.com/mkdynamic/omniauth-facebook.git
   revision: b127c35135b16b7d5cdc746a718192acfe1da21c
   specs:
@@ -278,10 +272,6 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    postrank-uri (1.0.18)
-      addressable (~> 2.3.0)
-      nokogiri (~> 1.6.1)
-      public_suffix (~> 1.1.3)
     premailer (1.8.4)
       css_parser (>= 1.3.6)
       htmlentities (>= 4.0.0)
@@ -299,7 +289,6 @@ GEM
       pry (>= 0.9.10, < 0.11.0)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    public_suffix (1.1.3)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -326,8 +315,6 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails-observers (0.1.2)
-      activemodel (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -455,7 +442,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  attribute_normalizer!
   bootstrap-sass
   cancancan
   capybara
@@ -487,7 +473,6 @@ DEPENDENCIES
   parallel_tests
   pg
   poltergeist
-  postrank-uri
   premailer-rails
   pry
   pry-doc
@@ -496,7 +481,6 @@ DEPENDENCIES
   purpur!
   quiet_assets
   rails (= 4.2.2)
-  rails-observers
   rails_12factor
   rails_config
   rspec-its
