@@ -23,6 +23,7 @@ services:
 server: &server
   except: master
   prepare:
+    - bundle --version
     - bundle config --local path /bundle
     - bundle config
     - bundle install
