@@ -104,11 +104,3 @@ Config:
   tests
 * We do unit testing with rspec. To run just unit tests run `bin/rake spec`.
   To run a single one, run `bundle exec rspec spec/path/to/spec.rb`.
-* * Parallel tests:
-
-```console
-rake parallel:create # once
-rake parallel:prepare # when you have migrations
-rake parallel:spec # run specs
-rake parallel # you run all tests
-```
