@@ -64,7 +64,7 @@ GIT
 
 GIT
   remote: git://github.com/mdeering/attribute_normalizer.git
-  revision: 8bdafce8c2eb856c19b00bce747bf05918a199da
+  revision: 7e39313402a93bd6a8ab5bea70062f147e4dae6d
   specs:
     attribute_normalizer (1.2.0)
 
@@ -524,4 +524,4 @@ DEPENDENCIES
   wiskey!
 
 BUNDLED WITH
-   1.10.1
+   1.10.6
