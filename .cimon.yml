@@ -26,6 +26,7 @@ server: &server
     - bundle config --local path /bundle
     - bundle install
     - ls -lah /app
+    - ls -lah  /app/app
     - cat /app/.bundle/config
     - bin/rake db:create db:migrate db:seed
     - bin/rake assets:precompile
