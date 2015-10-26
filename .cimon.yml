@@ -6,7 +6,7 @@ services:
     cache:
       - /var/lib/postgresql/data
   rails:
-    from: ruby:2.1.2
+    from: ruby:2.2.2
     cache:
       - /bundle
       - /app/public/assets
