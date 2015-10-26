@@ -27,8 +27,8 @@ server: &server
     - bundle config --local path /bundle
     - bundle config
     - bundle install
-    - bin/rake db:create db:migrate db:seed
-    - bin/rake assets:precompile
+    - bundle exec rake db:create db:migrate db:seed
+    - bundle exec rake assets:precompile
   service: rails
   dependencies: [postgresql]
   folder: /app
