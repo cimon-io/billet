@@ -24,6 +24,7 @@ server: &server
   except: master
   prepare:
     - bundle config --local path /bundle
+    - cat /app/.bundle/config
     - bundle install
     - ls -lah /root/
     - env
