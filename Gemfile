@@ -59,7 +59,6 @@ end
 
 group :development do
   gem 'spring'
-  gem 'thin'
   gem 'parallel_tests'
   gem 'quiet_assets'
   gem 'haml-rails'
