@@ -68,7 +68,7 @@ to access the application in development.
 In addition, to run the background jobs process run the following:
 
 ```console
-sidekiq -C config/sidekiq.yml
+./bin/sidekiq -C config/sidekiq.yml
 ```
 
 That's it.
