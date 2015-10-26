@@ -23,15 +23,9 @@ services:
 server: &server
   except: master
   prepare:
-    - pwd
-    - bundle config --local path /bundl1
     - bundle config --local path /bundle
-    - cat /app/.bundle/config
+    - bundle config
     - bundle install
-    - ls -lah /root/
-    - env
-    - cat /root/.bundle/config
-    - cat /app/.bundle/config
     - bin/rake db:create db:migrate db:seed
     - bin/rake assets:precompile
   service: rails
