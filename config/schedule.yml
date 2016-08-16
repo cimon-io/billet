@@ -1,0 +1,6 @@
+---
+# 'SampleWorker':
+#   every: 24h
+#
+# 'Sample2Worker':
+#   every: 10m

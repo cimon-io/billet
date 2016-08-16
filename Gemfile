@@ -5,70 +5,44 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'rails', '4.2.2'
-gem 'pg'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.0'
 
-gem 'omniauth'
-gem 'omniauth-github', github: 'intridea/omniauth-github'
-gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
-
-gem 'haml'
-gem 'jbuilder', '~> 2.0'
-gem 'rails_config'
-gem 'cancancan'
+gem 'hamlit'
 gem 'paper_trail'
-gem 'money-rails'
-gem 'inherited_resources'
-gem 'simple_form', '~> 3.1.0.rc2'
+gem 'simple_form'
+gem 'cancancan'
+gem 'rails_config'
 gem 'mini_magick'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'jbuilder', '~> 2.5'
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'carrierwave'
 gem 'glipper', github: 'cimon-io/glipper'
+gem 'susanin', github: 'cimon-io/susanin', branch: 'rails-5-support'
+gem 'attribute_normalizer'
 
 gem 'premailer-rails'
 gem 'nokogiri'
 
-gem 'sidekiq'
-gem 'sidetiq'
-gem 'sidekiq-limit_fetch'
-gem 'sinatra', require: false # required for the sidekiq
-
-# group :assets do
-# rails 4 doesn't support assets group
-gem 'fontcustom'
-gem 'sass', '3.4.1'
-gem 'sass-rails', '~> 5.0.0.beta1'
-gem 'coffee-rails'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
-gem 'turbolinks'
-gem 'uglifier'
-gem 'bootstrap-sass'
-gem 'jquery-fileupload-rails'
-gem 'underscore-rails'
-gem 'ejs'
-gem 'wiskey', github: 'cimon-io/wiskey'
-gem 'liqueur', github: 'cimon-io/liqueur'
-gem 'purpur', github: 'cimon-io/purpur'
-# end
+gem 'turbolinks', '~> 5'
 
-gem 'menuseful', github: 'cimon-io/menuseful'
-gem 'susanin', github: 'cimon-io/susanin'
-
-group :doc do
-  gem 'sdoc', require: false
-end
-
-group :development do
-  gem 'spring'
-  gem 'parallel_tests'
-  gem 'quiet_assets'
-  gem 'haml-rails'
-end
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'sidekiq-unique-jobs'
+gem 'redis-namespace'
+gem 'sinatra', require: false # required for the sidekiq
 
 group :development, :test do
   gem 'pry-rails'
   gem 'pry', require: false
-  gem 'pry-nav', require: false
   gem 'pry-doc', require: false
+  gem 'pry-byebug'
 
   gem 'rspec-rails'
   gem 'rspec-its'
@@ -77,18 +51,30 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :development do
+  gem 'web-console'
+  gem 'listen', '~> 3.0.5'
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
 group :test do
+  gem 'timecop'
+
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
-  gem 'site_prism', github: 'natritmeyer/site_prism', branch: 'master'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'site_prism'
   gem 'email_spec'
-  gem 'webmock'
+  gem 'simplecov', require: false
 end
 
 group :production do
-  gem 'unicorn'
   gem 'rails_12factor'
   gem 'therubyracer', require: 'v8'
   gem 'newrelic_rpm'
 end
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

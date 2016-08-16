@@ -20,6 +20,7 @@
 
 ### Various configs
  - Rename application and and other project based config values in `config/settings.yml`
+ - Rename application name `config/newrelic.yml`
  - Rename application in the first line of `README.md`
  - Add description to the 'Synopsis' section
  - Change production domain in 'Synopsis' section
@@ -61,6 +62,12 @@ Run the following:
 bin/rails s
 ```
 
+Or using `foreman`:
+
+```console
+foreman start web
+```
+
 `lvh.me` is the default domain, configured in example
 configuration files. Use `lvh.me:3000` and its subdomains
 to access the application in development.
@@ -71,31 +78,13 @@ In addition, to run the background jobs process run the following:
 ./bin/sidekiq -C config/sidekiq.yml
 ```
 
+Or using `foreman`:
+
+```console
+foreman start worker
+```
+
 That's it.
-
-## Fonts and Fontcustom
-
-We are using the FontCustom to generate the special iconsfont with name "icons".
-To add new icon to the set place the new proper *.svg file to /assets/svgs folder and run:
-
-```shell
-  fontcustom compile
-```
-
-Also you may want to run the
-
-```shell
-  fontcustom watch app/assets/svgs
-```
-
-command to generate new font each time the new .svg file added to directory.
-
-Usage:
-/lib/styleguide/educlipper-preview.html
-
-Config:
-/config/fontcustom.yml
-
 
 ## Run tests
 

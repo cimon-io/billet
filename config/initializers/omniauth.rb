@@ -19,23 +19,40 @@ module OmniAuth
 end
 
 
-Rails.application.config.middleware.use OmniAuth::Builder do
-
-  if Settings.providers.github.key && Settings.providers.github.secret
-    provider :github,
-              Settings.providers.github.key,
-              Settings.providers.github.secret,
-              scope: "user:email"
-  end
+Rails.application.config.middleware.insert_before Authenticator::Middleware, OmniAuth::Builder do
 
   if Settings.providers.facebook.key && Settings.providers.facebook.secret
     provider :facebook,
               Settings.providers.facebook.key,
               Settings.providers.facebook.secret,
-              scope: "email"
+              scope: "email",
+              image_size: {
+                width: 300,
+                height: 300
+              }
   end
 
-  unless Settings.providers.map(&:second).map { |k1| k1.map(&:second).all? }.any?
+  if Settings.providers.twitter.key && Settings.providers.twitter.secret
+    provider :twitter,
+              Settings.providers.twitter.key,
+              Settings.providers.twitter.secret,
+              scope: "email",
+              image_size: 'original'
+  end
+
+  if Settings.providers.instagram.key && Settings.providers.instagram.secret
+    provider :instagram,
+              Settings.providers.instagram.key,
+              Settings.providers.instagram.secret
+  end
+
+  if Settings.providers.tumblr.key && Settings.providers.tumblr.secret
+    provider :tumblr,
+              Settings.providers.tumblr.key,
+              Settings.providers.tumblr.secret
+  end
+
+  if Settings.providers.map(&:second).map { |k1| k1.map(&:second).all? }.none? || Settings.providers.developer.allow
     provider :developer,
              fields: [:name, :email],
              uid_field: :email

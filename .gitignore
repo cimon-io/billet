@@ -1,6 +1,6 @@
 .env
 pkg
-.bundle
+/.bundle
 .DS_Store
 TAGS
 REVISION
@@ -10,6 +10,10 @@ REVISION
 .project
 .tasks-cache
 .svn
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 /log/*.log
 /tmp/**/*
 /tmp/restart.txt
