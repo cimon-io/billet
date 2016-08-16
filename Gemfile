@@ -4,6 +4,8 @@ ruby `cat .ruby-version`.strip
 group :development, :test do
   gem 'dotenv-rails'
 end
+gem 'rails_config', '0.4.2'
+gem 'rollbar'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.18'
@@ -13,7 +15,6 @@ gem 'hamlit'
 gem 'paper_trail'
 gem 'simple_form'
 gem 'cancancan'
-gem 'rails_config'
 gem 'mini_magick'
 gem 'jbuilder', '~> 2.5'
 gem 'oj'
