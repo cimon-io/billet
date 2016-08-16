@@ -38,6 +38,12 @@ gem 'sidekiq-unique-jobs'
 gem 'redis-namespace'
 gem 'sinatra', require: false # required for the sidekiq
 
+gem 'omniauth'
+gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
+gem 'omniauth-twitter', github: 'cimon-io/omniauth-twitter'
+gem 'omniauth-instagram', github: 'ropiku/omniauth-instagram'
+gem 'omniauth-tumblr', github: 'jamiew/omniauth-tumblr'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry', require: false
