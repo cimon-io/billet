@@ -1,28 +1,46 @@
 services:
   postgresql:
     from: postgres
-  redis:
-    from: redis
+  cached_postgresql:
+    from: postgres
+    cache:
+      - /var/lib/postgresql/data
   rails:
     from: ruby:2.2.2
     cache:
       - /bundle
+      - /app/public/assets
+      - /app/public/uploads
+    env:
+      - DATABASE_URL=postgres://postgres:mysecretpassword@127.0.0.1:5432/db
     build:
       - apt-get update
       - apt-get install -y libqt4-dev pkg-config
-      - apt-get install -y curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt-dev
-      - apt-get install build-essential
-      - gem install foreman
+      - apt-get install -y nodejs mysql-client postgresql-client sqlite3
+      - apt-get install -y curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev libxml2-dev libxslt-dev
+      - gem install bundler
 
-test: &defaults
+server: &server
+  except: master
   prepare:
-    - bundle install --path /bundle
-    - bin/rake db:create
+    - bundle --version
+    - bundle config --local path /bundle
+    - bundle config
+    - bundle install
+    - bundle exec rake db:create db:migrate db:seed
+    - bundle exec rake assets:precompile
   service: rails
-  dependencies: [postgresql, redis]
+  dependencies: [postgresql]
   folder: /app
-  cmd: bin/rspec
+  cmd: ./bin/rails server -p $PORT
+  port: 80
   env:
-    - RAILS_ENV=test
-    - RACK_ENV=test
-    - DATABASE_URL=postgres://postgres:mysecretpassword@127.0.0.1:5432/db
+    - RAILS_ENV=production
+    - RACK_ENV=production
+    - PORT=80
+
+staging:
+  <<: *server
+  except: []
+  only: master
+  dependencies: [cached_postgresql]

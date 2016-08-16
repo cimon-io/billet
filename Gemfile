@@ -20,9 +20,6 @@ gem 'paper_trail'
 gem 'money-rails'
 gem 'inherited_resources'
 gem 'simple_form', '~> 3.1.0.rc2'
-gem 'postrank-uri'
-gem 'attribute_normalizer', github: 'mdeering/attribute_normalizer'
-gem 'rails-observers'
 gem 'mini_magick'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'glipper', github: 'cimon-io/glipper'
@@ -62,7 +59,6 @@ end
 
 group :development do
   gem 'spring'
-  gem 'thin'
   gem 'parallel_tests'
   gem 'quiet_assets'
   gem 'haml-rails'

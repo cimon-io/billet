@@ -68,7 +68,7 @@ to access the application in development.
 In addition, to run the background jobs process run the following:
 
 ```console
-sidekiq -C config/sidekiq.yml
+./bin/sidekiq -C config/sidekiq.yml
 ```
 
 That's it.
@@ -104,24 +104,3 @@ Config:
   tests
 * We do unit testing with rspec. To run just unit tests run `bin/rake spec`.
   To run a single one, run `bundle exec rspec spec/path/to/spec.rb`.
-* * Parallel tests:
-
-```console
-rake parallel:create # once
-rake parallel:prepare # when you have migrations
-rake parallel:spec # run specs
-rake parallel # you run all tests
-```
-
-## Deploying
-
-We use Capistrano. If you are familiar with it (as you should) all is
-trivial. We also use Capistrano multistaging and the default stage is
-staging.
-
-So the cheatsheet:
-
-```console
-cap staging deploy            # deploy to staging
-cap production deploy         # deploy to live server
-```
