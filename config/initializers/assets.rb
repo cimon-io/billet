@@ -10,5 +10,5 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-config.assets.prefix = ENV.fetch('WEB_ASSETS_DIR', '/web-assets')
-config.asset_host = ENV.fetch('WEB_ASSETS_HOST', ENV.fetch('CIMON_DOMAIN_0', "http://lvh.me:3000"))
+Rails.application.config.assets.prefix = ENV.fetch('WEB_ASSETS_DIR', '/web-assets')
+Rails.application.config.asset_host = ENV.fetch('WEB_ASSETS_HOST', ENV.fetch('CIMON_DOMAIN_0', "http://lvh.me:3000"))
