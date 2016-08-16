@@ -1,6 +1,7 @@
 class NamespaceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('../templates', __FILE__)
 
+  class_option :route, type: 'string', default: nil, desc: 'Make namespace with public access [default module_name]'
   class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
   class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access. \'false\' if no chain begginning.'
 
@@ -16,24 +17,38 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     end.inquiry
 
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
+    @route = options.route == nil ? singular_name : options.route
   end
 
-  def controllers
-    template 'controllers/controller.rb.erb', "app/controllers/#{instance_name}_controller.rb"
-    template 'controllers/application_controller.rb.erb', "app/controllers/#{instance_name}/application_controller.rb"
-    template 'controllers/home_controller.rb.erb', "app/controllers/#{instance_name}/home_controller.rb"
+  def append_gem_dependency
+    gem singular_name, require: singular_name, path: "./apps/#{singular_name}"
   end
 
-  def views
-    template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
+  def append_routes
+    route "mount #{class_name}::Engine => '/#{@route}', as: '#{singular_name}'"
   end
 
-  def routes
-    template 'routes/routes.rb.erb', "config/routes/#{instance_name}_routes.rb"
-    route read_template('routes/main_routes.rb.erb')
+  def generate_app
   end
 
-  def i18n
+  def generate_config
+  end
+
+  def generate_controllers
+    # template 'controllers/controller.rb.erb', "app/controllers/#{instance_name}_controller.rb"
+    # template 'controllers/application_controller.rb.erb', "app/controllers/#{instance_name}/application_controller.rb"
+    # template 'controllers/home_controller.rb.erb', "app/controllers/#{instance_name}/home_controller.rb"
+  end
+
+  def generate_views
+    # template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
+  end
+
+  def generate_routes
+    # template 'routes/routes.rb.erb', "config/routes/#{instance_name}_routes.rb"
+  end
+
+  def generate_i18n
   end
 
   private
