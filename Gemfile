@@ -37,7 +37,7 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'sidekiq-unique-jobs'
 gem 'redis-namespace'
-gem 'sinatra', require: false # required for the sidekiq
+gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
 
 gem 'omniauth'
 gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
@@ -85,3 +85,5 @@ group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'thing', require: 'thing', path: './apps/thing'
