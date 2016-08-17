@@ -40,7 +40,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'lib/module.rb.erb', app_folder(:lib, "#{singular_name}.rb")
   end
 
-  def generate_locales
+  def generate_i18n
     template 'config/locales/module_name.yml.erb', app_folder(:config, :locales, :en, "#{singular_name}.yml")
     template 'config/locales/views.yml.erb', app_folder(:config, :locales, :en, "views.yml")
     template 'config/locales/defaults.yml.erb', app_folder(:config, :locales, :en, "defaults.yml")
@@ -60,10 +60,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_routes
-    # template 'routes/routes.rb.erb', "config/routes/#{instance_name}_routes.rb"
-  end
-
-  def generate_i18n
+    template 'routes/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
   end
 
   private
