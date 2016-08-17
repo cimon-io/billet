@@ -60,7 +60,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_routes
-    template 'routes/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+    template 'config/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
   end
 
   private
