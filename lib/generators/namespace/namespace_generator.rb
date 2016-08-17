@@ -29,7 +29,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_apps_folder
-    directory "/apps"
+    empty_directory "apps"
   end
 
   def generate_app
@@ -59,7 +59,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   private
 
   def app_folder(*agrs)
-    "apps/singular_name/#{agrs.join(?/)}"
+    "apps/#{singular_name}/#{agrs.join(?/)}"
   end
 
   def scaffold_name
