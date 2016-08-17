@@ -28,7 +28,12 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     route "mount #{class_name}::Engine => '/#{@route}', as: '#{singular_name}'"
   end
 
+  def generate_apps_folder
+    directory "/apps"
+  end
+
   def generate_app
+    template 'gemspec.erb', app_folder("#{singular_name}.gemspec")
   end
 
   def generate_config
@@ -52,6 +57,10 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   private
+
+  def app_folder(*agrs)
+    "apps/singular_name/#{agrs.join(?/)}"
+  end
 
   def scaffold_name
     name
