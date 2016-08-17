@@ -1,0 +1,4 @@
+- flash.each do |key, msg|
+  .alert.alert-dismissable{ class: "alert-#{flash_styleclass[key]}" }
+    = flash_button_tag
+    = msg

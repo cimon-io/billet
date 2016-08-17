@@ -1,0 +1,14 @@
+- resource_class.attributes_for_form.each do |attribute_name|
+  %dl
+    %dt=ha resource_class, attribute_name
+    %dd= resource.public_send(attribute_name)
+
+%dl
+  %dt
+    =ha resource_class, :created_at
+    \/
+    =ha resource_class, :updated_at
+  %dd
+    =tw resource, :created_at
+    \/
+    =tw resource, :updated_at

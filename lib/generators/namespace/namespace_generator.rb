@@ -55,7 +55,8 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_views
-    template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
+    directory 'views/application', app_folder(:app, :views, instance_name, :application)
+    template 'views/home/index.html.haml.erb', app_folder(:app, :views, instance_name, :home, "index.html.haml")
   end
 
   def generate_routes

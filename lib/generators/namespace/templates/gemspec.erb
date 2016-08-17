@@ -7,8 +7,8 @@ require "<%= singular_name %>/version"
 Gem::Specification.new do |s|
   s.name        = "<%= class_name %>"
   s.version     = <%= class_name %>::VERSION
-  s.authors     = []
-  s.email       = []
+  s.authors     = [<%= `git log -10 --format='%aN' | sort -u`.strip.split(?\n) %>]
+  s.email       = [<%= `git log -10 --format='%cE' | sort -u`.strip.split(?\n) %>]
   s.homepage    = "http://<%= singular_name %>.dev"
   s.summary     = ""
   s.description = ""

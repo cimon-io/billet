@@ -3,7 +3,7 @@ application:
   logo_text: 'Billet'
 admin:
   name: <%= ENV.fetch('APP_SETTINGS_OWNER_LOGIN', 'admin') %>
-  password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'epyfnm3epyfnm') %>
+  password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'password') %>
   backdoor: '<%= ENV.fetch('APP_SETTINGS_OWNER_BACKDOOR_TOKEN', nil) %>'
 
 remember_token_days: 30

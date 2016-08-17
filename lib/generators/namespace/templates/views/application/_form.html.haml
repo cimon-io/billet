@@ -1,0 +1,5 @@
+= simple_form_for resource do |f|
+  = render 'form_fields', f: f
+  .btn-group
+    = f.submit class: 'btn btn-success'
+    = link_to th('#cancel'), resource.persisted? ? [resource] : collection_url, class: 'btn btn-default'

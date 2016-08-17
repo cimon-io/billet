@@ -1,0 +1,2 @@
+- if can? :destroy, resource
+  = link_to th('#destroy.button'), [resource], method: :delete, class: 'btn btn-danger', data: { confirm: th('#destroy.confirm') }

@@ -1,0 +1,7 @@
+sdgdsfgdsf
+- if collection.any?
+  %ul.nav.nav-pills
+    - collection.each do |resource|
+      %li= display_link_to resource
+- else
+  %i=th "#no_items"

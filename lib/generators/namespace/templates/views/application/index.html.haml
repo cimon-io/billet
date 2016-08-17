@@ -1,0 +1,16 @@
+.page-header
+  = render 'buttons_index', resource_class: resource_class, collection: collection
+  = render 'header_index', resource_collection_name: resource_collection_name, collection: collection
+
+.panel.panel-default
+  .panel-body.table-responsive
+    - if collection.any?
+      %table.table.table-hover
+        %thead
+          = render 'row_header', collection: collection
+        %tbody
+          = render partial: 'row', collection: collection, as: :resource
+    - else
+      %i=th '#no_items'
+  .panel-footer
+    =th '#total', count: collection.count

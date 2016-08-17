@@ -54,6 +54,12 @@ module <%= class_name %>
     <%- end -%>
 
     <%- if @begin_chain -%>
+    def begin_of_association_chain
+      <%= @begin_chain %>
+    end
+    <%- end -%>
+
+    <%- if @begin_chain -%>
     def current_ability
       @current_ability ||= Ability.new(current_user, <%= @begin_chain -%>)
     end
