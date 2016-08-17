@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+    attributes:
+      user:
+        email: Email
+        id: ID
+        created_at: Created
+        updated_at: Updated

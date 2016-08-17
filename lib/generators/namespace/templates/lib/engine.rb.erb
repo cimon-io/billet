@@ -1,0 +1,15 @@
+module <%= class_name %>
+  class Engine < ::Rails::Engine
+    isolate_namespace <%= class_name %>
+
+    initializer "<%= singular_name %>.assets.precompile" do |app|
+      app.config.assets.precompile += %w( <%= singular_name %>.css <%= singular_name %>.js )
+    end
+
+    config.eager_load_paths += [<%= class_name %>::Engine.root.join('app', 'drappers')]
+    config.eager_load_paths += [<%= class_name %>::Engine.root.join('app', 'drappers', 'concerns')]
+
+    config.i18n.load_path += Dir[<%= class_name %>::Engine.root.join('config', 'locales', '**', '*.yml')]
+    config.i18n.load_path += Dir[<%= class_name %>::Engine.root.join('config', 'locales', '**', '*.rb')]
+  end
+end

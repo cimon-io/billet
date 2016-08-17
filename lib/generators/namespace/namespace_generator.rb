@@ -34,9 +34,17 @@ class NamespaceGenerator < Rails::Generators::NamedBase
 
   def generate_app
     template 'gemspec.erb', app_folder("#{singular_name}.gemspec")
+    template 'Gemfile.erb', app_folder("Gemfile")
+    template 'lib/engine.rb.erb', app_folder(:lib, singular_name, "engine.rb")
+    template 'lib/version.rb.erb', app_folder(:lib, singular_name, "version.rb")
+    template 'lib/module.rb.erb', app_folder(:lib, "#{singular_name}.rb")
   end
 
-  def generate_config
+  def generate_locales
+    template 'config/locales/module_name.yml.erb', app_folder(:config, :locales, :en, "#{singular_name}.yml")
+    template 'config/locales/views.yml.erb', app_folder(:config, :locales, :en, "views.yml")
+    template 'config/locales/defaults.yml.erb', app_folder(:config, :locales, :en, "defaults.yml")
+    template 'config/locales/activerecord.yml.erb', app_folder(:config, :locales, :en, "activerecord.yml")
   end
 
   def generate_controllers
