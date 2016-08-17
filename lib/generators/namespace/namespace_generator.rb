@@ -63,6 +63,17 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'config/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
   end
 
+  def generate_drappers
+    template 'drappers/user_drapper.rb.erb', app_folder(:app, :drappers, instance_name, "user_drapper.rb")
+    template 'drappers/application_drapper.rb.erb', app_folder(:app, :drappers, instance_name, "application_drapper.rb")
+
+    template 'drappers/concerns/display_name_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "display_name_glipper.rb")
+    template 'drappers/concerns/image_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "image_glipper.rb")
+    template 'drappers/concerns/money_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "money_glipper.rb")
+    template 'drappers/concerns/timestamp_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "timestamp_glipper.rb")
+    template 'drappers/concerns/type_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "type_glipper.rb")
+  end
+
   private
 
   def app_folder(*agrs)

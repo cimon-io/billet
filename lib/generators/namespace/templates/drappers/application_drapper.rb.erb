@@ -1,0 +1,26 @@
+module <%= class_name %>
+  class ApplicationDrapper < Glipper::Base
+    decorates ActiveRecord::Base, ActiveHash::Base
+
+    class << self
+      def engine_root
+        <%= class_name %>::Engine.root
+      end
+
+      def root_classes
+        [ActiveRecord::Base, ActiveRecord::Relation, Array]
+      end
+    end
+
+    include <%= class_name %>::MoneyGlipper
+    include <%= class_name %>::DisplayNameGlipper
+    include <%= class_name %>::TypeGlipper
+    include <%= class_name %>::ImageGlipper
+    include <%= class_name %>::TimestampGlipper
+
+    def decorate(another_resource)
+      <%= class_name %>::ApplicationDrapper.decorate(another_resource, self.helpers)
+    end
+
+  end
+end
