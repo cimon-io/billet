@@ -48,13 +48,14 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_controllers
-    # template 'controllers/controller.rb.erb', "app/controllers/#{instance_name}_controller.rb"
-    # template 'controllers/application_controller.rb.erb', "app/controllers/#{instance_name}/application_controller.rb"
-    # template 'controllers/home_controller.rb.erb', "app/controllers/#{instance_name}/home_controller.rb"
+    template 'controllers/controller.rb.erb', app_folder(:app, :controllers, "#{instance_name}_controller.rb")
+    template 'controllers/application_controller.rb.erb', app_folder(:app, :controllers, instance_name, "application_controller.rb")
+    template 'controllers/home_controller.rb.erb', app_folder(:app, :controllers, instance_name, "home_controller.rb")
+    template 'controllers/concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
   end
 
   def generate_views
-    # template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
+    template 'views/home/index.html.haml.erb', "app/views/#{instance_name}/home/index.html.haml"
   end
 
   def generate_routes

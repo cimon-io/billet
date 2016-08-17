@@ -1,14 +1,24 @@
 module <%= class_name %>
   class ApplicationController < ::ApplicationController
+    include ::Susanin
+    include ::UnobtrusiveController
+    include ::PageTitle
+    include ::MuteAction
+    include ::StateMachineAbilities
     <%- if @access.fake? -%>
-    inlcude MockAuthorization
+    inlcude ::MockAuthorization
     <%- end -%>
-    prepend_view_path 'app/views/<%= model_path -%>'
+    <%- if @access.cancan? -%>
+    include CanCan::ControllerAdditions
+    <%- end -%>
 
-    susanin(
-      root: ->(r) { [:<%= instance_name %>, r] }
-      # Project: ->(r) { [:<%= instance_name %>, r] }
-    )
+    view_paths = ['app/views/<%= model_path -%>']
+
+    susanin do
+      {
+        # :root => ->(r) { [(signed_in? ? :client : :public), r] }
+      }
+    end
 
     <%- if @access.cancan? && @begin_chain -%>
     before_filter :authorize_<%= @begin_chain -%>!
