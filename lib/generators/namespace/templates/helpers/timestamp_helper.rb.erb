@@ -1,0 +1,10 @@
+module <%= class_name %>
+  module TimestampHelper
+
+    def timestamp(resource, field = :created_at, format=:default)
+      glip(resource).timestamp(field, format, config=current_config)
+    end
+    alias_method :tw, :timestamp
+
+  end
+end

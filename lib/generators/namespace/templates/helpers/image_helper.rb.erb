@@ -1,0 +1,26 @@
+module <%= class_name %>
+  module ImageHelper
+
+    def api_image_urls(resource, *agrs)
+      glip(resource).api_image_urls(*agrs)
+    end
+
+    def display_image(resource, *args)
+      glip(resource).display_image(*args)
+    end
+    alias_method :image_for, :display_image
+
+    def display_asset_url(resource, *args)
+      glip(resource).display_asset_url(*args)
+    end
+
+    def display_data_url(resource, *args)
+      glip(resource).display_data_url(*args)
+    end
+
+    def display_filename(resource, *args)
+      glip(resource).display_filename(*args)
+    end
+
+  end
+end
