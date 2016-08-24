@@ -10,10 +10,6 @@ module <%= class_name %>
     end
     alias_method :echo, :display_name
 
-    def display_company_name(resource)
-      resource.present? ? "@ #{resource}" : ''
-    end
-
     def display_type(resource)
       glip(resource).display_type
     end
