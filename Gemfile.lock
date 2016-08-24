@@ -159,6 +159,8 @@ GEM
       temple (~> 0.7.6)
       thor
       tilt
+    has_secure_token (1.0.0)
+      activerecord (>= 3.0)
     hashie (3.4.4)
     htmlentities (4.3.4)
     i18n (0.7.0)
@@ -414,6 +416,7 @@ DEPENDENCIES
   factory_girl_rails
   glipper!
   hamlit
+  has_secure_token
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

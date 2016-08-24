@@ -7,6 +7,7 @@ admin:
   backdoor: '<%= ENV.fetch('APP_SETTINGS_OWNER_BACKDOOR_TOKEN', nil) %>'
 
 remember_token_days: 30
+per_page: 10
 
 links:
   facebook: 'https://www.facebook.com/billet'

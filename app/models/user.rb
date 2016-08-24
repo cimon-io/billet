@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :company_users, -> { with_default_order }, inverse_of: :user
   has_many :companies, -> { with_default_order }, through: :company_users
+  has_many :user_applications, -> { with_default_order }
   has_many :user_identities, -> { with_default_order } do
     def providers
       self.pluck(:provider).map(&:to_sym)
