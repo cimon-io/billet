@@ -1,9 +1,11 @@
 module <%= class_name %>
   module ImageHelper
 
+    <%- if @api -%>
     def api_image_urls(resource, *agrs)
       glip(resource).api_image_urls(*agrs)
     end
+    <%- end -%>
 
     def display_image(resource, *args)
       glip(resource).display_image(*args)
