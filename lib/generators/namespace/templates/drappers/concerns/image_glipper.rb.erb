@@ -1,6 +1,6 @@
 module <%= class_name %>
   module ImageGlipper
-    FALLBACK_URL = 'fallback/default.svg'
+    FALLBACK_URL = 'fallback/default.png'
 
     def api_image_urls(*args)
       sizes = args.any? ? args : [:normal, :thumb, :small]
