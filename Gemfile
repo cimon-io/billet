@@ -23,6 +23,7 @@ gem 'carrierwave'
 gem 'glipper', github: 'cimon-io/glipper'
 gem 'susanin', github: 'cimon-io/susanin', branch: 'rails-5-support'
 gem 'attribute_normalizer'
+gem 'money-rails'
 
 gem 'premailer-rails'
 gem 'nokogiri'
