@@ -58,15 +58,27 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'controllers/application_controller.rb.erb', app_folder(:app, :controllers, instance_name, "application_controller.rb")
     template 'controllers/home_controller.rb.erb', app_folder(:app, :controllers, instance_name, "home_controller.rb")
     template 'controllers/concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
+
+    template 'controllers_concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
+    template 'controllers_concerns/api_current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
   end
 
   def generate_views
-    directory 'views/application', app_folder(:app, :views, instance_name, :application)
-    template 'views/home/index.html.haml.erb', app_folder(:app, :views, instance_name, :home, "index.html.haml")
+    if @api
+      directory 'api_views', app_folder(:app, :views, instance_name)
+    else
+      directory 'views/application', app_folder(:app, :views, instance_name, :application)
+      template 'views/home/index.html.haml.erb', app_folder(:app, :views, instance_name, :home, "index.html.haml")
+      template 'views/layouts/application.html.haml.erb', app_folder(:app, :views, :layouts, instance_name, "application.html.haml")
+    end
   end
 
   def generate_routes
-    template 'config/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+    if @api
+      template 'config/api_routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+    else
+      template 'config/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+    end
   end
 
   def generate_drappers

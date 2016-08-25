@@ -2,17 +2,21 @@ module <%= class_name %>
   class ApplicationController < ::ApplicationController
     include ::Susanin
     include ::UnobtrusiveController
+    <%- unless @api -%>
     include ::PageTitle
+    <%- end -%>
     include ::MuteAction
     include ::StateMachineAbilities
+    include ::Paginator
+    <%- if @api -%>
+    include ::<%= class_name %>::CurrentIdentity
+    <%- end -%>
     <%- if @access.fake? -%>
     inlcude ::MockAuthorization
     <%- end -%>
     <%- if @access.cancan? -%>
     include CanCan::ControllerAdditions
     <%- end -%>
-
-    view_paths = ['app/views/<%= model_path -%>']
 
     susanin do
       {
