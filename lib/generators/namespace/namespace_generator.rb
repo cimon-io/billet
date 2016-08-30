@@ -57,7 +57,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'controllers/controller.rb.erb', app_folder(:app, :controllers, "#{instance_name}_controller.rb")
     template 'controllers/application_controller.rb.erb', app_folder(:app, :controllers, instance_name, "application_controller.rb")
     template 'controllers/home_controller.rb.erb', app_folder(:app, :controllers, instance_name, "home_controller.rb")
-    template 'controllers/concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
+    template 'controllers/controller_concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
 
     template 'controllers_concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
     template 'controllers_concerns/api_current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
