@@ -1,0 +1,25 @@
+module <%= class_name %>
+  class AuthorizationsController < ::<%= class_name %>Controller
+
+    def index
+    end
+
+    def create
+      user_identity = UserIdentity.find_or_create_with_omniauth(permitted_params, current_user)
+      if signed_in?
+        @app = user_application
+      else
+        sign_in user_identity
+        render 'failure' and return unless signed_in?
+        @app = current_user.user_applications.create
+      end
+    end
+
+    protected
+
+    def permitted_params
+      params
+    end
+
+  end
+end

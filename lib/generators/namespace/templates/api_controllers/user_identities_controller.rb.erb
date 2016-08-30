@@ -1,0 +1,14 @@
+module <%= class_name %>
+  class UserIdentitiesController < ::<%= class_name %>Controller
+    require_login!
+
+    unobtrusive resource_class: UserIdentity,
+                relationship_name: :user_identities
+
+    def destroy
+      destroy_resource
+      respond_with resource
+    end
+
+  end
+end

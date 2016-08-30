@@ -6,7 +6,7 @@
     resources :authorizations, path: 'auth', only: [:index, :create]
 
     resources :projects, only: [:index, :show, :update, :create]
-    resource :profile, only: [:show, :update] do
+    resource :profile, only: [:show] do
       resources :user_identities, only: [:index, :destroy], path: 'identities'
     end
   end

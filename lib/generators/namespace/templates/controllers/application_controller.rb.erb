@@ -18,6 +18,11 @@ module <%= class_name %>
     include CanCan::ControllerAdditions
     <%- end -%>
 
+    <%- if @api -%>
+    respond_to :json
+    self.responder = V1::ApiResponder
+    <%- end -%>
+
     susanin do
       {
         # :root => ->(r) { [(signed_in? ? :client : :public), r] }
@@ -29,6 +34,16 @@ module <%= class_name %>
     <%- end -%>
     <%- if @begin_chain -%>
     helper_method :<%= @begin_chain -%>
+    <%- end -%>
+
+    <%- if @api -%>
+    rescue_from ActiveRecord::RecordNotFound do |exception|
+      render json: { error: exception.message }, status: 404
+    end
+
+    rescue_from ParamsConverter::ParamsConverterError do |exception|
+      render json: { error: exception.message }, status: 401
+    end
     <%- end -%>
 
     <%- if @access.cancan? -%>
