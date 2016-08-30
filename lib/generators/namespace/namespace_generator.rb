@@ -74,9 +74,9 @@ class NamespaceGenerator < Rails::Generators::NamedBase
 
   def generate_routes
     if @api
-      template 'config/api_routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+      template 'config/api_routes.rb.erb', app_folder(:config, "routes.rb")
     else
-      template 'config/routes.rb.erb', app_folder(:config, :routes, "routes.rb")
+      template 'config/routes.rb.erb', app_folder(:config, "routes.rb")
     end
   end
 
