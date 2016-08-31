@@ -20,7 +20,7 @@ module <%= class_name %>
 
     <%- if @api -%>
     respond_to :json
-    self.responder = V1::ApiResponder
+    self.responder = <%= class_name %>::ApiResponder
     <%- end -%>
 
     susanin do

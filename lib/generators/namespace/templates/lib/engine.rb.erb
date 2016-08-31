@@ -8,7 +8,7 @@ module <%= class_name %>
     end
     <%- end -%>
 
-    config.view_paths = [V1::Engine.root.join('app', 'views', '<%= singular_name %>')]
+    config.view_paths = [<%= class_name %>::Engine.root.join('app', 'views', '<%= singular_name %>')]
 
     config.eager_load_paths += [<%= class_name %>::Engine.root.join('app', 'drappers')]
     config.eager_load_paths += [<%= class_name %>::Engine.root.join('app', 'drappers', 'concerns')]
