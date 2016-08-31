@@ -15,4 +15,8 @@ module MockAuthorization
     true
   end
 
+  def signed_in?
+    true
+  end
+
 end
