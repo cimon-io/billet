@@ -11,7 +11,7 @@ module <%= class_name %>
     <%- if @api -%>
     include ::<%= class_name %>::CurrentIdentity
     <%- end -%>
-    <%- if @access.fake? -%>
+    <%- unless @access.cancan? -%>
     inlcude ::MockAuthorization
     <%- end -%>
     <%- if @access.cancan? -%>
