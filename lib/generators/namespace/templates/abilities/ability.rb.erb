@@ -2,8 +2,13 @@ module Client
   class Ability
     include CanCan::Ability
 
-    def initialize(user)
+    def initialize(user, company)
       user ||= User.new # guest user (not logged in)
+
+      raise CanCan::AccessDenied.new("company is nil") if company.nil?
+      raise CanCan::AccessDenied.new("can't login to company #{company.id}") unless company.id == user.company_id
+
+      can :login, Company, id: user.company_id
     end
   end
 end
