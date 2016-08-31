@@ -18,6 +18,8 @@ module <%= class_name %>
     include CanCan::ControllerAdditions
     <%- end -%>
 
+    helper :all
+
     <%- if @api -%>
     respond_to :json
     self.responder = <%= class_name %>::ApiResponder
