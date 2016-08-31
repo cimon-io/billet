@@ -18,6 +18,6 @@
     = render 'analytics'
 
     -# turbolinks doesnt re-read <head> tag, thus we have to update them from <body>
-    %meta{content: timezone_format_to_js(current_config.date_format), name: "date-format"}
+    %meta{content: datetime_format_to_js(current_config.date_format), name: "date-format"}
     %meta{content: datetime_format_to_js(current_config.date_time_format), name: "date-time-format"}
     %meta{content: timezone_format_to_js(current_config.timezone), name: "timezone-format"}

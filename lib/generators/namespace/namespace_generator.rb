@@ -118,7 +118,10 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     directory 'assets/images', app_folder(:app, :assets, :images)
     unless @api
       empty_directory app_folder(:app, :assets, :javascripts)
+      template "assets/javascripts/js.coffee.erb", app_folder(:app, :assets, :javascripts, "#{instance_name}.coffee")
+
       empty_directory app_folder(:app, :assets, :stylesheets)
+      template "assets/stylesheets/css.scss.erb", app_folder(:app, :assets, :stylesheets, "#{instance_name}.scss")
     end
   end
 
