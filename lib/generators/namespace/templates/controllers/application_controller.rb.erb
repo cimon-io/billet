@@ -12,7 +12,7 @@ module <%= class_name %>
     include ::<%= class_name %>::CurrentIdentity
     <%- end -%>
     <%- unless @access.cancan? -%>
-    inlcude ::MockAuthorization
+    include ::MockAuthorization
     <%- end -%>
     <%- if @access.cancan? -%>
     include CanCan::ControllerAdditions
