@@ -59,7 +59,14 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'controllers/home_controller.rb.erb', app_folder(:app, :controllers, instance_name, "home_controller.rb")
 
     template 'controller_concerns/.keep', app_folder(:app, :controllers, :concerns, ".keep")
-    template 'controller_concerns/api_current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
+
+    if @api
+      template 'controller_concerns/api_current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
+    end
+
+    if @access.cancan?
+      template 'controller_concerns/current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
+    end
   end
 
   def generate_views
