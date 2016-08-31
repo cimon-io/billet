@@ -1,0 +1,12 @@
+module <%= class_name %>
+  class PingController < ::<%= class_name %>Controller
+    require_login!(only: :secured)
+
+    def index
+    end
+
+    def secured
+    end
+
+  end
+end

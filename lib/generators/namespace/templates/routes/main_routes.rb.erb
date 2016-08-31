@@ -1,6 +1,0 @@
-scope '/<%= instance_name %>', module: :<%= instance_name %>, as: :<%= instance_name %> do
-  <%- if @access.http? -%>
-    # http_basic_authenticate_with inside controller
-  <%- end -%>
-    concerns :<%= instance_name %>_routes
-  end

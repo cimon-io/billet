@@ -1,1 +1,0 @@
-AuthentificationController = Authentification::ApplicationController

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603105646) do
+ActiveRecord::Schema.define(version: 20150917093439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +19,8 @@ ActiveRecord::Schema.define(version: 20150603105646) do
     t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["name"], name: "index_companies_on_name", unique: true, using: :btree
   end
-
-  add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
 
   create_table "company_users", force: :cascade do |t|
     t.integer  "user_id"
@@ -36,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150603105646) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["token"], name: "index_user_applications_on_token", unique: true, using: :btree
   end
 
   create_table "user_identities", force: :cascade do |t|
@@ -63,8 +69,7 @@ ActiveRecord::Schema.define(version: 20150603105646) do
     t.string   "whodunnit"
     t.text     "object"
     t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
   end
-
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end

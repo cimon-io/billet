@@ -1,0 +1,13 @@
+<%= class_name %>::Engine.routes.draw do
+  constraints ->(req) { req.format == :json } do
+    get "/ping" => "ping#index"
+    get "/ping/secured" => "ping#secured"
+
+    resources :authorizations, path: 'auth', only: [:index, :create]
+
+    resources :projects, only: [:index, :show, :update, :create]
+    resource :profile, only: [:show] do
+      resources :user_identities, only: [:index, :destroy], path: 'identities'
+    end
+  end
+end

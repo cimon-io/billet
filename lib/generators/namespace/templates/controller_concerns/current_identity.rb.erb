@@ -1,0 +1,75 @@
+module <%= class_name %>
+  module CurrentIdentity
+    extend ActiveSupport::Concern
+    HELPER_METHODS = [
+      :url_after_create,
+      :url_after_destroy,
+      :url_after_confirmation,
+      :provider_provided?,
+      :current_ability,
+      :current_config,
+      :current_user,
+      :signed_in?,
+      :user_active?,
+      :signed_out?
+    ]
+
+    included do
+      helper_method(*HELPER_METHODS)
+
+      rescue_from CanCan::AccessDenied do |exception|
+        redirect_to main_app.root_url, :alert => exception.message
+      end
+
+    end
+
+    def sign_out
+      session[:sign_out] = true
+    end
+
+    def provider_provided?(provider)
+      signed_in? && current_user.user_identities.provider_exists?(provider)
+    end
+
+    def current_ability
+      @current_ability ||= <%= class_name %>::Ability.new(current_user)
+    end
+
+    def current_config
+      @current_config ||= ::Settings.default_user_config
+    end
+
+    def current_user
+      authenticator['current_user']
+    end
+
+    def signed_in?
+      authenticator['signed_in?']
+    end
+
+    def user_active?
+      authenticator['user_active?']
+    end
+
+    def signed_out?
+      authenticator['signed_out?']
+    end
+
+    def url_after_create
+      auth_in_url
+    end
+
+    def url_after_destroy
+      root_url
+    end
+
+    def url_after_confirmation
+      root_url
+    end
+
+    private def authenticator
+      @authenticator ||= request.env.fetch('authenticator', {})
+    end
+
+  end
+end

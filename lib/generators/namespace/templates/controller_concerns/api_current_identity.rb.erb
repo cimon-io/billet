@@ -1,0 +1,69 @@
+module <%= class_name %>
+  module CurrentIdentity
+    extend ActiveSupport::Concern
+
+    included do
+      helper_method :current_user, :signed_in?, :current_config
+
+      <%- if @access.cancan? -%>
+      rescue_from CanCan::AccessDenied do |exception|
+        render json: { error: exception.message }, status: 401
+      end
+      <%- end -%>
+    end
+
+    module ClassMethods
+      <%- if @access.cancan? -%>
+      def require_login!(options={}, &block)
+        block ||= Proc.new {
+          authorize!(:secured, :all)
+          authorize!(:anything, :all)
+        }
+        before_action(options, &block)
+        define_method(:begin_of_association_chain) { current_user }
+      end
+      <%- end -%>
+    end
+
+    protected
+
+    def current_user
+      return @user if @user
+      return nil unless header_token.present?
+      @user = user_application.try(:user)
+    end
+
+    def current_ability
+      @current_ability ||= <%= class_name %>::Ability.new(current_user)
+    end
+
+    def user_application
+      UserApplication.find_by!(token: header_token)
+    rescue ActiveRecord::RecordNotFound
+      nil
+    end
+
+    def sign_in(user_identity)
+      if user_identity.valid? && user_identity.user
+        @user = user_identity.user
+      end
+    end
+
+    def signed_in?
+      current_user.present?
+    end
+
+    def header_key
+      settings.header_key
+    end
+
+    def header_token
+      request.headers[header_key] || params[header_key]
+    end
+
+    def current_config
+      @current_config ||= ::Settings.default_user_config
+    end
+
+  end
+end

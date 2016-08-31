@@ -1,4 +1,4 @@
-class CompanyUser < ActiveRecord::Base
+class CompanyUser < ApplicationRecord
   has_paper_trail
 
   belongs_to :user, inverse_of: :company_users

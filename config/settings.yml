@@ -3,9 +3,11 @@ application:
   logo_text: 'Billet'
 admin:
   name: <%= ENV.fetch('APP_SETTINGS_OWNER_LOGIN', 'admin') %>
-  password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'epyfnm3epyfnm') %>
+  password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'password') %>
+  backdoor: '<%= ENV.fetch('APP_SETTINGS_OWNER_BACKDOOR_TOKEN', nil) %>'
 
 remember_token_days: 30
+per_page: 10
 
 links:
   facebook: 'https://www.facebook.com/billet'
@@ -14,13 +16,22 @@ links:
 
 default_user_config:
   date_format: '%d/%m/%Y'
-  full_date_format: '%d/%m/%Y %H:%I'
+  date_time_format: '%d/%m/%Y %H:%M'
+  timezone: 'UTC'
   percentage_format: "%n %"
 
 providers:
-  github:
-    key: <%= ENV.fetch('GITHUB_ID', nil) %>
-    secret: <%= ENV.fetch('GITHUB_SECRET', nil) %>
+  developer:
+    allow: <%= ENV.fetch('DEVELOPER_PROVIDER', '0').to_i == 1 %>
   facebook:
     key: <%= ENV.fetch('FACEBOOK_ID', nil) %>
     secret: <%= ENV.fetch('FACEBOOK_SECRET', nil) %>
+  twitter:
+    key: <%= ENV.fetch('TWITTER_ID', nil) %>
+    secret: <%= ENV.fetch('TWITTER_SECRET', nil) %>
+  instagram:
+    key: <%= ENV.fetch('INSTAGRAM_ID', nil) %>
+    secret: <%= ENV.fetch('INSTAGRAM_SECRET', nil) %>
+  tumblr:
+    key: <%= ENV.fetch('TUMBLR_ID', nil) %>
+    secret: <%= ENV.fetch('TUMBLR_SECRET', nil) %>

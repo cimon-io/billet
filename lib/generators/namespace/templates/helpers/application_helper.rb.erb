@@ -1,0 +1,27 @@
+module <%= class_name %>
+  module ApplicationHelper
+
+    def dom_id(*args)
+      if args.count <= 2 && args.first.respond_to?(:to_key)
+        super
+      else
+        args.map do |a|
+          if a.respond_to?(:to_sym)
+            a.to_sym
+          else
+            a.object_id
+          end
+        end.join('-')
+      end
+    end
+
+    def css_id(*args)
+      "##{dom_id(*args)}"
+    end
+
+    def collection_class(resource_class)
+      "#{resource_class.model_name.plural}-list"
+    end
+
+  end
+end

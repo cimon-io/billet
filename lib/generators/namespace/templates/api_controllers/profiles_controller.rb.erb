@@ -1,0 +1,14 @@
+module <%= class_name %>
+  class ProfilesController < ::<%= class_name %>Controller
+    require_login!
+    before_filter(only: :show) { authorize!(:read, resource) }
+    before_filter(only: :update) { authorize!(:update, resource) }
+
+    unobtrusive resource_class: User,
+                resource: -> { current_user },
+                relationship_name: :users
+    def show
+    end
+
+  end
+end

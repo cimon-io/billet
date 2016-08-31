@@ -1,0 +1,35 @@
+module <%= class_name %>
+  class ProjectsController < ::<%= class_name %>Controller
+    require_login!
+    before_filter(only: :show) { authorize!(:read, resource) }
+    before_filter(only: :update) { authorize!(:update, resource) }
+    before_filter(only: :index) { authorize!(:read, resource_class) }
+    before_filter(only: :create) { authorize!(:create, resource_class) }
+
+    unobtrusive finder_method: :find_by_slug!,
+                resource_class: Project,
+                relationship_name: :projects,
+                permitted_params_key: :project,
+                permitted_params_create_value: [:name],
+                permitted_params_update_value: [:name]
+    paginate!
+
+    def index
+    end
+
+    def show
+    end
+
+    def create
+      build_resource
+      update_resource
+      respond_with resource
+    end
+
+    def update
+      update_resource
+      respond_with resource
+    end
+
+  end
+end

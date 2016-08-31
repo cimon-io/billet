@@ -1,0 +1,10 @@
+module <%= class_name %>
+  class UserDrapper < ApplicationDrapper
+    decorates User
+
+    def blank_display_name_assumptions
+      %w{full_name nickname name email_name slug}
+    end
+
+  end
+end

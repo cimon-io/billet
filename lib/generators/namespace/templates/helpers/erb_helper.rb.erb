@@ -1,0 +1,9 @@
+module <%= class_name %>
+  module ErbHelper
+
+    def e(*args, &block)
+      escape_javascript *args, &block
+    end
+
+  end
+end

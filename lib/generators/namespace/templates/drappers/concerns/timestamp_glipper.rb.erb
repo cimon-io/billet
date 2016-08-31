@@ -1,0 +1,21 @@
+module <%= class_name %>
+  module TimestampGlipper
+
+    def timestamp(field=:created_at, format=:default, config=Veil.config)
+      h.content_tag :span, get_date(field),
+        data: { :toggle => "tooltip", :placement => "top", :timestamp => get_date(field), 'timestamp-format' => timestamp_format(field, format) },
+        class: 'timestamp',
+        title: get_date(field)
+    end
+
+    # possible values: fromNow, default
+    private def timestamp_format(field, format)
+      format
+    end
+
+    private def get_date(field)
+      o.public_send(field).try(:iso8601) || '-'
+    end
+
+  end
+end
