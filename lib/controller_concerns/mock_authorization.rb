@@ -2,7 +2,7 @@ module MockAuthorization
   extend ActiveSupport::Concern
 
   included do
-    helper_method :can?
+    helper_method :can?, :signed_in?
   end
 
   protected
