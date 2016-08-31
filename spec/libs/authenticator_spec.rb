@@ -6,7 +6,7 @@ RSpec.describe Authenticator, type: :middleware do
     let(:middleware) { Authenticator::Middleware.new(middleware_app) }
     before { expect_any_instance_of(Authenticator::Streak).to receive(:call).once }
 
-    it { expect{ middleware.call(mock_request) }.to_not raise_error }
+    xit { expect{ middleware.call(mock_request) }.to_not raise_error }
   end
 
   describe Authenticator::Streak do
