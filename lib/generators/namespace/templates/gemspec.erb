@@ -5,7 +5,7 @@ require "<%= singular_name %>/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "<%= class_name %>"
+  s.name        = "<%= singular_name %>"
   s.version     = <%= class_name %>::VERSION
   s.authors     = <%= `git log -10 --format='%aN' | sort -u`.strip.split(?\n).inspect %>
   s.email       = <%= `git log -10 --format='%cE' | sort -u`.strip.split(?\n).inspect %>
