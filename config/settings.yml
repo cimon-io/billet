@@ -16,7 +16,8 @@ links:
 
 default_user_config:
   date_format: '%d/%m/%Y'
-  full_date_format: '%d/%m/%Y %H:%I'
+  date_time_format: '%d/%m/%Y %H:%M'
+  timezone: 'UTC'
   percentage_format: "%n %"
 
 providers:

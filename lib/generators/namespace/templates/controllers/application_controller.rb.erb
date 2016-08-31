@@ -19,6 +19,7 @@ module <%= class_name %>
     <%- end -%>
 
     helper :all
+    helper_method :current_config
 
     <%- if @api -%>
     respond_to :json
@@ -58,9 +59,7 @@ module <%= class_name %>
     http_basic_authenticate_with name: Settings.admin.name, password: Settings.admin.password
     <%- end -%>
 
-    <%- if @begin_chain || (@access.cancan? && @begin_chain) -%>
     protected
-    <%- end -%>
 
     <%- if @begin_chain -%>
     def title_prefix
@@ -91,5 +90,10 @@ module <%= class_name %>
       authorize! :login, <%= @begin_chain %>
     end
     <%- end -%>
+
+    def current_config
+      Settings.default_user_config
+    end
+
   end
 end
