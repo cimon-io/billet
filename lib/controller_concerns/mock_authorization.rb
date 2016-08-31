@@ -3,7 +3,6 @@ module MockAuthorization
 
   included do
     helper_method :can?
-    hide_action :can?
   end
 
   protected

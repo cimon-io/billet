@@ -3,7 +3,6 @@ module PageTitle
 
   included do
     helper_method :custom_page_title
-    hide_action :custom_page_title
   end
 
   module ClassMethods
