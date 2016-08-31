@@ -53,6 +53,10 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'config/locales/activerecord.yml.erb', app_folder(:config, :locales, :en, "activerecord.yml")
   end
 
+  def generate_ability
+    template 'abilities/ability.rb.erb', app_folder(:app, :abilities, singular_name, "ability.rb")
+  end
+
   def generate_controllers
     template 'controllers/controller.rb.erb', app_folder(:app, :controllers, "#{instance_name}_controller.rb")
     template 'controllers/application_controller.rb.erb', app_folder(:app, :controllers, instance_name, "application_controller.rb")

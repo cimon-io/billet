@@ -16,10 +16,10 @@ module <%= class_name %>
     <%- end -%>
     <%- if @access.cancan? -%>
     include CanCan::ControllerAdditions
+    include <%= class_name %>::CurrentIdentity
     <%- end -%>
 
     helper :all
-    helper_method :current_config
 
     <%- if @api -%>
     respond_to :json
@@ -52,7 +52,7 @@ module <%= class_name %>
     <%- if @access.cancan? -%>
     check_authorization
     rescue_from CanCan::AccessDenied do |exception|
-      redirect_to destroy_user_session_url, :alert => exception.message
+      redirect_to main_app.root_url, :alert => exception.message
     end
     <%- end -%>
     <%- if @access.http? -%>
@@ -81,7 +81,7 @@ module <%= class_name %>
 
     <%- if @begin_chain -%>
     def current_ability
-      @current_ability ||= Ability.new(current_user, <%= @begin_chain -%>)
+      @current_ability ||= <%= class_name %>::Ability.new(current_user, <%= @begin_chain -%>)
     end
     <%- end -%>
 

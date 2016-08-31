@@ -15,11 +15,10 @@ module <%= class_name %>
     ]
 
     included do
-      hide_action(:sign_out, *HELPER_METHODS)
       helper_method(*HELPER_METHODS)
 
       rescue_from CanCan::AccessDenied do |exception|
-        redirect_to auth.url_for(:in), :alert => exception.message
+        redirect_to main_app.root_url, :alert => exception.message
       end
 
     end

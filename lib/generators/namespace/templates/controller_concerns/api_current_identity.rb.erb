@@ -3,7 +3,7 @@ module <%= class_name %>
     extend ActiveSupport::Concern
 
     included do
-      helper_method :current_user, :signed_in?
+      helper_method :current_user, :signed_in?, :current_config
 
       <%- if @access.cancan? -%>
       rescue_from CanCan::AccessDenied do |exception|
@@ -59,6 +59,10 @@ module <%= class_name %>
 
     def header_token
       request.headers[header_key] || params[header_key]
+    end
+
+    def current_config
+      @current_config ||= ::Settings.default_user_config
     end
 
   end
