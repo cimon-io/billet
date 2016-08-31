@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/cimon-io/datetime_format_converter.git
+  revision: b7a0656d2ac53281a8c02fd320ff2b8ee8adce5b
+  specs:
+    datetime_format_converter (0.0.4)
+
+GIT
   remote: git://github.com/cimon-io/glipper.git
   revision: 828ef2fbc285bbcee3549b06d569d8864fc5643c
   specs:
@@ -99,6 +105,11 @@ GEM
     addressable (2.4.0)
     arel (7.1.1)
     attribute_normalizer (1.2.0)
+    autoprefixer-rails (6.4.0.3)
+      execjs
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
     cancancan (1.15.0)
@@ -405,12 +416,14 @@ PLATFORMS
 
 DEPENDENCIES
   attribute_normalizer
+  bootstrap-sass
   cancancan
   capybara
   capybara-screenshot
   carrierwave
   coffee-rails (~> 4.2)
   database_cleaner
+  datetime_format_converter!
   dotenv-rails
   email_spec
   factory_girl_rails
