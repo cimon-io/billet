@@ -69,7 +69,7 @@ module <%= class_name %>
 
     <%- if @begin_chain -%>
     def <%= @begin_chain %>
-      @<%= @begin_chain %> ||= current_user.company
+      @<%= @begin_chain %> ||= current_user.try(:company)
     end
     <%- end -%>
 
