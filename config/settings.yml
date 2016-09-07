@@ -4,7 +4,7 @@ application:
 admin:
   name: <%= ENV.fetch('APP_SETTINGS_OWNER_LOGIN', 'admin') %>
   password: <%= ENV.fetch('APP_SETTINGS_OWNER_PASSWORD', 'password') %>
-  backdoor: '<%= ENV.fetch('APP_SETTINGS_OWNER_BACKDOOR_TOKEN', nil) %>'
+  backdoor: <%= ENV.fetch('APP_SETTINGS_OWNER_BACKDOOR_TOKEN', nil) %>
 
 remember_token_days: 30
 per_page: 10
