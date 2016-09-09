@@ -27,9 +27,9 @@ module <%= class_name %>
     <%- end -%>
 
     susanin do
-      {
-        # :root => ->(r) { [(signed_in? ? :client : :public), r] }
-      }
+      [
+        # [:root, ->(r) { [(signed_in? ? :client : :public), r] }]
+      ]
     end
 
     <%- if @access.cancan? && @begin_chain -%>
