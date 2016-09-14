@@ -61,3 +61,4 @@ class UserIdentity < ApplicationRecord
   private def profile_url_method_name
     "#{provider}_profile_url"
   end
+end
