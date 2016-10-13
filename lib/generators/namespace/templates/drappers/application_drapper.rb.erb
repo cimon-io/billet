@@ -1,6 +1,6 @@
 module <%= class_name %>
   class ApplicationDrapper < Glipper::Base
-    decorates ActiveRecord::Base, ActiveHash::Base
+    decorates ActiveRecord::Base
 
     class << self
       def engine_root
