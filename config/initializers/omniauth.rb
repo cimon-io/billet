@@ -13,7 +13,8 @@ module OmniAuth
       @@providers << klass
       provider_without_remembering(klass, *args, &block)
     end
-    alias_method_chain :provider, :remembering
+    alias :provider_without_remembering :provider
+    alias :provider :provider_with_remembering
 
   end
 end
