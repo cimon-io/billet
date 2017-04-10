@@ -47,6 +47,7 @@ $ brew bundle
 Run
 
 ```console
+$ gem update --system 2.6.11
 $ bundle
 $ rbenv rehash
 $ bin/rake db:create db:migrate db:seed
