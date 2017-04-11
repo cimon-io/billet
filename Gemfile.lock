@@ -28,8 +28,7 @@ GIT
 
 GIT
   remote: git://github.com/cimon-io/rails_config.git
-  revision: c1ebb9bbac0365014b361aca14c11f38e18a48d8
-  branch: patch-2
+  revision: a5520399c5ffd249cb4d26769a2cc4da16cc9ddc
   specs:
     rails_config (0.4.2)
       activesupport (>= 3.0)
@@ -251,7 +250,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    paper_trail (7.0.0)
+    paper_trail (7.0.1)
       activerecord (>= 4.0, < 5.2)
       request_store (~> 1.1)
     pg (0.20.0)
@@ -496,4 +495,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.13.7
+   1.14.6

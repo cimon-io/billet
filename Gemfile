@@ -4,7 +4,7 @@ ruby `cat .ruby-version`.strip
 group :development, :test do
   gem 'dotenv-rails'
 end
-gem 'rails_config', github: 'cimon-io/rails_config', branch: 'patch-2'
+gem 'rails_config', github: 'cimon-io/rails_config' #rails 5.1 support
 gem 'rollbar'
 
 gem 'rails', '= 5.1.0.rc1'
