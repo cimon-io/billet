@@ -1,25 +1,25 @@
 GIT
-  remote: git://github.com/DatabaseCleaner/database_cleaner.git
+  remote: https://github.com/DatabaseCleaner/database_cleaner.git
   revision: f30d5be108aa5edadfc16c480be3ed23cfbe0e05
   branch: master
   specs:
     database_cleaner (1.6.0)
 
 GIT
-  remote: git://github.com/cimon-io/datetime_format_converter.git
+  remote: https://github.com/cimon-io/datetime_format_converter.git
   revision: b7a0656d2ac53281a8c02fd320ff2b8ee8adce5b
   specs:
     datetime_format_converter (0.0.4)
 
 GIT
-  remote: git://github.com/cimon-io/glipper.git
+  remote: https://github.com/cimon-io/glipper.git
   revision: 828ef2fbc285bbcee3549b06d569d8864fc5643c
   specs:
     glipper (0.0.1)
       actionpack (>= 4.1.1, < 5.1)
 
 GIT
-  remote: git://github.com/cimon-io/omniauth-twitter.git
+  remote: https://github.com/cimon-io/omniauth-twitter.git
   revision: cc19ee89d29ff19f9e74343a4508bc1800c0bbd9
   specs:
     omniauth-twitter (1.2.1)
@@ -27,21 +27,21 @@ GIT
       omniauth-oauth (~> 1.1)
 
 GIT
-  remote: git://github.com/cimon-io/rails_config.git
+  remote: https://github.com/cimon-io/rails_config.git
   revision: a5520399c5ffd249cb4d26769a2cc4da16cc9ddc
   specs:
     rails_config (0.4.2)
       activesupport (>= 3.0)
 
 GIT
-  remote: git://github.com/cimon-io/susanin.git
+  remote: https://github.com/cimon-io/susanin.git
   revision: c69518ce86e47509612f94b2e27e720320922c2a
   specs:
     susanin (0.1.1)
       actionpack (>= 5.0.0, < 5.1)
 
 GIT
-  remote: git://github.com/jamiew/omniauth-tumblr.git
+  remote: https://github.com/jamiew/omniauth-tumblr.git
   revision: df06d43eb547bda43c4fd19c068e959ba5922a94
   specs:
     omniauth-tumblr (1.2)
@@ -49,14 +49,14 @@ GIT
       omniauth-oauth (~> 1.0)
 
 GIT
-  remote: git://github.com/mkdynamic/omniauth-facebook.git
+  remote: https://github.com/mkdynamic/omniauth-facebook.git
   revision: 19634473820d0190a5112f6b42266ef98c8ee276
   specs:
     omniauth-facebook (4.0.0)
       omniauth-oauth2 (~> 1.2)
 
 GIT
-  remote: git://github.com/ropiku/omniauth-instagram.git
+  remote: https://github.com/ropiku/omniauth-instagram.git
   revision: 9f88ca3cccd02e88d3117520a9ff8937fb020b1b
   specs:
     omniauth-instagram (1.0.2)
@@ -64,7 +64,7 @@ GIT
       omniauth-oauth2 (~> 1)
 
 GIT
-  remote: git://github.com/sinatra/sinatra.git
+  remote: https://github.com/sinatra/sinatra.git
   revision: 8fdd35c731ec6915bae393c6383b2357450665f0
   specs:
     rack-protection (2.0.0.rc2)
