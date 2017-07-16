@@ -1,4 +1,4 @@
-class UserApplications < ActiveRecord::Migration
+class UserApplications < ActiveRecord::Migration[5.1]
   def change
     create_table 'user_applications' do |t|
       t.belongs_to  :user

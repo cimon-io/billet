@@ -16,60 +16,65 @@ ActiveRecord::Schema.define(version: 20150917093439) do
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["name"], name: "index_companies_on_name", unique: true, using: :btree
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
   create_table "company_users", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "company_id"
+    t.bigint "user_id"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_users_on_company_id"
+    t.index ["user_id"], name: "index_company_users_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.integer  "company_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name", null: false
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_projects_on_company_id"
   end
 
   create_table "user_applications", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "token",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["token"], name: "index_user_applications_on_token", unique: true, using: :btree
+    t.bigint "user_id"
+    t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["token"], name: "index_user_applications_on_token", unique: true
+    t.index ["user_id"], name: "index_user_applications_on_user_id"
   end
 
   create_table "user_identities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "token"
-    t.string   "email"
-    t.string   "avatar_url"
-    t.string   "name"
-    t.string   "uid",        null: false
-    t.string   "provider",   null: false
+    t.bigint "user_id"
+    t.string "token"
+    t.string "email"
+    t.string "avatar_url"
+    t.string "name"
+    t.string "uid", null: false
+    t.string "provider", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_identities_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "remember_token", limit: 128, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "remember_token", limit: 128, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
   create_table "versions", force: :cascade do |t|
-    t.string   "item_type",  null: false
-    t.integer  "item_id",    null: false
-    t.string   "event",      null: false
-    t.string   "whodunnit"
-    t.text     "object"
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object"
     t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
 end

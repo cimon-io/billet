@@ -4,10 +4,10 @@ ruby `cat .ruby-version`.strip
 group :development, :test do
   gem 'dotenv-rails'
 end
-gem 'rails_config', '0.4.2'
+gem 'rails_config', github: 'cimon-io/rails_config' #rails 5.1 support
 gem 'rollbar'
 
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '= 5.1.0.rc1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 
@@ -25,7 +25,7 @@ gem 'oj'
 gem 'oj_mimic_json'
 gem 'hamlit'
 gem 'glipper', github: 'cimon-io/glipper'
-gem 'susanin', github: 'cimon-io/susanin', branch: 'rails-5-support'
+gem 'susanin', github: 'cimon-io/susanin'
 gem 'simple_form'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 
@@ -34,6 +34,7 @@ gem 'nokogiri'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
+gem 'therubyracer', '>= 0.12.3', require: 'v8'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
@@ -61,7 +62,7 @@ group :development, :test do
   gem 'rspec-its'
   gem 'spring-commands-rspec'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner', branch: 'master'
 end
 
 group :development do
@@ -86,7 +87,6 @@ end
 
 group :production do
   gem 'rails_12factor'
-  gem 'therubyracer', require: 'v8'
   gem 'newrelic_rpm'
 end
 
