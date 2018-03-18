@@ -8,7 +8,7 @@ end
 gem 'config'
 gem 'rollbar'
 
-gem 'rails', '= 5.1.0.rc1'
+gem 'rails', '= 5.1.5'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 
