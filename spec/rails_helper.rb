@@ -61,7 +61,7 @@ RSpec.configure do |config|
     Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
   end
 
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   config.include AttributeNormalizer::RSpecMatcher
 
 end
