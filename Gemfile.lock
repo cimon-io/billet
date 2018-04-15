@@ -34,6 +34,13 @@ GIT
       actionpack (>= 5.0.0, < 6.0)
 
 GIT
+  remote: https://github.com/cimon-io/unobtrusive_resources.git
+  revision: 78b4ad6b68bcdd7f08a420ad35eaa3f271e367b3
+  specs:
+    unobtrusive_resources (0.1.0)
+      activesupport (>= 3.0, < 6.0)
+
+GIT
   remote: https://github.com/jamiew/omniauth-tumblr.git
   revision: df06d43eb547bda43c4fd19c068e959ba5922a94
   specs:
@@ -521,6 +528,7 @@ DEPENDENCIES
   timecop
   turbolinks (~> 5.1)
   uglifier (~> 4.1)
+  unobtrusive_resources!
   web-console
 
 RUBY VERSION
