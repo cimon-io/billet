@@ -1,7 +1,6 @@
 module <%= class_name %>
   class ApplicationController < ::ApplicationController
     include ::Susanin
-    include ::UnobtrusiveController
     <%- unless @api -%>
     include ::PageTitle
     <%- end -%>

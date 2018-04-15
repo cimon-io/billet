@@ -27,6 +27,7 @@ gem 'oj_mimic_json', '~> 1.0'
 gem 'hamlit', '~> 2.8'
 gem 'glipper', github: 'cimon-io/glipper'
 gem 'susanin', github: 'cimon-io/susanin'
+gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
 gem 'simple_form', '~> 4.0'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 
