@@ -35,6 +35,7 @@ gem 'nokogiri', '~> 1.8'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '~> 4.1'
+gem 'webpacker'
 gem 'therubyracer', '>= 0.12.3', require: 'v8'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails', '~> 4.3'
