@@ -63,7 +63,6 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'rspec-its'
-  gem 'spring-commands-rspec'
   gem 'factory_bot_rails', '~> 4.8'
   gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner', branch: 'master'
 end

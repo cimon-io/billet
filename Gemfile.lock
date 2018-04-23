@@ -427,10 +427,6 @@ GEM
     site_prism (2.11)
       addressable (~> 2.4)
       capybara (~> 2.7)
-    spring (2.0.2)
-      activesupport (>= 4.2)
-    spring-commands-rspec (1.0.4)
-      spring (>= 0.9.1)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -528,7 +524,6 @@ DEPENDENCIES
   simplecov
   sinatra!
   site_prism
-  spring-commands-rspec
   susanin!
   therubyracer (>= 0.12.3)
   timecop
