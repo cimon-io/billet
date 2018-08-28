@@ -1,0 +1,2 @@
+import './turbolinks'
+import './components'
