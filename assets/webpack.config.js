@@ -53,16 +53,15 @@ module.exports = (env, options) => {
                 ["transform-class-properties", { "spec": true }]
               ],
               presets: [
-                'env',
                 'react',
-                {
+                ['env', {
                   "modules": false,
                   "targets": {
                     "browsers": "> 1%",
                     "uglify": true
                   },
                   "useBuiltIns": true
-                }
+                }]
               ],
               cacheDirectory: true
             }
