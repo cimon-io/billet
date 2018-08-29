@@ -18,7 +18,6 @@ module OmniAuth
   end
 end
 
-
 Rails.application.config.middleware.insert_before Authenticator::Middleware, OmniAuth::Builder do
   if Settings.providers.facebook.key && Settings.providers.facebook.secret
     provider :facebook,

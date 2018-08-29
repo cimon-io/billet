@@ -80,7 +80,6 @@ module Authenticator
       @find_remembered_user ||= User.where(remember_token: cookies[:remember_token][:value]).first if cookies[:remember_token]
     end
 
-
     private def set_session_id_for(user)
       if user.nil?
         session.delete(:user_id)
