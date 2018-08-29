@@ -103,23 +103,23 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_helpers
-    template "helpers/application_helper.rb.erb", app_folder(:app, :helpers, instance_name,"application_helper.rb")
-    template "helpers/boolean_helper.rb.erb", app_folder(:app, :helpers, instance_name,"boolean_helper.rb")
-    template "helpers/datalink_helper.rb.erb", app_folder(:app, :helpers, instance_name,"datalink_helper.rb")
-    template "helpers/display_name_helper.rb.erb", app_folder(:app, :helpers, instance_name,"display_name_helper.rb")
-    template "helpers/erb_helper.rb.erb", app_folder(:app, :helpers, instance_name,"erb_helper.rb")
-    template "helpers/glipper_helper.rb.erb", app_folder(:app, :helpers, instance_name,"glipper_helper.rb")
-    template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name,"human_attribute_helper.rb")
-    template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name,"i18n_helper.rb")
-    template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name,"image_helper.rb")
-    template "helpers/money_helper.rb.erb", app_folder(:app, :helpers, instance_name,"money_helper.rb")
-    template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name,"number_to_percentage_helper.rb")
-    template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name,"sentence_helper.rb")
-    template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name,"timestamp_helper.rb")
+    template "helpers/application_helper.rb.erb", app_folder(:app, :helpers, instance_name, "application_helper.rb")
+    template "helpers/boolean_helper.rb.erb", app_folder(:app, :helpers, instance_name, "boolean_helper.rb")
+    template "helpers/datalink_helper.rb.erb", app_folder(:app, :helpers, instance_name, "datalink_helper.rb")
+    template "helpers/display_name_helper.rb.erb", app_folder(:app, :helpers, instance_name, "display_name_helper.rb")
+    template "helpers/erb_helper.rb.erb", app_folder(:app, :helpers, instance_name, "erb_helper.rb")
+    template "helpers/glipper_helper.rb.erb", app_folder(:app, :helpers, instance_name, "glipper_helper.rb")
+    template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name, "human_attribute_helper.rb")
+    template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name, "i18n_helper.rb")
+    template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name, "image_helper.rb")
+    template "helpers/money_helper.rb.erb", app_folder(:app, :helpers, instance_name, "money_helper.rb")
+    template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name, "number_to_percentage_helper.rb")
+    template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name, "sentence_helper.rb")
+    template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name, "timestamp_helper.rb")
 
     unless @api
-      template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name,"title_helper.rb")
-      template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name,"flash_helper.rb")
+      template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name, "title_helper.rb")
+      template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name, "flash_helper.rb")
     end
   end
 
