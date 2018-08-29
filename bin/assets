@@ -6,7 +6,6 @@ ENV["NODE_ENV"]  ||= ENV["NODE_ENV"] || "development"
 
 require 'pathname'
 require 'fileutils'
-include FileUtils
 
 APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
 ASSETS_PATH = Pathname.new File.expand_path('./assets', APP_ROOT)
@@ -21,7 +20,7 @@ end
 MODE = ARGV[0] == 'compile' ? :compile : :server
 PARAMS = (ARGV[1..-1] || [])
 
-chdir ASSETS_PATH do
+FileUtils.chdir ASSETS_PATH do
   puts '== Installing dependencies =='
   system! 'yarn install'
 

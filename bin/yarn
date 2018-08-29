@@ -3,7 +3,6 @@
 
 require 'pathname'
 require 'fileutils'
-include FileUtils
 
 APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
 ASSETS_PATH = Pathname.new File.expand_path('./assets', APP_ROOT)
@@ -12,6 +11,6 @@ def system!(*args)
   system(*args) || abort("\n== Command #{args} failed ==")
 end
 
-chdir ASSETS_PATH do
+FileUtils.chdir ASSETS_PATH do
   system! "yarn #{ARGV.join(' ')}"
 end
