@@ -122,7 +122,7 @@ module Authenticator
 
       if request.params['backdoor_token']
         request.session[:user_id] = request.params['user_id'].to_i if request.params['backdoor_token'] == Settings.admin.backdoor && request.params['user_id']
-        return [301, {'Location' => request.path, 'Content-Type' => 'text/html'}, ['Moved Permanently']]
+        return [301, { 'Location' => request.path, 'Content-Type' => 'text/html' }, ['Moved Permanently']]
       else
         @app.call(env)
       end
