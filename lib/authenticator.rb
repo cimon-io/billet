@@ -48,10 +48,9 @@ module Authenticator
     end
 
     def sign_in(user_identity)
-      if user_identity.valid? && user_identity.user
-        set_session_id_for(user_identity.user)
-        set_remember_token_for(user_identity.user)
-      end
+      return unless user_identity.valid? || user_identity.user
+      set_session_id_for(user_identity.user)
+      set_remember_token_for(user_identity.user)
     end
 
     def sign_out

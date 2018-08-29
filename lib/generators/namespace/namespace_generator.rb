@@ -71,6 +71,8 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     if @access.cancan?
       template 'controller_concerns/current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
     end
+
+    true
   end
 
   def generate_views
@@ -121,6 +123,8 @@ class NamespaceGenerator < Rails::Generators::NamedBase
       template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name, "title_helper.rb")
       template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name, "flash_helper.rb")
     end
+
+    true
   end
 
   def generate_assets
@@ -136,6 +140,8 @@ class NamespaceGenerator < Rails::Generators::NamedBase
       empty_directory app_folder(:assets, :stylesheets)
       template 'assets/stylesheets/css.scss.erb', app_folder(:assets, :stylesheets, "#{instance_name}.scss")
     end
+
+    true
   end
 
   private
