@@ -28,5 +28,4 @@ module MuteAction
       end
     end
   end
-
 end

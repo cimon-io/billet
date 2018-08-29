@@ -2,7 +2,6 @@ module DenyDestroy
   extend ActiveSupport::Concern
 
   module ClassMethods
-
     #
     # deny_destroy if: :some_method
     # deny_destroy if: -> { true && false }
@@ -24,5 +23,4 @@ module DenyDestroy
       end
     end
   end
-
 end

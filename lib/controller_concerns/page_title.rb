@@ -23,5 +23,4 @@ module PageTitle
 
   def set_page_title
   end
-
 end

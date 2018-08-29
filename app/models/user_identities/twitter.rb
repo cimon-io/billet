@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_twitter(params)
         params = ParamsConverter.convert!(params, [:info, :credentials, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name])
@@ -52,6 +51,5 @@ module UserIdentities
         false
       end
     end
-
   end
 end

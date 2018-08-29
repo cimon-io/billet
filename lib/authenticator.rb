@@ -1,5 +1,4 @@
 module Authenticator
-
   class Streak
     attr_reader :env, :session, :cookies, :request
 
@@ -131,5 +130,4 @@ module Authenticator
       end
     end
   end
-
 end

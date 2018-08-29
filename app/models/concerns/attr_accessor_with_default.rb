@@ -12,5 +12,4 @@ module AttrAccessorWithDefault
       end
     end
   end
-
 end

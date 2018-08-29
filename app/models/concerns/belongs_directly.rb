@@ -14,5 +14,4 @@ module BelongsDirectly
       before_validation "store_directly_#{relation_name}_belong_model"
     end
   end
-
 end

@@ -22,5 +22,4 @@ module MockAuthorization
   def current_config
     @current_config ||= ::Settings.default_user_config
   end
-
 end

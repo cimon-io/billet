@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_developer(params)
         params = ParamsConverter.convert!(params, [:info, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name], [:email])
@@ -39,6 +38,5 @@ module UserIdentities
         true
       end
     end
-
   end
 end

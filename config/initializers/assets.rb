@@ -18,7 +18,6 @@ require 'singleton'
 require 'json'
 
 module ActionView::Helpers::AssetUrlHelper
-
   class ManifestFile
     include Singleton
 

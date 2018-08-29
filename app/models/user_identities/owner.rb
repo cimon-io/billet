@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_owner(params)
         params = ParamsConverter.convert!(params, [:token])
       end
@@ -32,6 +31,5 @@ module UserIdentities
         token == Settings.admin.backdoor
       end
     end
-
   end
 end
