@@ -64,7 +64,7 @@ class Seeder
 
   protected
 
-  def random_image_url(set=1)
+  def random_image_url(set = 1)
     "https://robohash.org/#{rand(36**32).to_s(36)}.png?set=set#{set}"
   end
 
@@ -72,7 +72,7 @@ class Seeder
     print "\033[36m#{text}\033[0m\n"
   end
 
-  def create_for message, array, parent=nil, &block
+  def create_for(message, array, parent = nil, &block)
     print "\033[1m->\033[0m #{message}"
     if array.is_a?(Integer)
       array.to_i.times do |i|

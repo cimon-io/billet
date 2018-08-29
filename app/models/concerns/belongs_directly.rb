@@ -2,7 +2,7 @@ module BelongsDirectly
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def belongs_directly_to(relation_name, options={})
+    def belongs_directly_to(relation_name, options = {})
 
       define_method "store_directly_#{relation_name}_belong_model" do
         foreign_key = options.key?(:foreign_key) ? options[:foreign_key] : "#{relation_name}_id"

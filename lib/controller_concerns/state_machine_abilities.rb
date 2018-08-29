@@ -2,7 +2,7 @@ module StateMachineAbilities
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def authorize_resource_state_events(opts={})
+    def authorize_resource_state_events(opts = {})
       key = opts.delete(:key) { :state_event }
       filter_params = ({ only: [:update] }).merge(opts)
 

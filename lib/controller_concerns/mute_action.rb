@@ -2,7 +2,7 @@ module MuteAction
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def mute_action(action_name, options={})
+    def mute_action(action_name, options = {})
       to = options.delete(:to) { raise ":to key expected" }
       content_proc = case to
         when String then proc { to }

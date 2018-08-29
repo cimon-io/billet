@@ -6,7 +6,7 @@ module DenyDestroy
     # deny_destroy if: :some_method
     # deny_destroy if: -> { true && false }
     #
-    def deny_destroy(opts={})
+    def deny_destroy(opts = {})
       condition = opts.delete(:if) { raise ':if key is required' }
 
       if condition.is_a?(Symbol)
