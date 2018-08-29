@@ -102,11 +102,9 @@ module Authenticator
     private def clean_sign_out_flag
       session.delete(:sign_out)
     end
-
   end
 
   class Middleware
-
     def initialize(app)
       @app = app
     end
@@ -115,11 +113,9 @@ module Authenticator
       Streak.new(env).call
       @app.call(env)
     end
-
   end
 
   class Backdoor
-
     def initialize(app)
       @app = app
     end
@@ -134,7 +130,6 @@ module Authenticator
         @app.call(env)
       end
     end
-
   end
 
 end

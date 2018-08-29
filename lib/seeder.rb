@@ -87,5 +87,4 @@ class Seeder
     end
     print "\n"
   end
-
 end

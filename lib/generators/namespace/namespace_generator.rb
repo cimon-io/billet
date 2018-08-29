@@ -186,5 +186,4 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   def read_template(relative_path)
     ERB.new(File.read(find_in_source_paths(relative_path)), nil, '-').result(binding)
   end
-
 end

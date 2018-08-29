@@ -20,7 +20,6 @@ class UserIdentity < ApplicationRecord
   include UserIdentities::Tumblr if OmniAuth::Builder.providers.include?(:tumblr)
 
   class << self
-
     def omniauthable?(auth)
       PROVIDERS.include?(auth[:provider].to_sym)
     end
@@ -51,7 +50,6 @@ class UserIdentity < ApplicationRecord
       auth = validate_params_with_omniauth(auth)
       resource = find_with_omniauth(auth).tap { |ui| self.update_with_omniauth(ui, auth) if ui } || self.create_with_omniauth(auth, user)
     end
-
   end
 
   def profile_url

@@ -49,7 +49,6 @@ module ActionView::Helpers::AssetUrlHelper
     def get(key, options)
       json["#{key}"]
     end
-
   end
 
   def compute_asset_path(source, options = {})

@@ -32,5 +32,4 @@ class User < ApplicationRecord
   def generate_remember_token
     self.remember_token = SecureRandom.hex(20).encode('UTF-8')
   end
-
 end

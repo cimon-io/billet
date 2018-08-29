@@ -18,6 +18,5 @@ module Billet
 
     config.middleware.use ::Authenticator::Backdoor
     config.middleware.use ::Authenticator::Middleware
-
   end
 end
