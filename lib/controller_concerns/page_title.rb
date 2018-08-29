@@ -10,7 +10,7 @@ module PageTitle
       content_proc = if block_given?
                        Proc.new
                      else
-                       Proc.new { content }
+                       proc { content }
                      end
       define_method :custom_page_title do
         @custom_page_title ||= instance_exec(&content_proc)

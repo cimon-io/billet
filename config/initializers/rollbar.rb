@@ -36,7 +36,7 @@ Rollbar.configure do |config|
   # is not installed)
   config.use_async = true
   # Supply your own async handler:
-  config.async_handler = Proc.new { |payload|
+  config.async_handler = proc { |payload|
    Thread.new { Rollbar.process_from_async_handler(payload) }
   }
 
