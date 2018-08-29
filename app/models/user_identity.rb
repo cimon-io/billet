@@ -2,8 +2,8 @@ class UserIdentity < ApplicationRecord
   has_paper_trail
 
   serialize :raw_data, Hash
-  def raw_data; 
-    super.with_indifferent_access; 
+  def raw_data
+    super.with_indifferent_access
   end
 
   belongs_to :user
