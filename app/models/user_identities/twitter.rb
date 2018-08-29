@@ -47,7 +47,7 @@ module UserIdentities
         )
         client.user
         true
-      rescue ::Twitter::Error::Unauthorized => e
+      rescue ::Twitter::Error::Unauthorized
         false
       end
     end

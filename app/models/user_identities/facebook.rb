@@ -41,7 +41,7 @@ module UserIdentities
       def validate_with_omniauth_facebook(token, _token_secret)
         RestClient.get("https://graph.facebook.com/me", params: { access_token: token })
         true
-      rescue RestClient::BadRequest => e
+      rescue RestClient::BadRequest
         false
       end
     end

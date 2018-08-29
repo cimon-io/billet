@@ -41,7 +41,7 @@ module UserIdentities
       def validate_with_omniauth_instagram(token, _token_secret)
         RestClient.get("https://api.instagram.com/v1/users/self", params: { access_token: token })
         true
-      rescue RestClient::BadRequest => e
+      rescue RestClient::BadRequest
         false
       end
     end

@@ -48,7 +48,7 @@ class UserIdentity < ApplicationRecord
     def find_or_create_with_omniauth(auth, user=nil)
       raise ActiveRecord::RecordNotFound unless omniauthable?(auth)
       auth = validate_params_with_omniauth(auth)
-      resource = find_with_omniauth(auth).tap { |ui| update_with_omniauth(ui, auth) if ui } || create_with_omniauth(auth, user)
+      find_with_omniauth(auth).tap { |ui| update_with_omniauth(ui, auth) if ui } || create_with_omniauth(auth, user)
     end
   end
 

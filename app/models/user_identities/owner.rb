@@ -8,7 +8,7 @@ module UserIdentities
 
     module ClassMethods
       def validate_params_with_omniauth_owner(params)
-        params = ParamsConverter.convert!(params, [:token])
+        ParamsConverter.convert!(params, [:token])
       end
 
       def build_with_omniauth_owner(auth)
