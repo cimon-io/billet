@@ -1,4 +1,4 @@
-Rails.application.config.action_mailer.default_url_options = { :host => (ENV['SMTP_1_DOMAIN'] || ENV['CIMON_DOMAIN_0'] ||  'lvh.me:3000') }
+Rails.application.config.action_mailer.default_url_options = { host: (ENV['SMTP_1_DOMAIN'] || ENV['CIMON_DOMAIN_0'] ||  'lvh.me:3000') }
 Rails.application.config.action_mailer.smtp_settings = {
   address: ENV.fetch('SMTP_1_ADDRESS', 'localhost'),
   port: ENV.fetch('SMTP_1_PORT', 25).to_i,

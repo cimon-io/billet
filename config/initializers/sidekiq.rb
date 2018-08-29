@@ -6,7 +6,7 @@ Sidekiq::Web.use Rack::Auth::Basic do |username, password|
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { :url => $redis_url }
+  config.redis = { url: $redis_url }
 
   database_url = ENV['DATABASE_URL']
   if database_url
@@ -16,5 +16,5 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { :url => $redis_url }
+  config.redis = { url: $redis_url }
 end

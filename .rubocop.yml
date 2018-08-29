@@ -5,6 +5,7 @@ AllCops:
     - 'apps/**/*.gemspec'
     - 'Rakefile'
     - 'assets/**/*'
+    - 'lib/generators/namespace/templates/**/*'
 
 ModuleLength:
   Enabled: false

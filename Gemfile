@@ -71,7 +71,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'email_spec'
-  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
