@@ -30,11 +30,11 @@ module UserIdentities
         )
       end
 
-      def developer_profile_url(user_identity)
+      def developer_profile_url(_user_identity)
         ''
       end
 
-      def validate_with_omniauth_developer(token, token_secret)
+      def validate_with_omniauth_developer(_token, _token_secret)
         true
       end
     end

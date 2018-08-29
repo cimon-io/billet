@@ -19,15 +19,15 @@ module UserIdentities
         )
       end
 
-      def update_with_omniauth_owner(resource, auth)
+      def update_with_omniauth_owner(resource, _auth)
         resource.touch
       end
 
-      def developer_profile_url(user_identity)
+      def developer_profile_url(_user_identity)
         ''
       end
 
-      def validate_with_omniauth_owner(token, token_secret)
+      def validate_with_omniauth_owner(token, _token_secret)
         token == Settings.admin.backdoor
       end
     end

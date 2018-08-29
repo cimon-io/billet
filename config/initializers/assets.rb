@@ -45,7 +45,7 @@ module ActionView::Helpers::AssetUrlHelper
       file: 'files'
     }.freeze
 
-    def get(key, options)
+    def get(key, _options)
       json["#{key}"]
     end
   end

@@ -33,7 +33,7 @@ module UserIdentities
         )
       end
 
-      def validate_with_omniauth_tumblr(token, user_identity)
+      def validate_with_omniauth_tumblr(_token, _user_identity)
         # TODO
         true
       end

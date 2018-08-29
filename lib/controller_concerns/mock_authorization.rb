@@ -11,7 +11,7 @@ module MockAuthorization
     raise "What are you doing"
   end
 
-  def can?(*args)
+  def can?(*_args)
     true
   end
 
