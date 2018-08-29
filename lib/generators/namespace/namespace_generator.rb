@@ -4,7 +4,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   class_option :api, type: 'string', default: false, desc: 'Make namespace as API'
   class_option :route, type: 'string', default: nil, desc: 'Make namespace with public access [default module_name]'
   class_option :access, type: 'string', default: 'cancan', desc: 'Make namespace with public access [fake, cancan none]'
-  class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access. \'false\' if no chain begginning.'
+  class_option :begin_chain, type: 'string', default: 'current_company', desc: 'Make namespace with public access. \'false\' if no chain beginning.'
 
   def initialize(*args, &block)
     super
@@ -124,15 +124,17 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_assets
-    empty_directory app_folder(:app, :assets)
-    empty_directory app_folder(:app, :assets, :images)
-    directory 'assets/images', app_folder(:app, :assets, :images)
+    empty_directory app_folder(:assets)
+    empty_directory app_folder(:assets, :images)
+    empty_directory app_folder(:assets, :javascripts)
+    empty_directory app_folder(:assets, :stylesheets)
+    directory 'assets/images', app_folder(:assets, :images)
     unless @api
-      empty_directory app_folder(:app, :assets, :javascripts)
-      template "assets/javascripts/js.coffee.erb", app_folder(:app, :assets, :javascripts, "#{instance_name}.coffee")
+      empty_directory app_folder(:assets, :javascripts)
+      template 'assets/javascripts/js.erb', app_folder(:assets, :javascripts, "#{instance_name}.js")
 
-      empty_directory app_folder(:app, :assets, :stylesheets)
-      template "assets/stylesheets/css.scss.erb", app_folder(:app, :assets, :stylesheets, "#{instance_name}.scss")
+      empty_directory app_folder(:assets, :stylesheets)
+      template 'assets/stylesheets/css.scss.erb', app_folder(:assets, :stylesheets, "#{instance_name}.scss")
     end
   end
 

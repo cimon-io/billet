@@ -57,10 +57,28 @@ This will set up the database and populate it with initial data.
 
 ## Run application
 
-Run the following:
+Foreman is able to run everything whats needed via single command. Check `Procfile` to read more:
 
 ```console
-bin/rails s
+foreman start
+```
+
+Application uses webpack to build css/js files. Run it via:
+
+```console
+bin/assets
+```
+
+Or using `foreman`:
+
+```console
+foreman start assets
+```
+
+Then run rails server:
+
+```console
+bin/rails s -b 0.0.0.0
 ```
 
 Or using `foreman`:
