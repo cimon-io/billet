@@ -147,7 +147,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   private
 
   def app_folder(*agrs)
-    "apps/#{singular_name}/#{agrs.join(?/)}"
+    "apps/#{singular_name}/#{agrs.join('/')}"
   end
 
   def scaffold_name
