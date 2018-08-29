@@ -19,7 +19,7 @@ describe '#mute_action' do
       protected
 
       def qwe
-        25456
+        25_456
       end
     end
   end
@@ -30,12 +30,12 @@ describe '#mute_action' do
 
   subject { A.new }
 
-  it { expect(subject.collection_url).to eq(25456) }
-  it { expect(subject.collection_path).to eq(25456) }
+  it { expect(subject.collection_url).to eq(25_456) }
+  it { expect(subject.collection_path).to eq(25_456) }
   it { expect(subject.resource_url).to eq("wer") }
   it { expect(subject.resource_path).to eq("wer") }
   it { expect(subject.collection2_url).to eq("ert") }
   it { expect(subject.collection2_path).to eq("ert") }
-  it { expect(subject.collection3_url).to eq(25456) }
-  it { expect(subject.collection3_path).to eq(25456) }
+  it { expect(subject.collection3_url).to eq(25_456) }
+  it { expect(subject.collection3_path).to eq(25_456) }
 end
