@@ -9,7 +9,7 @@ require 'fileutils'
 include FileUtils
 
 APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
-ASSETS_PATH = Pathname.new File.expand_path('../../assets', __FILE__)
+ASSETS_PATH = Pathname.new File.expand_path('./assets', APP_ROOT)
 WEBPACK_CONFIG_PATH = Pathname.new File.expand_path('webpack.config.js', ASSETS_PATH)
 NODE_MODULES_PATH = Pathname.new File.expand_path('node_modules', ASSETS_PATH)
 NODE_MODULES_BIN_PATH = Pathname.new File.expand_path('.bin', NODE_MODULES_PATH)
@@ -33,5 +33,4 @@ chdir ASSETS_PATH do
     puts '== Running dev server =='
     system! "#{NODE_MODULES_BIN_PATH.join('webpack')} --watch --config #{WEBPACK_CONFIG_PATH} --mode=#{ENV["NODE_ENV"]} #{PARAMS.join(' ')}".strip
   end
-
 end
