@@ -3,7 +3,7 @@ module ActiveRecordSample
 
   module ClassMethods
     def sample
-      self.reorder("random()").first
+      reorder("random()").first
     end
   end
 end

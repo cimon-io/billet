@@ -25,15 +25,15 @@ class UserIdentity < ApplicationRecord
     end
 
     def find_with_omniauth(auth)
-      self.find_by(uid: auth[:uid], provider: auth[:provider])
+      find_by(uid: auth[:uid], provider: auth[:provider])
     end
 
     def validate_params_with_omniauth(auth)
-      self.public_send("validate_params_with_omniauth_#{auth[:provider]}", auth)
+      public_send("validate_params_with_omniauth_#{auth[:provider]}", auth)
     end
 
     def create_with_omniauth(auth, user)
-      self.public_send("build_with_omniauth_#{auth[:provider]}", auth).tap do |ui|
+      public_send("build_with_omniauth_#{auth[:provider]}", auth).tap do |ui|
         user ? ui.user = user : ui.build_user(nickname: ui.name)
         ui.raw_data = auth
         ui.save
@@ -41,14 +41,14 @@ class UserIdentity < ApplicationRecord
     end
 
     def update_with_omniauth(resource, auth)
-      self.public_send("update_with_omniauth_#{auth[:provider]}", resource, auth)
+      public_send("update_with_omniauth_#{auth[:provider]}", resource, auth)
       resource
     end
 
     def find_or_create_with_omniauth(auth, user=nil)
       raise ActiveRecord::RecordNotFound unless omniauthable?(auth)
       auth = validate_params_with_omniauth(auth)
-      resource = find_with_omniauth(auth).tap { |ui| self.update_with_omniauth(ui, auth) if ui } || self.create_with_omniauth(auth, user)
+      resource = find_with_omniauth(auth).tap { |ui| update_with_omniauth(ui, auth) if ui } || create_with_omniauth(auth, user)
     end
   end
 

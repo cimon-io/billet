@@ -6,15 +6,15 @@ class User < ApplicationRecord
   has_many :user_applications, -> { with_default_order }
   has_many :user_identities, -> { with_default_order } do
     def providers
-      self.pluck(:provider).map(&:to_sym)
+      pluck(:provider).map(&:to_sym)
     end
 
     def get(provider)
-      self.find_by(provider: provider)
+      find_by(provider: provider)
     end
 
     def provider_exists?(provider)
-      self.exists?(provider: provider)
+      exists?(provider: provider)
     end
 
   end

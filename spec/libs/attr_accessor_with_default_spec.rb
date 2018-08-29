@@ -12,7 +12,7 @@ describe '#attr_accessor_with_default' do
           100
         end
         attr_accessor_with_default :qwe3 do
-          self.qwe2 * self.qwe1
+          qwe2 * qwe1
         end
       end
     end

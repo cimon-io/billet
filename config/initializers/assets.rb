@@ -24,7 +24,7 @@ module ActionView::Helpers::AssetUrlHelper
 
     class << self
       def get(*args)
-        self.instance.get(*args)
+        instance.get(*args)
       end
     end
 

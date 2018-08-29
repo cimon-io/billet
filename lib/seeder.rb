@@ -10,9 +10,9 @@ class Seeder
 
     ActiveRecord::Base.transaction do
       header 'Create main data'
-      self.create_companies!
-      self.create_users!
-      self.create_projects!
+      create_companies!
+      create_users!
+      create_projects!
     end
     return true
   end

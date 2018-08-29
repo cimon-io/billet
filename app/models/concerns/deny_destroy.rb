@@ -11,10 +11,10 @@ module DenyDestroy
       condition = opts.delete(:if) { raise ':if key is required' }
 
       if condition.is_a?(Symbol)
-        return deny_destroy if: -> { self.send(condition) }
+        return deny_destroy if: -> { send(condition) }
       end
 
-      self.before_destroy do
+      before_destroy do
         if instance_exec(&condition)
           errors.add :base, :destroy
           false

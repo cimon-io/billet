@@ -15,7 +15,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_developer(auth)
-        self.new(
+        new(
           provider: auth[:provider],
           uid: auth[:uid],
           name: auth[:info][:name],

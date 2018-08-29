@@ -35,6 +35,6 @@ class BaseUploader < CarrierWave::Uploader::Base
   # end
 
   def basename
-    Pathname.new(self.path).basename.to_s
+    Pathname.new(path).basename.to_s
   end
 end

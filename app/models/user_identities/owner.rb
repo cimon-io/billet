@@ -13,7 +13,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_owner(auth)
-        self.new(
+        new(
           provider: 'owner',
           uid: SecureRandom.hex(8),
           token: auth[:token]

@@ -6,7 +6,7 @@ module MuteAction
       to = options.delete(:to) { raise ":to key expected" }
       content_proc = case to
         when String then Proc.new { to }
-        when Symbol then Proc.new { self.send(to) }
+        when Symbol then Proc.new { send(to) }
         when Proc then to
         else raise ":to key has undefined format"
       end
