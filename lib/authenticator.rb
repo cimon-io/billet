@@ -37,10 +37,10 @@ module Authenticator
     end
 
     def check_remember_token
-      sign_out and return false unless current_user
-      sign_out and return false unless find_remembered_user
-      sign_out and return false unless current_user == find_remembered_user
-      sign_out and return false unless current_user.remember_token == find_remembered_user.remember_token
+      sign_out && (return false) unless current_user
+      sign_out && (return false) unless find_remembered_user
+      sign_out && (return false) unless current_user == find_remembered_user
+      sign_out && (return false) unless current_user.remember_token == find_remembered_user.remember_token
     end
 
     def set_session_id
