@@ -23,7 +23,7 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     end.inquiry
 
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
-    @route = options.route == nil ? singular_name : options.route
+    @route = options.route.nil? ? singular_name : options.route
   end
 
   def append_gem_dependency
