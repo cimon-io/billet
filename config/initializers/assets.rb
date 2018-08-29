@@ -12,7 +12,7 @@
 # # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.prefix = ENV.fetch('WEB_ASSETS_DIR', '/web-assets')
-Rails.application.config.asset_host = ENV.fetch('WEB_ASSETS_HOST', ENV.fetch('CIMON_DOMAIN_0', "http://lvh.me:3000"))
+Rails.application.config.asset_host = ENV.fetch('WEB_ASSETS_HOST', 'http://lvh.me:3000')
 
 require 'singleton'
 require 'json'
