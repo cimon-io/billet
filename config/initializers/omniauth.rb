@@ -20,7 +20,6 @@ end
 
 
 Rails.application.config.middleware.insert_before Authenticator::Middleware, OmniAuth::Builder do
-
   if Settings.providers.facebook.key && Settings.providers.facebook.secret
     provider :facebook,
               Settings.providers.facebook.key,
@@ -57,5 +56,4 @@ Rails.application.config.middleware.insert_before Authenticator::Middleware, Omn
              fields: [:name, :email],
              uid_field: :email
   end
-
 end

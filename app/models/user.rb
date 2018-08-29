@@ -16,7 +16,6 @@ class User < ApplicationRecord
     def provider_exists?(provider)
       exists?(provider: provider)
     end
-
   end
 
   scope :with_default_order, -> { order(priority: :asc) }

@@ -21,7 +21,6 @@ describe '#mute_action' do
       def qwe
         25456
       end
-
     end
   end
 
@@ -39,5 +38,4 @@ describe '#mute_action' do
   it { expect(subject.collection2_path).to eq("ert") }
   it { expect(subject.collection3_url).to eq(25456) }
   it { expect(subject.collection3_path).to eq(25456) }
-
 end

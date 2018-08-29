@@ -9,5 +9,4 @@ describe Company do
     it { is_expected.to have_many(:projects) }
     it { is_expected.to have_many(:company_users) }
   end
-
 end
