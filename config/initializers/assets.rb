@@ -17,6 +17,7 @@ Rails.application.config.asset_host = ENV.fetch('WEB_ASSETS_HOST', 'http://lvh.m
 require 'singleton'
 require 'json'
 
+# rubocop:disable Style/ClassAndModuleChildren
 module ActionView::Helpers::AssetUrlHelper
   class ManifestFile
     include Singleton
@@ -54,3 +55,4 @@ module ActionView::Helpers::AssetUrlHelper
     ManifestFile.get(source, options)
   end
 end
+# rubocop:enable Style/ClassAndModuleChildren
