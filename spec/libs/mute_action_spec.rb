@@ -16,8 +16,6 @@ describe '#mute_action' do
       mute_action :index2, to: -> { "ert" }, with: :collection2
       mute_action :index3, to: -> { qwe }, url_with: :collection3_url, path_with: :collection3_path
 
-      protected
-
       def qwe
         25_456
       end
