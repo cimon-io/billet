@@ -18,7 +18,6 @@ RSpec.configure do |config|
 
     # Trigger the fake drop event
     page.execute_script("#{js_script} e = $.Event('drop'); e.originalEvent = {dataTransfer : { files : fileList } }; $('#{drop_area_selector}').trigger(e);")
-
   end
 
   def photo_path(filename)
