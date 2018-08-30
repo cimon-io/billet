@@ -10,17 +10,17 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     super
 
     @api = case options.api
-      when 'true', 't', '1', 'yes', 'True', 'TRUE', true then true
-      else false
-    end
+           when 'true', 't', '1', 'yes', 'True', 'TRUE', true then true
+           else false
+           end
 
     @access = case options.access
-      when 'cancan', 'can' then 'cancan'
-      when 'http' then 'http'
-      when 'fakecancan', 'fake' then 'fake'
-      when 'none', 'false', 'all' then 'none'
-      else 'none'
-    end.inquiry
+              when 'cancan', 'can' then 'cancan'
+              when 'http' then 'http'
+              when 'fakecancan', 'fake' then 'fake'
+              when 'none', 'false', 'all' then 'none'
+              else 'none'
+              end.inquiry
 
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
     @route = options.route.nil? ? singular_name : options.route
