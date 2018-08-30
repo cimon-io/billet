@@ -1,6 +1,6 @@
 AllCops:
   Exclude:
-    - 'db/shcema.rb'
+    - 'db/schema.rb'
     - 'db/migrate/*.rb'
     - 'bin/*'
     - 'apps/**/*.gemspec'
