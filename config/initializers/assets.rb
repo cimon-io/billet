@@ -46,7 +46,7 @@ module ActionView::Helpers::AssetUrlHelper
     }.freeze
 
     def get(key, _options)
-      json["#{key}"]
+      json[key.to_s]
     end
   end
 
