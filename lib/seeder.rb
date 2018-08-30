@@ -14,7 +14,7 @@ class Seeder
       create_users!
       create_projects!
     end
-    return true
+    true
   end
 
   def create_companies!
