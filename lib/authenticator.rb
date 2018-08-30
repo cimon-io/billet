@@ -13,7 +13,7 @@ module Authenticator
       sign_out if session.key?(:sign_out)
       sign_in(UserIdentity.find_or_create_with_omniauth(request.env['omniauth.auth'], current_user)) if request.env['omniauth.auth']
       check_remember_token if remember_token_exists?
-      set_session_id if signed_out?
+      assign_session_id if signed_out?
 
       env['authenticator'] = {
         'signed_out?' => signed_out?,
@@ -43,19 +43,19 @@ module Authenticator
       sign_out && (return false) unless current_user.remember_token == find_remembered_user.remember_token
     end
 
-    def set_session_id
-      set_session_id_for(find_remembered_user)
+    def assign_session_id
+      assign_session_id_for(find_remembered_user)
     end
 
     def sign_in(user_identity)
       return unless user_identity.valid? || user_identity.user
-      set_session_id_for(user_identity.user)
-      set_remember_token_for(user_identity.user)
+      assign_session_id_for(user_identity.user)
+      assign_remember_token_for(user_identity.user)
     end
 
     def sign_out
-      set_session_id_for(nil)
-      set_remember_token_for(nil)
+      assign_session_id_for(nil)
+      assign_remember_token_for(nil)
       clean_sign_out_flag
       true
     end
@@ -80,7 +80,7 @@ module Authenticator
       @find_remembered_user ||= User.where(remember_token: cookies[:remember_token][:value]).first if cookies[:remember_token]
     end
 
-    private def set_session_id_for(user)
+    private def assign_session_id_for(user)
       if user.nil?
         session.delete(:user_id)
       else
@@ -88,7 +88,7 @@ module Authenticator
       end
     end
 
-    private def set_remember_token_for(user)
+    private def assign_remember_token_for(user)
       if user.nil?
         cookies.delete(:remember_token)
       else
