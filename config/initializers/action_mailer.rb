@@ -7,5 +7,5 @@ Rails.application.config.action_mailer.smtp_settings = {
   enable_starttls_auto: ENV.fetch('SMTP_1_ENABLE_STARTTLS_AUTO', 'false') == 'true',
   user_name: ENV.fetch('SMTP_1_USER_NAME', nil),
   password: ENV.fetch('SMTP_1_PASSWORD', nil),
-  openssl_verify_mode: ENV.fetch('SMTP_1_OPENSSL_VERIFY_MODE', nil),
+  openssl_verify_mode: ENV.fetch('SMTP_1_OPENSSL_VERIFY_MODE', nil)
 }
