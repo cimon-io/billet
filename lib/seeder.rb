@@ -72,16 +72,16 @@ class Seeder
     print "\033[36m#{text}\033[0m\n"
   end
 
-  def create_for(message, array, parent = nil, &block)
+  def create_for(message, array, parent = nil)
     print "\033[1m->\033[0m #{message}"
     if array.is_a?(Integer)
       array.to_i.times do |i|
-        block.call(i, parent)
+        yield(i, parent)
         print '.'
       end
     else
       array.each do |i|
-        block.call(i, parent)
+        yield(i, parent)
         print "\033[32m.\033[0m"
       end
     end
