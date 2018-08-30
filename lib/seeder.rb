@@ -57,8 +57,8 @@ class Seeder
       { name: "Ffina" },
       { name: "Erbin" },
       { name: "Polratyn" }
-    ] do |project|
-      Project.create!(user: user, company: Company.sample, name: Faker::Name.name)
+    ] do |project_attrs|
+      Project.create!(project_attrs.merge(user: user, company: Company.sample))
     end
   end
 
