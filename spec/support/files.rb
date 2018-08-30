@@ -1,4 +1,4 @@
-RSpec.configure do |config|
+RSpec.configure do |_config|
   # Usage:
   # drop_files 'aaa.png', 'bbb.jpg', 'ccc.wtf', to: 'div[data-attachment=hoverzone]'
   # And don't forget to place the files into spec/support/images/
