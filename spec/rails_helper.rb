@@ -26,7 +26,7 @@ Dir[Rails.root.join('spec', 'support', 'pages', '**', '*.rb')].each { |f| requir
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-DEFAULT_HOST = "lvh.me"
+DEFAULT_HOST = "lvh.me".freeze
 DEFAULT_PORT = 9887 + ENV['TEST_ENV_NUMBER'].to_i
 
 RSpec.configure do |config|

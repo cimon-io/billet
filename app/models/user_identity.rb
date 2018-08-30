@@ -13,7 +13,9 @@ class UserIdentity < ApplicationRecord
   scope :with_default_order, -> { order(created_at: :asc) }
   scope :social_networks, -> { where(provider: [:twitter, :facebook, :instagram, :tumblr]) }
 
+  # rubocop:disable Style/MutableConstant
   PROVIDERS = []
+  # rubocop:enable Style/MutableConstant
   include UserIdentities::Owner
   include UserIdentities::Developer if OmniAuth::Builder.providers.include?(:developer)
   include UserIdentities::Facebook if OmniAuth::Builder.providers.include?(:facebook)

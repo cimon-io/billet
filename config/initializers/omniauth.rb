@@ -8,11 +8,13 @@ module OmniAuth
       end
     end
 
+    # rubocop:disable Style/ClassVars
     def provider_with_remembering(klass, *args, &block)
       @@providers ||= []
       @@providers << klass
       provider_without_remembering(klass, *args, &block)
     end
+    # rubocop:enable Style/ClassVars
     alias provider_without_remembering provider
     alias provider provider_with_remembering
   end
