@@ -28,7 +28,7 @@ module ActionView::Helpers::AssetUrlHelper
       end
     end
 
-    def initialize()
+    def initialize
       @source = Rails.root.join("public" + Rails.application.config.assets.prefix + "/manifest.json")
     end
 
