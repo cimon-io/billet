@@ -119,4 +119,4 @@ Rails/InverseOf:
 Rails/Output:
   Enabled: true
   Exclude:
-    - 'db/seeds.rb'
+    - 'lib/seeder.rb'
