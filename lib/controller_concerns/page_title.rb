@@ -18,9 +18,7 @@ module PageTitle
     end
   end
 
-  def custom_page_title
-  end
+  def custom_page_title; end
 
-  def set_page_title
-  end
+  def set_page_title; end
 end
