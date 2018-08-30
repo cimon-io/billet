@@ -18,6 +18,7 @@ module OmniAuth
   end
 end
 
+# rubocop:disable Metrics/BlockLength
 Rails.application.config.middleware.insert_before Authenticator::Middleware, OmniAuth::Builder do
   if Settings.providers.facebook.key && Settings.providers.facebook.secret
     provider :facebook,
@@ -56,3 +57,4 @@ Rails.application.config.middleware.insert_before Authenticator::Middleware, Omn
              uid_field: :email
   end
 end
+# rubocop:enable Metrics/BlockLength
