@@ -1,5 +1,5 @@
 class NamespaceGenerator < Rails::Generators::NamedBase
-  source_root File.expand_path('../templates', __FILE__)
+  source_root File.expand_path('templates', __dir__)
 
   class_option :api, type: 'string', default: false, desc: 'Make namespace as API'
   class_option :route, type: 'string', default: nil, desc: 'Make namespace with public access [default module_name]'
