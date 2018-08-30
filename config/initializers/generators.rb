@@ -4,6 +4,6 @@ Rails.application.config.generators do |g|
   g.assets false
   g.factory_bot false
   g.test_framework :rspec, fixture: false,
-    view_specs: false,
-    controller_specs: false
+                           view_specs: false,
+                           controller_specs: false
 end
