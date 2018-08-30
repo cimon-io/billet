@@ -1,3 +1,4 @@
+# rubocop:disable Style/GlobalVars
 if ENV["REDIS_URL"]
   $redis_url = ENV["REDIS_URL"]
 else
@@ -6,4 +7,7 @@ else
   $redis_url = "redis://#{host}:#{port}"
 end
 
-$redis = Redis.new(url: $redis_url)
+$redis_namespace = ENV.fetch('REDIS_NAMESPACE', 'default')
+
+$redis = Redis::Namespace.new($redis_namespace, redis: Redis.new(url: $redis_url))
+# rubocop:enable Style/GlobalVars
