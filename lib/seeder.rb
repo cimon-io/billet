@@ -34,7 +34,7 @@ class Seeder
       { nickname: 'ann', company_name: "Another2", skype: 'ann', website: 'ann.name', first_name: 'Anny', last_name: 'Faye', email: 'ann@billet.co' }
     ] do |params|
       u = User.create!(params)
-      UserIdentity.create!({ name: u.nickname, email: u.email, user: u, provider: 'developer', uid: u.email, avatar_url: 'default-avatar.png' })
+      UserIdentity.create!(name: u.nickname, email: u.email, user: u, provider: 'developer', uid: u.email, avatar_url: 'default-avatar.png')
     end
   end
 
