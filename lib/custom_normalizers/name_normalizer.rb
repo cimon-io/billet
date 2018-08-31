@@ -9,7 +9,7 @@ module CustomNormalizers
 
       from = (length * 0.7).to_i
       to = length - from
-      [str[0..from], join_string, str[-to..-1]].join()
+      [str[0..from], join_string, str[-to..-1]].join
     end
   end
 end

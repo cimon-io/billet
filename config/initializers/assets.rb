@@ -17,18 +17,18 @@ Rails.application.config.asset_host = ENV.fetch('WEB_ASSETS_HOST', 'http://lvh.m
 require 'singleton'
 require 'json'
 
+# rubocop:disable Style/ClassAndModuleChildren
 module ActionView::Helpers::AssetUrlHelper
-
   class ManifestFile
     include Singleton
 
     class << self
       def get(*args)
-        self.instance.get(*args)
+        instance.get(*args)
       end
     end
 
-    def initialize()
+    def initialize
       @source = Rails.root.join("public" + Rails.application.config.assets.prefix + "/manifest.json")
     end
 
@@ -46,13 +46,13 @@ module ActionView::Helpers::AssetUrlHelper
       file: 'files'
     }.freeze
 
-    def get(key, options)
-      json["#{key}"]
+    def get(key, _options)
+      json[key.to_s]
     end
-
   end
 
   def compute_asset_path(source, options = {})
     ManifestFile.get(source, options)
   end
 end
+# rubocop:enable Style/ClassAndModuleChildren

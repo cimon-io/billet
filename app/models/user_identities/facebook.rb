@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_facebook(params)
         params = ParamsConverter.convert!(params, [:info, :credentials, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name])
@@ -16,7 +15,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_facebook(auth)
-        self.new(
+        new(
           provider: auth[:provider],
           uid: auth[:uid],
           name: auth[:info][:name],
@@ -39,13 +38,12 @@ module UserIdentities
         "http://www.facebook.com/#{user_identity.uid}"
       end
 
-      def validate_with_omniauth_facebook(token, token_secret)
+      def validate_with_omniauth_facebook(token, _token_secret)
         RestClient.get("https://graph.facebook.com/me", params: { access_token: token })
         true
-      rescue RestClient::BadRequest => e
+      rescue RestClient::BadRequest
         false
       end
     end
-
   end
 end

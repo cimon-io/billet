@@ -1,6 +1,6 @@
 module CustomNormalizers
   class UrlNormalizer
-    def self.normalize(value, options = {})
+    def self.normalize(value, _options = {})
       result = value
       if result.present?
         result = PostRank::URI.normalize(result).to_s

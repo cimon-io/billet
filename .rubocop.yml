@@ -1,0 +1,122 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/*.rb'
+    - 'bin/*'
+    - 'apps/**/*.gemspec'
+    - 'Rakefile'
+    - 'assets/**/*'
+    - 'lib/generators/namespace/templates/**/*'
+
+ModuleLength:
+  Enabled: false
+
+LineLength:
+  Enabled: false
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: leading
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - 'lib/generators/namespace/namespace_generator.rb'
+  Enabled: true
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 25
+  Exclude:
+    - 'apps/**/config/routes.rb'
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'db/**/*.rb'
+  Enabled: true
+
+Metrics/ClassLength:
+  CountComments: false
+  Max: 300
+  Exclude:
+    - 'lib/generators/namespace/namespace_generator.rb'
+  Enabled: true
+
+Metrics/PerceivedComplexity:
+  Max: 9
+  Enabled: true
+
+Metrics/CyclomaticComplexity:
+  Max: 12
+  Exclude:
+    - 'lib/generators/namespace/namespace_generator.rb'
+  Enabled: true
+
+Metrics/ParameterLists:
+  Max: 7
+
+Metrics/MethodLength:
+  CountComments: false
+  Max: 30
+  Exclude:
+    - 'lib/generators/namespace/namespace_generator.rb'
+  Enabled: true
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/AccessModifierDeclarations:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+# By default, the rails cops are not run. Override in project or home
+# directory .rubocop.yml files, or by giving the -R/--rails option.
+Rails:
+  Enabled: true
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/FindBy:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - 'lib/seeder.rb'

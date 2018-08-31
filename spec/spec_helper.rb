@@ -41,5 +41,4 @@ RSpec.configure do |config|
   config.order = :random
   config.profile_examples = 1
   config.default_formatter = 'doc' if config.files_to_run.one?
-
 end

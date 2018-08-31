@@ -11,7 +11,7 @@ module MockAuthorization
     raise "What are you doing"
   end
 
-  def can?(*args)
+  def can?(*_args)
     true
   end
 
@@ -22,5 +22,4 @@ module MockAuthorization
   def current_config
     @current_config ||= ::Settings.default_user_config
   end
-
 end

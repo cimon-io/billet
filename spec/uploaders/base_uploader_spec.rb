@@ -39,7 +39,5 @@ describe BaseUploader do
       let(:filename) { 'any.docx' }
       it { expect { uploader }.not_to raise_error }
     end
-
   end
-
 end

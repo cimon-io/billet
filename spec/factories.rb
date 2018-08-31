@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :company do
     sequence(:name) { |n| "Company #{n}" }
   end
@@ -23,5 +22,4 @@ FactoryBot.define do
     provider "developer"
     user
   end
-
 end

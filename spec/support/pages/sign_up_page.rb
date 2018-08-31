@@ -1,6 +1,6 @@
 class SignUpPage < SitePrism::Page
   set_url '/sign_up'
-  set_url_matcher /\/sign_up/
+  set_url_matcher %r{\/sign_up}
 
   element :company_name, 'input#company_name'
   element :user_email, 'input#company_users_attributes_0_email'

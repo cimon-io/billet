@@ -1,5 +1,5 @@
 class NamespaceGenerator < Rails::Generators::NamedBase
-  source_root File.expand_path('../templates', __FILE__)
+  source_root File.expand_path('templates', __dir__)
 
   class_option :api, type: 'string', default: false, desc: 'Make namespace as API'
   class_option :route, type: 'string', default: nil, desc: 'Make namespace with public access [default module_name]'
@@ -10,20 +10,20 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     super
 
     @api = case options.api
-      when 'true', 't', '1', 'yes', 'True', 'TRUE', true then true
-      else false
-    end
+           when 'true', 't', '1', 'yes', 'True', 'TRUE', true then true
+           else false
+           end
 
     @access = case options.access
-      when 'cancan', 'can' then 'cancan'
-      when 'http' then 'http'
-      when 'fakecancan', 'fake' then 'fake'
-      when 'none', 'false', 'all' then 'none'
-      else 'none'
-    end.inquiry
+              when 'cancan', 'can' then 'cancan'
+              when 'http' then 'http'
+              when 'fakecancan', 'fake' then 'fake'
+              when 'none', 'false', 'all' then 'none'
+              else 'none'
+              end.inquiry
 
     @begin_chain = options.begin_chain == 'false' ? nil : options.begin_chain
-    @route = options.route == nil ? singular_name : options.route
+    @route = options.route.nil? ? singular_name : options.route
   end
 
   def append_gem_dependency
@@ -71,6 +71,8 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     if @access.cancan?
       template 'controller_concerns/current_identity.rb.erb', app_folder(:app, :controllers, :concerns, instance_name, "current_identity.rb")
     end
+
+    true
   end
 
   def generate_views
@@ -103,24 +105,26 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   end
 
   def generate_helpers
-    template "helpers/application_helper.rb.erb", app_folder(:app, :helpers, instance_name,"application_helper.rb")
-    template "helpers/boolean_helper.rb.erb", app_folder(:app, :helpers, instance_name,"boolean_helper.rb")
-    template "helpers/datalink_helper.rb.erb", app_folder(:app, :helpers, instance_name,"datalink_helper.rb")
-    template "helpers/display_name_helper.rb.erb", app_folder(:app, :helpers, instance_name,"display_name_helper.rb")
-    template "helpers/erb_helper.rb.erb", app_folder(:app, :helpers, instance_name,"erb_helper.rb")
-    template "helpers/glipper_helper.rb.erb", app_folder(:app, :helpers, instance_name,"glipper_helper.rb")
-    template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name,"human_attribute_helper.rb")
-    template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name,"i18n_helper.rb")
-    template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name,"image_helper.rb")
-    template "helpers/money_helper.rb.erb", app_folder(:app, :helpers, instance_name,"money_helper.rb")
-    template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name,"number_to_percentage_helper.rb")
-    template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name,"sentence_helper.rb")
-    template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name,"timestamp_helper.rb")
+    template "helpers/application_helper.rb.erb", app_folder(:app, :helpers, instance_name, "application_helper.rb")
+    template "helpers/boolean_helper.rb.erb", app_folder(:app, :helpers, instance_name, "boolean_helper.rb")
+    template "helpers/datalink_helper.rb.erb", app_folder(:app, :helpers, instance_name, "datalink_helper.rb")
+    template "helpers/display_name_helper.rb.erb", app_folder(:app, :helpers, instance_name, "display_name_helper.rb")
+    template "helpers/erb_helper.rb.erb", app_folder(:app, :helpers, instance_name, "erb_helper.rb")
+    template "helpers/glipper_helper.rb.erb", app_folder(:app, :helpers, instance_name, "glipper_helper.rb")
+    template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name, "human_attribute_helper.rb")
+    template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name, "i18n_helper.rb")
+    template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name, "image_helper.rb")
+    template "helpers/money_helper.rb.erb", app_folder(:app, :helpers, instance_name, "money_helper.rb")
+    template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name, "number_to_percentage_helper.rb")
+    template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name, "sentence_helper.rb")
+    template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name, "timestamp_helper.rb")
 
     unless @api
-      template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name,"title_helper.rb")
-      template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name,"flash_helper.rb")
+      template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name, "title_helper.rb")
+      template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name, "flash_helper.rb")
     end
+
+    true
   end
 
   def generate_assets
@@ -136,12 +140,14 @@ class NamespaceGenerator < Rails::Generators::NamedBase
       empty_directory app_folder(:assets, :stylesheets)
       template 'assets/stylesheets/css.scss.erb', app_folder(:assets, :stylesheets, "#{instance_name}.scss")
     end
+
+    true
   end
 
   private
 
   def app_folder(*agrs)
-    "apps/#{singular_name}/#{agrs.join(?/)}"
+    "apps/#{singular_name}/#{agrs.join('/')}"
   end
 
   def scaffold_name
@@ -186,5 +192,4 @@ class NamespaceGenerator < Rails::Generators::NamedBase
   def read_template(relative_path)
     ERB.new(File.read(find_in_source_paths(relative_path)), nil, '-').result(binding)
   end
-
 end

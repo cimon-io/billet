@@ -5,16 +5,16 @@ class Seeder
     ActionMailer::Base.delivery_method = :test
     require 'sidekiq/testing'
     Sidekiq::Testing.inline!
-    return false if [User, Company, Project].all? &:any?
+    return false if [User, Company, Project].all?(&:any?)
     ActiveRecord::Base.descendants.map(&:reset_column_information)
 
     ActiveRecord::Base.transaction do
       header 'Create main data'
-      self.create_companies!
-      self.create_users!
-      self.create_projects!
+      create_companies!
+      create_users!
+      create_projects!
     end
-    return true
+    true
   end
 
   def create_companies!
@@ -34,7 +34,7 @@ class Seeder
       { nickname: 'ann', company_name: "Another2", skype: 'ann', website: 'ann.name', first_name: 'Anny', last_name: 'Faye', email: 'ann@billet.co' }
     ] do |params|
       u = User.create!(params)
-      UserIdentity.create!({ name: u.nickname, email: u.email, user: u, provider: 'developer', uid: u.email, avatar_url: 'default-avatar.png' })
+      UserIdentity.create!(name: u.nickname, email: u.email, user: u, provider: 'developer', uid: u.email, avatar_url: 'default-avatar.png')
     end
   end
 
@@ -57,14 +57,14 @@ class Seeder
       { name: "Ffina" },
       { name: "Erbin" },
       { name: "Polratyn" }
-    ] do |project|
-      Project.create!(user: user, company: Company.sample, name: Faker::Name.name)
+    ] do |project_attrs|
+      Project.create!(project_attrs.merge(user: user, company: Company.sample))
     end
   end
 
   protected
 
-  def random_image_url(set=1)
+  def random_image_url(set = 1)
     "https://robohash.org/#{rand(36**32).to_s(36)}.png?set=set#{set}"
   end
 
@@ -72,20 +72,19 @@ class Seeder
     print "\033[36m#{text}\033[0m\n"
   end
 
-  def create_for message, array, parent=nil, &block
+  def create_for(message, array, parent = nil)
     print "\033[1m->\033[0m #{message}"
     if array.is_a?(Integer)
       array.to_i.times do |i|
-        block.call(i, parent)
+        yield(i, parent)
         print '.'
       end
     else
       array.each do |i|
-        block.call(i, parent)
+        yield(i, parent)
         print "\033[32m.\033[0m"
       end
     end
     print "\n"
   end
-
 end

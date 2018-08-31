@@ -2,14 +2,14 @@ module MuteAction
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def mute_action(action_name, options={})
+    def mute_action(action_name, options = {})
       to = options.delete(:to) { raise ":to key expected" }
       content_proc = case to
-        when String then Proc.new { to }
-        when Symbol then Proc.new { self.send(to) }
-        when Proc then to
-        else raise ":to key has undefined format"
-      end
+                     when String then proc { to }
+                     when Symbol then proc { send(to) }
+                     when Proc then to
+                     else raise ":to key has undefined format"
+                     end
 
       with = options.delete(:with) { action_name.to_sym == :index ? :collection : :resource }
 
@@ -28,5 +28,4 @@ module MuteAction
       end
     end
   end
-
 end

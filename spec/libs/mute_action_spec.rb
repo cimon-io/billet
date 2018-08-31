@@ -16,12 +16,9 @@ describe '#mute_action' do
       mute_action :index2, to: -> { "ert" }, with: :collection2
       mute_action :index3, to: -> { qwe }, url_with: :collection3_url, path_with: :collection3_path
 
-      protected
-
       def qwe
-        25456
+        25_456
       end
-
     end
   end
 
@@ -31,13 +28,12 @@ describe '#mute_action' do
 
   subject { A.new }
 
-  it { expect(subject.collection_url).to eq(25456) }
-  it { expect(subject.collection_path).to eq(25456) }
+  it { expect(subject.collection_url).to eq(25_456) }
+  it { expect(subject.collection_path).to eq(25_456) }
   it { expect(subject.resource_url).to eq("wer") }
   it { expect(subject.resource_path).to eq("wer") }
   it { expect(subject.collection2_url).to eq("ert") }
   it { expect(subject.collection2_path).to eq("ert") }
-  it { expect(subject.collection3_url).to eq(25456) }
-  it { expect(subject.collection3_path).to eq(25456) }
-
+  it { expect(subject.collection3_url).to eq(25_456) }
+  it { expect(subject.collection3_path).to eq(25_456) }
 end

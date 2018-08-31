@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_twitter(params)
         params = ParamsConverter.convert!(params, [:info, :credentials, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name])
@@ -16,7 +15,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_twitter(auth)
-        self.new(
+        new(
           provider: auth[:provider],
           uid: auth[:uid],
           name: auth[:info][:name],
@@ -48,10 +47,9 @@ module UserIdentities
         )
         client.user
         true
-      rescue ::Twitter::Error::Unauthorized => e
+      rescue ::Twitter::Error::Unauthorized
         false
       end
     end
-
   end
 end

@@ -3,8 +3,8 @@ module AttrAccessorWithDefault
 
   module ClassMethods
     def attr_accessor_with_default(name)
-      content_proc = block_given? ? Proc.new : Proc.new { nil }
-      define_method "#{name}" do
+      content_proc = block_given? ? Proc.new : proc { nil }
+      define_method name.to_s do
         instance_variable_get("@#{name}") || instance_exec(&content_proc)
       end
       define_method "#{name}=" do |v|
@@ -12,5 +12,4 @@ module AttrAccessorWithDefault
       end
     end
   end
-
 end

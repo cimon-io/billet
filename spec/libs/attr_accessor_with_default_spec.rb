@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe '#attr_accessor_with_default' do
-
   describe AttrAccessorWithDefault do
     before(:each) do
       A = Class.new do
@@ -12,7 +11,7 @@ describe '#attr_accessor_with_default' do
           100
         end
         attr_accessor_with_default :qwe3 do
-          self.qwe2 * self.qwe1
+          qwe2 * qwe1
         end
       end
     end
@@ -31,5 +30,4 @@ describe '#attr_accessor_with_default' do
     it { expect(a.qwe2).to eq(100) }
     it { expect(a.qwe3).to eq(200) }
   end
-
 end

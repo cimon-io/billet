@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_developer(params)
         params = ParamsConverter.convert!(params, [:info, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name], [:email])
@@ -15,7 +14,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_developer(auth)
-        self.new(
+        new(
           provider: auth[:provider],
           uid: auth[:uid],
           name: auth[:info][:name],
@@ -31,14 +30,13 @@ module UserIdentities
         )
       end
 
-      def developer_profile_url(user_identity)
+      def developer_profile_url(_user_identity)
         ''
       end
 
-      def validate_with_omniauth_developer(token, token_secret)
+      def validate_with_omniauth_developer(_token, _token_secret)
         true
       end
     end
-
   end
 end

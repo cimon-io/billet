@@ -7,7 +7,6 @@ module UserIdentities
     end
 
     module ClassMethods
-
       def validate_params_with_omniauth_tumblr(params)
         params = ParamsConverter.convert!(params, [:info, :credentials, :uid, :provider])
         params[:info] = ParamsConverter.convert!(params[:info], [:name])
@@ -16,7 +15,7 @@ module UserIdentities
       end
 
       def build_with_omniauth_tumblr(auth)
-        self.new(
+        new(
           provider: auth[:provider],
           uid: auth[:uid],
           name: auth[:info][:name],
@@ -34,7 +33,7 @@ module UserIdentities
         )
       end
 
-      def validate_with_omniauth_tumblr(token, user_identity)
+      def validate_with_omniauth_tumblr(_token, _user_identity)
         # TODO
         true
       end
@@ -43,6 +42,5 @@ module UserIdentities
         "http://#{user_identity.uid}.tumblr.com/"
       end
     end
-
   end
 end
