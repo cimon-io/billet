@@ -47,35 +47,41 @@ gem 'omniauth-tumblr', github: 'jamiew/omniauth-tumblr'
 gem 'omniauth-twitter', github: 'cimon-io/omniauth-twitter'
 
 group :development, :test do
-  gem 'pry', require: false
-  gem 'pry-byebug'
-  gem 'pry-doc', require: false
-  gem 'pry-rails'
+  gem 'puma-fsevent_cleanup', '~> 0.1'
 
+  gem 'pry', '~> 0.10', require: false
+  gem 'pry-byebug', '~> 3.4'
+  gem 'pry-doc', '~> 0.10', require: false
+  gem 'pry-rails', '~> 0.3'
+
+  gem 'active_record_query_trace', '~> 1.5'
+  gem 'brakeman', require: false
+  gem 'bundler-audit', require: false
+  gem 'capybara'
+  gem 'chromedriver-helper'
+  gem 'db-query-matchers', '~> 0.9'
+  gem 'factory_bot', '~> 4.8'
+  gem 'fuubar', '~> 2.2', require: false
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
-
-  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner', branch: 'master'
-  gem 'factory_bot_rails', '~> 4.8'
-  gem 'rspec-its'
-  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'teaspoon-jasmine', '~> 2.3'
+  gem 'unique'
 end
-
 group :development do
-  gem 'listen', '~> 3.0.5'
-  gem 'web-console'
+  gem 'listen', '~> 3.1'
+  gem 'web-console', '~> 3.5'
 end
 
 group :test do
-  gem 'timecop'
-
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'email_spec'
-  gem 'phantomjs', require: 'phantomjs/poltergeist'
-  gem 'poltergeist'
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-  gem 'site_prism'
+  gem 'database_cleaner', '~> 1.6'
+  gem 'faker', '~> 1.8'
+  gem 'rspec-its', '~> 1.2'
+  gem 'rspec-simplecov', '~> 0.2'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov', '~> 0.14'
+  gem 'simplecov-console', github: 'cimon-io/simplecov-console' # Remove table and add separate coverage for non 100% files
+  gem 'timecop', '~> 0.9'
 end
 
 group :production do

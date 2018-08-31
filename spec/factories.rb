@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
+require 'faker'
+
 FactoryBot.define do
   factory :company do
-    sequence(:name) { |n| "Company #{n}" }
+    name { Unique.next! { Faker::Company.name } }
   end
 
   factory :project do
-    sequence(:name) { |n| "Project #{n}" }
+    name { Unique.next! { Faker::Company.name } }
     company
   end
 
@@ -17,8 +21,8 @@ FactoryBot.define do
   end
 
   factory :user_identity do
-    sequence(:email) { |n| "user#{n}@example.com" }
-    sequence(:uid) { email }
+    email { Unique.next! { Faker::Internet.email } }
+    uid { Unique.next! { Faker::Internet.slug } }
     provider "developer"
     user
   end
