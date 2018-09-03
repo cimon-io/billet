@@ -13,7 +13,6 @@ gem 'puma', '~> 3.0'
 gem 'rails', '>= 5.2.0', '< 5.3.0'
 
 gem 'cancancan', '~> 2.1'
-gem 'paper_trail', '~> 9.0'
 
 gem 'attribute_normalizer', '~> 1.2'
 gem 'carrierwave', '~> 1.2'

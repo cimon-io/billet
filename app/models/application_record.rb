@@ -9,14 +9,14 @@ class ApplicationRecord < ActiveRecord::Base
       res << :created_at if action == :create
       res << :updated_at
 
-      # res += case table_ref
-      #        when '"companies"'
-      #          [:name]
-      #        when '"projects"'
-      #          [:name]
-      #        else
-      #          []
-      #        end
+      res += case table_ref
+             when '"companies"'
+               [:projects_count]
+            #  when '"projects"'
+            #    [:name]
+             else
+               []
+             end
 
       res
     end
