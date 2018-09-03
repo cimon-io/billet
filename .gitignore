@@ -32,6 +32,7 @@ actionmailer_config_DONOTVERSION.rb
 /public/web-assets/**/*
 /sqlnet.log
 .sass-cache/
+/spec/examples.txt
 /.fontcustom-manifest.json
 /assets/yarn-debug.log*
 /assets/.yarn-integrity

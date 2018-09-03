@@ -1,15 +1,12 @@
 development: &defaults
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV.fetch('DATABASE_URL', 'postgres://localhost:5432/billet_development') %>
+  url: <%= ENV.fetch('DATABASE_URL', 'postgres://localhost:5432/billet_development?pool=50') %>
 
 test:
   <<: *defaults
-  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_test#{ENV['TEST_ENV_NUMBER']}") %>
-
-staging:
-  <<: *defaults
+  min_messages: WARNING
+  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_test#{ENV['TEST_ENV_NUMBER']}?pool=50") %>
 
 production:
   <<: *defaults

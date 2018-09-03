@@ -111,4 +111,6 @@ That's it.
 * Running `bin/rake` will run unit tests, then, if all pass, run acceptance
   tests
 * We do unit testing with rspec. To run just unit tests run `bin/rake spec`.
-  To run a single one, run `bundle exec rspec spec/path/to/spec.rb`.
+  To run a single one, run `bin/rspec spec/path/to/spec.rb`.
+* To run rubocop, just `bin/rubocop`. Do not forget to do it before commit.
+* `bin/brakeman` checks code for security vulnerabilities.

@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 module ActiveRecordNone
   extend ActiveSupport::Concern
 
   included do
-    alias_method :none?, :empty?
+    def none?
+      !any?
+    end
   end
 end
 

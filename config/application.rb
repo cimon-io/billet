@@ -18,5 +18,7 @@ module Billet
 
     config.middleware.use ::Authenticator::Backdoor
     config.middleware.use ::Authenticator::Middleware
+
+    config.active_record.schema_format = :sql
   end
 end
