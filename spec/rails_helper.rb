@@ -28,7 +28,6 @@ require 'capybara/rspec'
 #
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')]
   .sort_by { |i| i.include?('spec/support/initializers') ? "_#{i}" : i }
-  .each { |f| p(f) }
   .each { |f| require f }
 
 # Checks for pending migration and applies them before tests are run.
