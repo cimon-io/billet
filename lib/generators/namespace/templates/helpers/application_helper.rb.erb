@@ -1,26 +1,26 @@
 module <%= class_name %>
   module ApplicationHelper
+    extend ActiveSupport::Concern
 
-    def dom_id(*args)
-      if args.count <= 2 && args.first.respond_to?(:to_key)
-        super
-      else
-        args.map do |a|
-          if a.respond_to?(:to_sym)
-            a.to_sym
-          else
-            a.object_id
-          end
-        end.join('-')
-      end
+    included do
+      include AttributeHelper
+      include BooleanHelper
+      include DatalinkHelper
+      include ErbHelper
+      include FlashHelper
+      include GlipperHelper
+      include HtmlDomHelper
+      include I18nHelper
+      include NumberToPercentageHelper
+      include SentenceHelper
+      include TimeFormatHelper
+      include TitleHelper
     end
 
-    def css_id(*args)
-      "##{dom_id(*args)}"
-    end
+    protected
 
-    def collection_class(resource_class)
-      "#{resource_class.model_name.plural}-list"
+    def glip(resource)
+      ::<%= class_name %>::ApplicationDrapper.decorate(resource, self)
     end
 
   end

@@ -1,9 +1,0 @@
-module <%= class_name %>
-  module GlipperHelper
-
-    protected def glip(resource)
-      <%= class_name %>::ApplicationDrapper.decorate(resource, self)
-    end
-
-  end
-end
