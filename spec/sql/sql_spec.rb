@@ -75,11 +75,9 @@ RSpec.describe 'sql tests', type: :sql do
         end
 
         after do
-          begin
-            ApplicationRecord.connection.execute("DROP FUNCTION IF EXISTS #{f.function_name}()")
-          rescue ActiveRecord::StatementInvalid
-            nil
-          end
+          ApplicationRecord.connection.execute("DROP FUNCTION IF EXISTS #{f.function_name}()")
+        rescue ActiveRecord::StatementInvalid
+          nil
         end
         it('should return ok') { expect(ApplicationRecord.connection.execute("SELECT #{f.function_name}()").to_a.first[f.function_name]).to eq('ok') }
       end

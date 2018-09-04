@@ -12,8 +12,8 @@ class ApplicationRecord < ActiveRecord::Base
       res += case table_ref
              when '"companies"'
                [:projects_count]
-            #  when '"projects"'
-            #    [:name]
+             #  when '"projects"'
+             #    [:name]
              else
                []
              end
