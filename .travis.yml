@@ -1,0 +1,27 @@
+---
+services:
+  - postgresql
+  - redis-server
+
+addons:
+  postgresql: 9.6
+
+language: ruby
+
+env:
+  global:
+    - RAILS_ENV: "test"
+    - RACK_ENV: "test"
+    - BUNDLE_GITHUB__HTTPS: "true"
+    - DATABASE_URL: "postgres://postgres@localhost/travis_ci_test"
+  matrix:
+    - COMMAND="bin/brakeman"
+    - COMMAND="bin/rubocop"
+    - COMMAND="bin/rspec"
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+script:
+  - bundle install
+  - "$COMMAND"
