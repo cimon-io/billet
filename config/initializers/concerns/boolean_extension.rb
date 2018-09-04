@@ -7,3 +7,5 @@ module BooleanExtension
     !true?(value)
   end
 end
+
+ActiveRecord::Base.send :include, BooleanExtension

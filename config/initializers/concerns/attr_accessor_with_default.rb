@@ -13,3 +13,5 @@ module AttrAccessorWithDefault
     end
   end
 end
+
+ActiveRecord::Base.send :include, AttrAccessorWithDefault
