@@ -99,7 +99,6 @@ class NamespaceGenerator < Rails::Generators::NamedBase
 
     template 'drappers/concerns/display_name_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "display_name_glipper.rb")
     template 'drappers/concerns/image_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "image_glipper.rb")
-    template 'drappers/concerns/money_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "money_glipper.rb")
     template 'drappers/concerns/timestamp_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "timestamp_glipper.rb")
     template 'drappers/concerns/type_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "type_glipper.rb")
   end
@@ -114,7 +113,6 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name, "human_attribute_helper.rb")
     template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name, "i18n_helper.rb")
     template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name, "image_helper.rb")
-    template "helpers/money_helper.rb.erb", app_folder(:app, :helpers, instance_name, "money_helper.rb")
     template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name, "number_to_percentage_helper.rb")
     template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name, "sentence_helper.rb")
     template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name, "timestamp_helper.rb")

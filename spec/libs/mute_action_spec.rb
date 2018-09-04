@@ -28,12 +28,12 @@ describe '#mute_action' do
 
   subject { A.new }
 
-  it { expect(subject.collection_url).to eq(25_456) }
-  it { expect(subject.collection_path).to eq(25_456) }
-  it { expect(subject.resource_url).to eq("wer") }
-  it { expect(subject.resource_path).to eq("wer") }
-  it { expect(subject.collection2_url).to eq("ert") }
-  it { expect(subject.collection2_path).to eq("ert") }
-  it { expect(subject.collection3_url).to eq(25_456) }
-  it { expect(subject.collection3_path).to eq(25_456) }
+  its(:collection_url) { is_expected.to eq(25_456) }
+  its(:collection_path) { is_expected.to eq(25_456) }
+  its(:resource_url) { is_expected.to eq("wer") }
+  its(:resource_path) { is_expected.to eq("wer") }
+  its(:collection2_url) { is_expected.to eq("ert") }
+  its(:collection2_path) { is_expected.to eq("ert") }
+  its(:collection3_url) { is_expected.to eq(25_456) }
+  its(:collection3_path) { is_expected.to eq(25_456) }
 end

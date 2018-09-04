@@ -8,7 +8,5 @@ RSpec.describe Authenticator, type: :middleware do
     xit { expect { middleware.call(mock_request) }.to_not raise_error }
   end
 
-  describe Authenticator::Streak do
-    pending
-  end
+  describe Authenticator::Streak
 end
