@@ -22,3 +22,5 @@ module DenyDestroy
     end
   end
 end
+
+ActiveRecord::Base.send :include, DenyDestroy
