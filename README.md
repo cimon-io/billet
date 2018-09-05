@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cimon-io/billet.svg?branch=master)](https://travis-ci.org/cimon-io/billet)
+
 # Billet
 
 ## How to use it.
