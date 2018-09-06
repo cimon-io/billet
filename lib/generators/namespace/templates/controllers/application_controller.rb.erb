@@ -2,7 +2,7 @@ module <%= class_name %>
   class ApplicationController < ::ApplicationController
     include ::Susanin
     <%- unless @api -%>
-    include ::PageTitle
+    include ::PageMeta
     <%- end -%>
     include ::MuteAction
     include ::StateMachineAbilities
@@ -18,7 +18,7 @@ module <%= class_name %>
     include <%= class_name %>::CurrentIdentity
     <%- end -%>
 
-    helper :all
+    meta_for([:suffix, :title], Settings.application.name)
 
     <%- if @api -%>
     respond_to :json

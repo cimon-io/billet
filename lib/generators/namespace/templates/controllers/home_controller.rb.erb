@@ -1,5 +1,7 @@
 module <%= class_name %>
   class HomeController < ::<%= class_name %>Controller
+    meta_for(:title) { I18n.t('<%= singular_name %>.home.title') }
+
     def index
       <%- if @access.cancan? -%>
       authorize! :show, :client_home
