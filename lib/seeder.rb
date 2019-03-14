@@ -6,6 +6,7 @@ class Seeder
     require 'sidekiq/testing'
     Sidekiq::Testing.inline!
     return false if [User, Company, Project].all?(&:any?)
+
     ActiveRecord::Base.descendants.map(&:reset_column_information)
 
     ActiveRecord::Base.transaction do

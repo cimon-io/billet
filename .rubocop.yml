@@ -121,3 +121,12 @@ Rails/Output:
   Enabled: true
   Exclude:
     - 'lib/seeder.rb'
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'config/initializers/monkeypatches/active_record_database_statements.rb'
+    - 'config/initializers/monkeypatches/action_view_digestor_initializer.rb'
+    - 'config/puma.rb'
+    - 'lib/custom_normalizers/date_str_normalizer.rb'
+    - 'lib/generators/namespace/namespace_generator.rb'
+    - 'vendor/controller_concerns/state_machine_abilities.rb'

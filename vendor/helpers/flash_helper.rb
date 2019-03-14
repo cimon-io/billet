@@ -15,9 +15,7 @@ module FlashHelper
     key ? default_keys[key] : ->(k) { default_keys[k] || k }
   end
 
-  # rubocop:disable Rails/OutputSafety
   def flash_button_tag
     content_tag(:button, '&times;'.html_safe, class: 'close', type: 'button', 'aria-hidden' => 'true', data: { dismiss: 'alert' })
   end
-  # rubocop:enable Rails/OutputSafety
 end
