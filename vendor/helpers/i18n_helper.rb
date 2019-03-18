@@ -30,11 +30,13 @@ module I18nHelper
   def scope_keys_by_controller_with_html(key, options)
     result = scope_keys_by_controller(key.to_s, options.delete(:lookup))
     return result unless options.delete(:html)
+
     result.flat_map { |k| ["#{k}.html", k] }
   end
 
   def scope_keys_by_controller(key, custom_lookup_context = nil)
     return Array.wrap(key) unless key.starts_with?('#')
+
     rest = key[1..-1]
 
     if custom_lookup_context

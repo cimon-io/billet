@@ -45,6 +45,7 @@ module SentenceHelper
     end
 
     return str unless should_sanitized?(str, length)
+
     [str[0..from], '...', str[-to..-1]].join
   end
 

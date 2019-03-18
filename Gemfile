@@ -8,7 +8,7 @@ end
 gem 'config', '~> 1.7' # this gem should be load first to define configuration before initialize project
 
 # core libraries
-gem 'rails', '>= 5.2.0', '< 5.3.0'
+gem 'rails', '5.2.2.1'
 
 # database library
 gem 'pg', '~> 0.21'

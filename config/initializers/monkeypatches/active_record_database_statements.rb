@@ -91,6 +91,7 @@ module ActiveRecord
           returning_columns = quote_returning_column_names(table_ref, nil, :update)
 
           return sql if returning_columns.blank?
+
           "#{sql} RETURNING #{returning_columns.join(', ')}"
         end
 

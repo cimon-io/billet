@@ -41,7 +41,7 @@ module UserIdentities
       def validate_with_omniauth_twitter(token, token_secret)
         client = ::Twitter::REST::Client.new(
           consumer_key: Settings.providers.twitter.key,
-          consumer_secret:  Settings.providers.twitter.secret,
+          consumer_secret: Settings.providers.twitter.secret,
           access_token: token,
           access_token_secret: token_secret
         )
