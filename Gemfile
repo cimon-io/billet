@@ -5,7 +5,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'config', '~> 1.7' # this gem should be load first to define configuration before initialize project
+gem 'config', '~> 2.0' # this gem should be load first to define configuration before initialize project
 
 # core libraries
 gem 'rails', '6.0.0'
