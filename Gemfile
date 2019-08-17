@@ -62,6 +62,7 @@ group :development, :test do
   gem 'fuubar', '~> 2.2', require: false
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   gem 'selenium-webdriver'
   # gem 'teaspoon-jasmine', '~> 2.3'
   gem 'unique'

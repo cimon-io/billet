@@ -37,8 +37,8 @@ RSpec.shared_context 'users activity in second project' do
     @story6 = create :story, created_at: Date.new(2016, 5, 11), projects_sprint: @sprint3, estimation_minutes: 4, project: @project1, title: 'Title5'
     @story7 = create :story, created_at: Date.new(2016, 5, 11), projects_sprint: @sprint4, estimation_minutes: 0, project: @project1, title: 'Title6'
     @story8 = create :story, created_at: Date.new(2016, 5, 11), projects_sprint: @sprint4, estimation_minutes: 57, project: @project1, title: 'Title7'
-    @timeinterval8  = create :timeinterval, story: @story5, day: Date.new(2016, 5, 11), started_at: Time.utc(2016, 5, 11, 8, 15), finished_at: Time.utc(2016, 5, 11, 10, 25), minutes: 35, users: [@user3, @user4]
-    @timeinterval9  = create :timeinterval, story: @story5, day: Date.new(2016, 5, 18), started_at: nil, finished_at: nil, minutes: 224, users: [@user3]
+    @timeinterval8 = create :timeinterval, story: @story5, day: Date.new(2016, 5, 11), started_at: Time.utc(2016, 5, 11, 8, 15), finished_at: Time.utc(2016, 5, 11, 10, 25), minutes: 35, users: [@user3, @user4]
+    @timeinterval9 = create :timeinterval, story: @story5, day: Date.new(2016, 5, 18), started_at: nil, finished_at: nil, minutes: 224, users: [@user3]
     @timeinterval10 = create :timeinterval, story: @story6, day: Date.new(2016, 5, 10), started_at: Time.utc(2016, 5, 10, 9, 47), finished_at: Time.utc(2016, 5, 10, 12, 56), minutes: 94, users: [@user4]
     @timeinterval11 = create :timeinterval, story: @story7, day: Date.new(2016, 5, 15), started_at: Time.utc(2016, 5, 15, 10, 23), finished_at: Time.utc(2016, 5, 15, 17, 25), minutes: 127, users: [@user3]
     @timeinterval12 = create :timeinterval, story: @story6, day: Date.new(2016, 5, 19), started_at: Time.utc(2016, 5, 19, 10, 51), finished_at: Time.utc(2016, 5, 19, 18, 5), minutes: 61, users: [@user3, @user4]
