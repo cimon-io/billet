@@ -5,7 +5,7 @@ module ActiveRecord
     # https://github.com/rails/rails/blob/v5.2.0/activerecord/lib/active_record/persistence.rb#L729-L741
     def _create_record(attribute_names = self.attribute_names)
       attribute_names &= self.class.column_names
-      attributes_values = attributes_with_values_for_create(attribute_names)
+      attributes_values = attributes_with_values(attributes_for_create(attribute_names))
 
       an_id, *affected_rows = self.class._insert_record(attributes_values).dup
       self.id ||= an_id if self.class.primary_key
@@ -61,7 +61,8 @@ module ActiveRecord
         alias create insert
 
         # https://github.com/rails/rails/blob/v5.2.0/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L98-L111
-        def sql_for_insert(sql, pk, id_value, sequence_name, binds) # :nodoc:
+        # https://github.com/rails/rails/blob/f10ad55ac4daa2d1b82f74b7292966aaa33f024b/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L113-L126
+        def sql_for_insert(sql, pk, binds) # :nodoc:
           table_ref = extract_table_ref_from_insert_sql(sql)
           if pk.nil?
             # Extract the table from the insert sql. Yuck.
