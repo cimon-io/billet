@@ -37,8 +37,8 @@ gem 'premailer-rails', '~> 1.10'
 gem 'redis-namespace', '~> 1.6'
 gem 'rollbar', '~> 2.15'
 gem 'sidekiq', '~> 5.1'
-gem 'sidekiq-scheduler', '~> 2.2'
-gem 'sidekiq-unique-jobs', '~> 5.0'
+gem 'sidekiq-scheduler', '~> 3.0'
+gem 'sidekiq-unique-jobs', '~> 6.0'
 gem 'simple_form', '~> 4.0'
 gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
 gem 'susanin', github: 'cimon-io/susanin'
@@ -58,7 +58,7 @@ group :development, :test do
   gem 'capybara'
   gem 'chromedriver-helper'
   gem 'db-query-matchers', '~> 0.9'
-  gem 'factory_bot', '~> 4.8'
+  gem 'factory_bot', '~> 5.0'
   gem 'fuubar', '~> 2.2', require: false
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
