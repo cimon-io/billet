@@ -6,7 +6,7 @@ class UserIdentity < ApplicationRecord
 
   belongs_to :user
 
-  validates :token, token: true
+  # validates :token, token: true
 
   scope :with_default_order, -> { order(created_at: :asc) }
   scope :social_networks, -> { where(provider: [:twitter, :facebook, :instagram, :tumblr]) }

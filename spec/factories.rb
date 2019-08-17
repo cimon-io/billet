@@ -23,7 +23,7 @@ FactoryBot.define do
   factory :user_identity do
     email { Unique.next! { Faker::Internet.email } }
     uid { Unique.next! { Faker::Internet.slug } }
-    provider "developer"
+    provider { "developer" }
     user
   end
 end
