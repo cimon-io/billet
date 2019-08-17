@@ -8,7 +8,7 @@ end
 gem 'config', '~> 1.7' # this gem should be load first to define configuration before initialize project
 
 # core libraries
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0'
 
 # database library
 gem 'pg', '~> 1.1'
@@ -20,7 +20,7 @@ gem 'attribute_normalizer', '~> 1.2'
 gem 'cancancan', '~> 3.0'
 gem 'carrierwave', '~> 1.2'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
-gem 'glipper', github: 'cimon-io/glipper'
+gem 'glipper', github: 'cimon-io/glipper', branch: 'rails-6-support'
 gem 'hamlit', '~> 2.8'
 gem 'has_secure_token', '~> 1.0'
 gem 'jbuilder', '~> 2.5'
@@ -39,10 +39,10 @@ gem 'rollbar', '~> 2.15'
 gem 'sidekiq', '~> 5.1'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'sidekiq-unique-jobs', '~> 6.0'
-gem 'simple_form', '~> 4.0'
+gem 'simple_form', '~> 4.1'
 gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
-gem 'susanin', github: 'cimon-io/susanin'
-gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
+gem 'susanin', github: 'cimon-io/susanin', branch: 'rails-6-support'
+gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources', branch: 'rails-6-support'
 
 group :development, :test do
   gem 'puma-fsevent_cleanup', '~> 0.1'
@@ -63,13 +63,13 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', require: false
   gem 'selenium-webdriver'
-  gem 'teaspoon-jasmine', '~> 2.3'
+  # gem 'teaspoon-jasmine', '~> 2.3'
   gem 'unique'
 end
 
 group :development do
   gem 'listen', '~> 3.1'
-  gem 'web-console', '~> 3.5'
+  gem 'web-console', '~> 4.0'
 end
 
 group :test do
