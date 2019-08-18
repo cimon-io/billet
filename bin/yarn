@@ -1,16 +1,11 @@
 #!/usr/bin/env ruby
-# frozen_string_literal: true
-
-require 'pathname'
-require 'fileutils'
-
-APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
-ASSETS_PATH = Pathname.new File.expand_path('./assets', APP_ROOT)
-
-def system!(*args)
-  system(*args) || abort("\n== Command #{args} failed ==")
-end
-
-FileUtils.chdir ASSETS_PATH do
-  system! "yarn #{ARGV.join(' ')}"
+ASSETS_ROOT = File.expand_path('../assets', __dir__)
+Dir.chdir(ASSETS_ROOT) do
+  begin
+    exec "yarnpkg", *ARGV
+  rescue Errno::ENOENT
+    $stderr.puts "Yarn executable was not detected in the system."
+    $stderr.puts "Download Yarn at https://yarnpkg.com/en/docs/install"
+    exit 1
+  end
 end
