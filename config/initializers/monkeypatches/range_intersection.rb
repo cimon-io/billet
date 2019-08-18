@@ -25,6 +25,6 @@ class Range
   # rubocop:enable Metrics/PerceivedComplexity, Style/CaseEquality
 
   def intersection_ratio(other)
-    size.positive? ? (intersection(other).size.to_f / size.to_f) : 0
+    size.positive? ? (intersection(other).size.to_f / size) : 0
   end
 end
