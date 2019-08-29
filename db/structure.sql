@@ -457,12 +457,11 @@ CREATE TRIGGER _001_update_companies_projects_counter_on_update AFTER UPDATE ON 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('1'),
-('2'),
-('20190818200310'),
-('3'),
-('4'),
-('5'),
-('6');
+('10000000000001'),
+('10000000000002'),
+('10000000000003'),
+('10000000000004'),
+('10000000000005'),
+('10000000000006');
 
 
