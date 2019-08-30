@@ -35,7 +35,7 @@ gem 'omniauth-tumblr', github: 'jamiew/omniauth-tumblr'
 gem 'omniauth-twitter', github: 'cimon-io/omniauth-twitter'
 gem 'premailer-rails', '~> 1.10'
 gem 'redis-namespace', '~> 1.6'
-gem 'rollbar', '~> 2.15'
+gem 'redcarpet', '~> 3.4'
 gem 'sidekiq', '~> 5.1'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'sidekiq-unique-jobs', '~> 6.0'
@@ -85,6 +85,6 @@ group :test do
 end
 
 group :production do
-  gem 'newrelic_rpm'
+  gem 'rollbar', '~> 2.15'
   gem 'rails_12factor'
 end

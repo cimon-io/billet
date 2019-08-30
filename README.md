@@ -22,7 +22,6 @@
 
 ### Various configs
  - Rename application and and other project based config values in `config/settings.yml`
- - Rename application name `config/newrelic.yml`
  - Rename application in the first line of `README.md`
  - Add description to the 'Synopsis' section
  - Change production domain in 'Synopsis' section
