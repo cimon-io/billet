@@ -4,11 +4,11 @@ module ActiveRecordSample
   extend ActiveSupport::Concern
 
   module ClassMethods
-    # rubocop:disable Performance/Sample
+    # rubocop:disable Style/Sample
     def sample
       shuffle.first
     end
-    # rubocop:enable Performance/Sample
+    # rubocop:enable Style/Sample
 
     def shuffle
       reorder(Arel.sql("RANDOM()"))
