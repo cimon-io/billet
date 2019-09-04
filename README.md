@@ -14,6 +14,7 @@
 ### Rename application
  - Rename module application in `config/application.rb`
  - Rename default database for development and test in `config/database.yml`
+ - Rename all names of containers and variales in `docker-compose.yml`
  - Rename name of session store in `config/initializers/session_store.rb`
 
 ### Deploy configuration

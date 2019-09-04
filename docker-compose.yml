@@ -1,0 +1,49 @@
+version: '3.5'
+
+services:
+  billetdb:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: billet
+      POSTGRES_DB: billet
+
+  redis:
+    image: redis:latest
+
+  web:
+    build:
+      context: .
+      args:
+        RAILS_ENV: production
+        RACK_ENV: production
+    image: billet/app
+    env_file: ./env.sample
+    environment:
+      DATABASE_URL: postgres://postgres:billet@billetdb:5432/billet
+      REDIS_URL: redis://redis:6379
+    command: bash -c "sleep 5; bin/rake db:migrate && bin/puma -p 3000 -C config/puma.rb"
+    networks:
+      - billetnet
+      - default
+    ports:
+      - "3000:3000"
+    depends_on:
+      - billetdb
+      - redis
+
+  worker:
+    image: billet/app
+    env_file: ./env.sample
+    environment:
+      DATABASE_URL: postgres://postgres:billet@billetdb:5432/billet
+      REDIS_URL: redis://redis:6379
+    command: bash -c 'bin/sidekiq -C config/sidekiq.yml'
+    depends_on:
+      - billetdb
+      - redis
+      - web
+
+networks:
+  billetnet:
+    name: billet_custom
+    driver: bridge
