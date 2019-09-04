@@ -6,8 +6,7 @@ GIT
 
 GIT
   remote: https://github.com/cimon-io/glipper.git
-  revision: 55e69aa660defe15b58b9c2559c40f97bf78f87c
-  branch: rails-6-support
+  revision: d86c4e9ffd4066202049708ab43ac529473cfe74
   specs:
     glipper (0.0.2)
       actionpack (>= 4.1.1, < 7.0)
@@ -31,16 +30,14 @@ GIT
 
 GIT
   remote: https://github.com/cimon-io/susanin.git
-  revision: 6d85984c5b5304992eefc018a3f9f56ad762bcb9
-  branch: rails-6-support
+  revision: f9e8b1de26ce0059738f4fa86528623b9dfe85cc
   specs:
     susanin (0.1.2)
       actionpack (>= 5.0.0, < 7.0)
 
 GIT
   remote: https://github.com/cimon-io/unobtrusive_resources.git
-  revision: 26fd238d87fd386a7cbe4426efe4f3f311d3273c
-  branch: rails-6-support
+  revision: e13a7330663f8a043e2033b8872e924aca8dd76e
   specs:
     unobtrusive_resources (0.1.0)
       activesupport (>= 3.0, < 7.0)
