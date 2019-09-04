@@ -14,6 +14,7 @@
 ### Rename application
  - Rename module application in `config/application.rb`
  - Rename default database for development and test in `config/database.yml`
+ - Rename all names of containers and variales in `docker-compose.yml`
  - Rename name of session store in `config/initializers/session_store.rb`
 
 ### Deploy configuration
@@ -22,7 +23,6 @@
 
 ### Various configs
  - Rename application and and other project based config values in `config/settings.yml`
- - Rename application name `config/newrelic.yml`
  - Rename application in the first line of `README.md`
  - Add description to the 'Synopsis' section
  - Change production domain in 'Synopsis' section
