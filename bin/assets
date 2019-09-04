@@ -7,7 +7,7 @@ ENV["NODE_ENV"]  ||= ENV["NODE_ENV"] || "development"
 require 'pathname'
 require 'fileutils'
 
-APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+APP_ROOT = Pathname.new File.expand_path('..', __dir__)
 ASSETS_PATH = Pathname.new File.expand_path('./assets', APP_ROOT)
 WEBPACK_CONFIG_PATH = Pathname.new File.expand_path('webpack.config.js', ASSETS_PATH)
 NODE_MODULES_PATH = Pathname.new File.expand_path('node_modules', ASSETS_PATH)
@@ -27,9 +27,9 @@ FileUtils.chdir ASSETS_PATH do
   case MODE
   when :compile
     puts '== Compiling assets =='
-    system! "#{NODE_MODULES_BIN_PATH.join('webpack')} --config #{WEBPACK_CONFIG_PATH} --mode=#{ENV["NODE_ENV"]} #{PARAMS.join(' ')}".strip
+    system! "#{NODE_MODULES_BIN_PATH.join('webpack')} --config #{WEBPACK_CONFIG_PATH} --mode=#{ENV['NODE_ENV']} #{PARAMS.join(' ')}".strip
   when :server
     puts '== Running dev server =='
-    system! "#{NODE_MODULES_BIN_PATH.join('webpack')} --watch --config #{WEBPACK_CONFIG_PATH} --mode=#{ENV["NODE_ENV"]} #{PARAMS.join(' ')}".strip
+    system! "#{NODE_MODULES_BIN_PATH.join('webpack')} --watch --config #{WEBPACK_CONFIG_PATH} --mode=#{ENV['NODE_ENV']} #{PARAMS.join(' ')}".strip
   end
 end

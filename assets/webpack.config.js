@@ -4,8 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackManifestPlugin = require('webpack-manifest-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = (env, options) => {
   const DEBUG = process.env.NODE_ENV === 'development' || options.mode === 'development';
@@ -48,19 +48,20 @@ module.exports = (env, options) => {
             loader: 'babel-loader',
             options: {
               plugins: [
-                "syntax-dynamic-import",
-                "transform-object-rest-spread",
-                ["transform-class-properties", { "spec": true }]
+                "@babel/syntax-dynamic-import",
+                "@babel/proposal-object-rest-spread",
+                ["@babel/plugin-proposal-class-properties", { "spec": true }]
               ],
               presets: [
-                'react',
-                ['env', {
+                '@babel/react',
+                ['@babel/env', {
                   "modules": false,
                   "targets": {
                     "browsers": "> 1%",
-                    "uglify": true
                   },
-                  "useBuiltIns": true
+                  "forceAllTransforms": !DEBUG,
+                  "useBuiltIns": 'usage',
+                  "corejs": 3,
                 }]
               ],
               cacheDirectory: true
@@ -73,7 +74,13 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({ filename: 'stylesheets/[name]-[hash].css' }),
       new CopyWebpackPlugin([{ from: 'images', to: 'images/[name]-[hash].[ext]', toType: 'template' }]),
       new CompressionPlugin({ test: [/\.js$/, /\.css$/, /\.svg$/], cache: true }),
-      new CleanWebpackPlugin(['../public' + ASSETS_PREFIX], { verbose: DEBUG, watch: DEBUG, allowExternal: true }),
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: [`../public${ASSETS_PREFIX}`],
+        verbose: DEBUG,
+        watch: DEBUG,
+        dry: false,
+        dangerouslyAllowCleanPatternsOutsideProject: true,
+      }),
       new WebpackManifestPlugin({
         filter: (file) => {
           return (/(.*)\.(gz|map)$/).test(file.name) === false;
