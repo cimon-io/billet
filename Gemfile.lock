@@ -1,18 +1,18 @@
 GIT
-  remote: https://github.com/cimon-io/datetime_format_converter.git
+  remote: git://github.com/cimon-io/datetime_format_converter.git
   revision: b7a0656d2ac53281a8c02fd320ff2b8ee8adce5b
   specs:
     datetime_format_converter (0.0.4)
 
 GIT
-  remote: https://github.com/cimon-io/glipper.git
+  remote: git://github.com/cimon-io/glipper.git
   revision: d86c4e9ffd4066202049708ab43ac529473cfe74
   specs:
     glipper (0.0.2)
       actionpack (>= 4.1.1, < 7.0)
 
 GIT
-  remote: https://github.com/cimon-io/omniauth-twitter.git
+  remote: git://github.com/cimon-io/omniauth-twitter.git
   revision: cc19ee89d29ff19f9e74343a4508bc1800c0bbd9
   specs:
     omniauth-twitter (1.2.1)
@@ -20,7 +20,7 @@ GIT
       omniauth-oauth (~> 1.1)
 
 GIT
-  remote: https://github.com/cimon-io/simplecov-console.git
+  remote: git://github.com/cimon-io/simplecov-console.git
   revision: 7bfa9b2f918452184acfc8e9bbd05d45d3d23a63
   specs:
     simplecov-console (0.4.2)
@@ -29,21 +29,21 @@ GIT
       simplecov
 
 GIT
-  remote: https://github.com/cimon-io/susanin.git
+  remote: git://github.com/cimon-io/susanin.git
   revision: f9e8b1de26ce0059738f4fa86528623b9dfe85cc
   specs:
     susanin (0.1.2)
       actionpack (>= 5.0.0, < 7.0)
 
 GIT
-  remote: https://github.com/cimon-io/unobtrusive_resources.git
+  remote: git://github.com/cimon-io/unobtrusive_resources.git
   revision: e13a7330663f8a043e2033b8872e924aca8dd76e
   specs:
     unobtrusive_resources (0.1.0)
       activesupport (>= 3.0, < 7.0)
 
 GIT
-  remote: https://github.com/jamiew/omniauth-tumblr.git
+  remote: git://github.com/jamiew/omniauth-tumblr.git
   revision: df06d43eb547bda43c4fd19c068e959ba5922a94
   specs:
     omniauth-tumblr (1.2)
@@ -51,14 +51,14 @@ GIT
       omniauth-oauth (~> 1.0)
 
 GIT
-  remote: https://github.com/mkdynamic/omniauth-facebook.git
-  revision: a05db234f6f02a3c8cbae53eb6b5335d1a9dbfc6
+  remote: git://github.com/mkdynamic/omniauth-facebook.git
+  revision: 5fdcad76fbef1fb6acc2cbc395c6d6d36563c7b1
   specs:
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
 
 GIT
-  remote: https://github.com/ropiku/omniauth-instagram.git
+  remote: git://github.com/ropiku/omniauth-instagram.git
   revision: 553e6e7cbe519a95460449023ae33f0c78f47537
   specs:
     omniauth-instagram (1.3.0)
@@ -66,15 +66,15 @@ GIT
       omniauth-oauth2 (~> 1)
 
 GIT
-  remote: https://github.com/sinatra/sinatra.git
-  revision: 17cf997db2013f529166c1fd9b504c44996ebfa4
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 04a02ac2b7400ab456126dbfce5519cbc200b61a
   specs:
-    rack-protection (2.0.5)
+    rack-protection (2.0.7)
       rack
-    sinatra (2.0.5)
+    sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.5)
+      rack-protection (= 2.0.7)
       tilt (~> 2.0)
 
 GEM
@@ -175,7 +175,7 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       dry-schema (~> 1.0)
     connection_pool (2.2.2)
-    crass (1.0.4)
+    crass (1.0.5)
     css_parser (1.7.0)
       addressable
     database_cleaner (1.7.0)
@@ -226,7 +226,7 @@ GEM
       activesupport (>= 4.2.0)
     faker (2.1.2)
       i18n (>= 0.8)
-    faraday (0.15.4)
+    faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
     fugit (1.3.2)
@@ -258,7 +258,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -274,7 +274,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    multi_json (1.13.1)
+    multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     mustermann (1.0.3)
@@ -282,8 +282,8 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
-    oauth2 (1.4.1)
-      faraday (>= 0.8, < 0.16.0)
+    oauth2 (1.4.2)
+      faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
