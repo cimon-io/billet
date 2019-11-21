@@ -39,7 +39,7 @@ gem 'redis-namespace', '~> 1.6'
 gem 'sidekiq', '~> 5.1'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'sidekiq-unique-jobs', '~> 6.0'
-gem 'simple_form', '~> 4.1'
+gem 'simple_form', '~> 5.0'
 gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
 gem 'susanin', github: 'cimon-io/susanin'
 gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
