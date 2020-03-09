@@ -18,7 +18,6 @@ gem 'puma', '~> 3.12'
 
 gem 'attribute_normalizer', '~> 1.2'
 gem 'cancancan', '~> 3.0'
-gem 'carrierwave', '~> 1.2'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 gem 'glipper', github: 'cimon-io/glipper'
 gem 'hamlit', '~> 2.8'
