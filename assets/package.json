@@ -1,6 +1,6 @@
 {
-  "name": "billet-landing",
-  "license": "COMMERCIAL LICENSE",
+  "name": "billet-assets",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "deploy": "webpack --mode production",
