@@ -10,5 +10,5 @@
 # end
 
 ActionController::Renderers.add :css do |_obj, _options|
-  send_data Sass.compile(render_to_string, cache: false, style: (Rails.configuration.assets.css_compressor ? :compressed : :nested)), type: Mime[:css], disposition: nil
+  send_data Sass.compile(render_to_string, cache: false, style: (Rails.env.production? ? :compressed : :nested)), type: Mime[:css], disposition: nil
 end

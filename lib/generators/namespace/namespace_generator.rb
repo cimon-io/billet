@@ -1,3 +1,5 @@
+require 'json'
+
 class NamespaceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
@@ -98,45 +100,22 @@ class NamespaceGenerator < Rails::Generators::NamedBase
     template 'drappers/application_drapper.rb.erb', app_folder(:app, :drappers, instance_name, "application_drapper.rb")
 
     template 'drappers/concerns/display_name_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "display_name_glipper.rb")
-    template 'drappers/concerns/image_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "image_glipper.rb")
     template 'drappers/concerns/timestamp_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "timestamp_glipper.rb")
     template 'drappers/concerns/type_glipper.rb.erb', app_folder(:app, :drappers, :concerns, instance_name, "type_glipper.rb")
   end
 
   def generate_helpers
     template "helpers/application_helper.rb.erb", app_folder(:app, :helpers, instance_name, "application_helper.rb")
-    template "helpers/boolean_helper.rb.erb", app_folder(:app, :helpers, instance_name, "boolean_helper.rb")
-    template "helpers/datalink_helper.rb.erb", app_folder(:app, :helpers, instance_name, "datalink_helper.rb")
-    template "helpers/display_name_helper.rb.erb", app_folder(:app, :helpers, instance_name, "display_name_helper.rb")
-    template "helpers/erb_helper.rb.erb", app_folder(:app, :helpers, instance_name, "erb_helper.rb")
-    template "helpers/glipper_helper.rb.erb", app_folder(:app, :helpers, instance_name, "glipper_helper.rb")
-    template "helpers/human_attribute_helper.rb.erb", app_folder(:app, :helpers, instance_name, "human_attribute_helper.rb")
-    template "helpers/i18n_helper.rb.erb", app_folder(:app, :helpers, instance_name, "i18n_helper.rb")
-    template "helpers/image_helper.rb.erb", app_folder(:app, :helpers, instance_name, "image_helper.rb")
-    template "helpers/number_to_percentage_helper.rb.erb", app_folder(:app, :helpers, instance_name, "number_to_percentage_helper.rb")
-    template "helpers/sentence_helper.rb.erb", app_folder(:app, :helpers, instance_name, "sentence_helper.rb")
-    template "helpers/timestamp_helper.rb.erb", app_folder(:app, :helpers, instance_name, "timestamp_helper.rb")
-
-    unless @api
-      template "helpers/title_helper.rb.erb", app_folder(:app, :helpers, instance_name, "title_helper.rb")
-      template "helpers/flash_helper.rb.erb", app_folder(:app, :helpers, instance_name, "flash_helper.rb")
-    end
-
-    true
   end
 
   def generate_assets
-    empty_directory app_folder(:assets)
-    empty_directory app_folder(:assets, :images)
-    empty_directory app_folder(:assets, :javascripts)
-    empty_directory app_folder(:assets, :stylesheets)
-    directory 'assets/images', app_folder(:assets, :images)
     unless @api
-      empty_directory app_folder(:assets, :javascripts)
-      template 'assets/javascripts/js.erb', app_folder(:assets, :javascripts, "#{instance_name}.js")
+      entrypoints = JSON.parse(File.read('assets/entrypoints.json')) + [instance_name]
+      File.write("assets/entrypoints.json", JSON.pretty_generate(entrypoints))
 
-      empty_directory app_folder(:assets, :stylesheets)
-      template 'assets/stylesheets/css.scss.erb', app_folder(:assets, :stylesheets, "#{instance_name}.scss")
+      template 'assets/js.js.erb', "assets/javascripts/#{instance_name}.js"
+      template 'assets/css.js.erb', "assets/stylesheets/#{instance_name}.js"
+      template 'assets/css.scss.erb', "assets/stylesheets/#{instance_name}.scss"
     end
 
     true
