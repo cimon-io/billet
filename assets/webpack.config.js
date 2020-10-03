@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -12,7 +13,6 @@ module.exports = (env, options) => {
   const POLYFILLS = DEBUG ? [] : ['babel-polyfill', 'es6-promise/auto']
   const ASSETS_PREFIX = process.env.WEB_ASSETS_DIR || '/web-assets'
 
-
   return {
     context: __dirname,
     cache: true,
@@ -24,8 +24,7 @@ module.exports = (env, options) => {
       ]
     },
     entry: {
-      stylesheets: [...POLYFILLS, './stylesheets.js'],
-      application: [...POLYFILLS, './javascripts/application.js'],
+      application: [...POLYFILLS, './javascripts/application.js', './stylesheets/application.js'],
     },
     output: {
       filename: 'javascripts/[name]-[hash].js',
@@ -72,7 +71,7 @@ module.exports = (env, options) => {
     },
     plugins: [
       new MiniCssExtractPlugin({ filename: 'stylesheets/[name]-[hash].css' }),
-      new CopyWebpackPlugin([{ from: 'images', to: 'images/[name]-[hash].[ext]', toType: 'template' }]),
+      new CopyWebpackPlugin([{ from: 'images', to: 'images/[name]-[hash].[ext]', toType: 'template' }], { copyUnmodified: true }),
       new CompressionPlugin({ test: [/\.js$/, /\.css$/, /\.svg$/], cache: true }),
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [`../public${ASSETS_PREFIX}`],

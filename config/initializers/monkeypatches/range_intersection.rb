@@ -1,3 +1,5 @@
+# supported_version: RUBY_VERSION '~> 2.7.1'
+
 class Range
   # rubocop:disable Metrics/PerceivedComplexity, Style/CaseEquality
   def intersection(other)

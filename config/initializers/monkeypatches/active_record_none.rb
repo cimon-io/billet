@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+
 module ActiveRecordNone
   extend ActiveSupport::Concern
 
@@ -10,4 +12,4 @@ module ActiveRecordNone
   end
 end
 
-ActiveRecord::Relation.send(:include, ActiveRecordNone)
+ActiveRecord::Relation.include(ActiveRecordNone)

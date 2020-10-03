@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+
 module ActiveRecordOverlaps
   extend ActiveSupport::Concern
 
@@ -25,4 +27,4 @@ module ActiveRecordOverlaps
   end
 end
 
-ActiveRecord::Base.send(:extend, ActiveRecordOverlaps)
+ActiveRecord::Base.extend(ActiveRecordOverlaps)

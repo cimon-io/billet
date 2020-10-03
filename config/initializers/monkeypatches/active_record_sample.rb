@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+
 module ActiveRecordSample
   extend ActiveSupport::Concern
 
@@ -16,4 +18,4 @@ module ActiveRecordSample
   end
 end
 
-ActiveRecord::Base.send(:include, ActiveRecordSample)
+ActiveRecord::Base.include(ActiveRecordSample)

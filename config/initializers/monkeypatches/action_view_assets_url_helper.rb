@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+
 require 'singleton'
 require 'json'
 
@@ -15,7 +17,7 @@ module ActionView::Helpers::AssetUrlHelper
     end
 
     def initialize
-      @source = Rails.root.join("public" + Rails.application.config.assets.prefix + "/manifest.json")
+      @source = Rails.root.join('public', ENV.fetch('WEB_ASSETS_DIR', 'web-assets').sub(%r{\A/}, ''), 'manifest.json')
     end
 
     def json

@@ -8,13 +8,13 @@ end
 gem 'config', '~> 2.0' # this gem should be load first to define configuration before initialize project
 
 # core libraries
-gem 'rails', '6.0.0'
+gem 'rails', '6.0.3.3'
 
 # database library
 gem 'pg', '~> 1.1'
 
 # main server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 
 gem 'attribute_normalizer', '~> 1.2'
 gem 'cancancan', '~> 3.0'
@@ -44,8 +44,6 @@ gem 'susanin', github: 'cimon-io/susanin'
 gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
 
 group :development, :test do
-  gem 'puma-fsevent_cleanup', '~> 0.1'
-
   gem 'pry', '~> 0.10', require: false
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-doc', '~> 1.0', require: false
@@ -56,7 +54,7 @@ group :development, :test do
   gem 'bundler-audit', require: false
   gem 'capybara'
   gem 'chromedriver-helper'
-  gem 'db-query-matchers', '~> 0.9'
+  gem 'db-query-matchers', '~> 0.10'
   gem 'factory_bot', '~> 5.0'
   gem 'fuubar', '~> 2.2', require: false
   gem 'rspec-rails', '~> 3.6'

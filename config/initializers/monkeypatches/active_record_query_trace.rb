@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+
 # Be sure to restart your server when you modify this file.
 
 if Rails.const_defined?(:ActiveRecordQueryTrace)
