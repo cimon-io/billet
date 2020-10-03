@@ -8,6 +8,8 @@ const WebpackManifestPlugin = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const entrypoints = require('./entrypoints.json');
+
 module.exports = (env, options) => {
   const DEBUG = process.env.NODE_ENV === 'development' || options.mode === 'development';
   const POLYFILLS = DEBUG ? [] : ['babel-polyfill', 'es6-promise/auto']
@@ -24,7 +26,7 @@ module.exports = (env, options) => {
       ]
     },
     entry: {
-      application: [...POLYFILLS, './javascripts/application.js', './stylesheets/application.js'],
+      application: entrypoints.reduce((a,e) => [...a, `./javascripts/${e}.js`, `./stylesheets/${e}.js`], POLYFILLS),
     },
     output: {
       filename: 'javascripts/[name]-[hash].js',
