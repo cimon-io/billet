@@ -16,6 +16,9 @@ gem 'pg', '~> 1.1'
 # main server
 gem 'puma', '~> 4.3'
 
+gem 'pry', '~> 0.10', require: false
+gem 'pry-rails', '~> 0.3'
+
 gem 'attribute_normalizer', '~> 1.2'
 gem 'cancancan', '~> 3.0'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
@@ -44,10 +47,7 @@ gem 'susanin', github: 'cimon-io/susanin'
 gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
 
 group :development, :test do
-  gem 'pry', '~> 0.10', require: false
   gem 'pry-byebug', '~> 3.4'
-  gem 'pry-doc', '~> 1.0', require: false
-  gem 'pry-rails', '~> 0.3'
 
   gem 'active_record_query_trace', '~> 1.5'
   gem 'brakeman', require: false
