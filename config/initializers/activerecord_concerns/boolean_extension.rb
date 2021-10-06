@@ -8,4 +8,4 @@ module BooleanExtension
   end
 end
 
-ActiveRecord::Base.send :include, BooleanExtension
+ActiveRecord::Base.include(BooleanExtension)
