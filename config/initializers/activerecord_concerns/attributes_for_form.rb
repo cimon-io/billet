@@ -11,4 +11,4 @@ module AttributesForForm
   end
 end
 
-ActiveRecord::Base.send :include, AttributesForForm
+ActiveRecord::Base.include(AttributesForForm)

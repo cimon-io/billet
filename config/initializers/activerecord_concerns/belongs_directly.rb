@@ -15,4 +15,4 @@ module BelongsDirectly
   end
 end
 
-ActiveRecord::Base.send :include, BelongsDirectly
+ActiveRecord::Base.include(BelongsDirectly)

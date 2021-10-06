@@ -2,10 +2,10 @@ module AttrAccessorWithDefault
   extend ActiveSupport::Concern
 
   module ClassMethods
-    def attr_accessor_with_default(name)
-      content_proc = block_given? ? Proc.new : proc { nil }
+    def attr_accessor_with_default(name, &block)
+      block ||= proc { nil }
       define_method name.to_s do
-        instance_variable_get("@#{name}") || instance_exec(&content_proc)
+        instance_variable_get("@#{name}") || instance_exec(&block)
       end
       define_method "#{name}=" do |v|
         instance_variable_set("@#{name}", v)
@@ -14,4 +14,4 @@ module AttrAccessorWithDefault
   end
 end
 
-ActiveRecord::Base.send :include, AttrAccessorWithDefault
+ActiveRecord::Base.include(AttrAccessorWithDefault)

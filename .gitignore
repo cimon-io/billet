@@ -40,3 +40,6 @@ actionmailer_config_DONOTVERSION.rb
 /assets/yarn-error.log
 /assets/yarn-debug.log*
 /assets/.yarn-integrity
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

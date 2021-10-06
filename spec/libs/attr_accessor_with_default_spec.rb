@@ -3,7 +3,7 @@ require 'rails_helper'
 describe '#attr_accessor_with_default' do
   describe AttrAccessorWithDefault do
     before(:each) do
-      A = Class.new do
+      stub_const('A', Class.new do
         include AttrAccessorWithDefault
 
         attr_accessor_with_default :qwe1
@@ -13,11 +13,7 @@ describe '#attr_accessor_with_default' do
         attr_accessor_with_default :qwe3 do
           qwe2 * qwe1
         end
-      end
-    end
-
-    after(:each) do
-      Object.send(:remove_const, 'A')
+      end)
     end
 
     let(:a) { A.new }

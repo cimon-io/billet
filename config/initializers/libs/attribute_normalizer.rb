@@ -1,4 +1,5 @@
 require 'attribute_normalizer'
+require 'custom_normalizers'
 
 AttributeNormalizer.configure do |config|
   config.normalizers[:url] = CustomNormalizers::UrlNormalizer
