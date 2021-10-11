@@ -1,22 +1,25 @@
 # frozen_string_literal: true
 
-# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+# supported_version: Rails::VERSION::STRING '~> 7.0.0.alpha2'
 
 # https://github.com/rails/rails/issues/28503
 module ActionView
   class Digestor
     class << self
-      # https://github.com/rails/rails/blob/v6.0.3.2/actionview/lib/action_view/digestor.rb#L42-L64
+      # https://github.com/rails/rails/blob/v7.0.0.alpha2/actionview/lib/action_view/digestor.rb#L43-L68
       # rubocop:disable Style/IdenticalConditionalBranches, Lint/AssignmentInCondition, Style/PercentLiteralDelimiters
       def tree(name, finder, partial = false, seen = {})
         logical_name = name.gsub(%r|/_|, "/")
+        interpolated = name.include?("#")
+
+        path = TemplatePath.parse(name)
 
         # Start patching
         finder.formats = [finder.rendered_format] if finder.rendered_format
         finder.formats.push(:html) if %i[json js].include?(finder.rendered_format)
         # End patching
 
-        if template = find_template(finder, logical_name, [], partial, [])
+        if !interpolated && (template = find_template(finder, path.name, [path.prefix], partial, []))
           if node = seen[template.identifier] # handle cycles in the tree
             node
           else
@@ -29,7 +32,7 @@ module ActionView
             node
           end
         else
-          unless name.include?("#") # Dynamic template partial names can never be tracked
+          unless interpolated # Dynamic template partial names can never be tracked
             logger.error "  Couldn't find template for digesting: #{name}"
           end
 

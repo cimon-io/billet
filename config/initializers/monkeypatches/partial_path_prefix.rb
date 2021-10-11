@@ -1,4 +1,4 @@
-# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+# supported_version: Rails::VERSION::STRING '~> 7.0.0.alpha2'
 
 # allow to define #to_partial_path and
 # it will not include the controller namespace by default

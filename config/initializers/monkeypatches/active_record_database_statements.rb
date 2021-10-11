@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+# supported_version: Rails::VERSION::STRING '~> 7.0.0.alpha2'
 
 module ActiveRecord
   module Persistence
-    # https://github.com/rails/rails/blob/v6.0.3.2/activerecord/lib/active_record/persistence.rb#L929-L943
+    # https://github.com/rails/rails/blob/v7.0.0.alpha2/activerecord/lib/active_record/persistence.rb#L1015-L1030
     def _create_record(attribute_names = self.attribute_names)
       attribute_names = attributes_for_create(attribute_names)
 
@@ -19,6 +19,7 @@ module ActiveRecord
       end
 
       @new_record = false
+      @previously_new_record = true
 
       yield(self) if block_given?
 
@@ -26,7 +27,7 @@ module ActiveRecord
     end
     private :_create_record
 
-    # https://github.com/rails/rails/blob/v6.0.3.2/activerecord/lib/active_record/persistence.rb#L911-L925
+    # https://github.com/rails/rails/blob/v7.0.0.alpha2/activerecord/lib/active_record/persistence.rb#L995-L1011
     def _update_record(attribute_names = self.attribute_names)
       attribute_names = attributes_for_update(attribute_names)
 
@@ -42,6 +43,8 @@ module ActiveRecord
         public_send("#{column_name}=", self.class.attribute_types[column_name.to_s].deserialize(value))
       end
 
+      @previously_new_record = false
+
       yield(self) if block_given?
 
       affected_rows.none? ? 0 : 1
@@ -52,19 +55,19 @@ module ActiveRecord
   module ConnectionAdapters
     module PostgreSQL
       module DatabaseStatements
-        # https://github.com/rails/rails/blob/v6.0.2.2/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L110-L113
+        # https://github.com/rails/rails/blob/v7.0.0.alpha2/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L68-L71
         def exec_update(sql, name = nil, binds = [])
           execute_and_clear(sql_with_returning(sql), name, binds) { |result| Array.wrap(result.values.first) }
         end
 
-        # https://github.com/rails/rails/blob/v6.0.2.2/activerecord/lib/active_record/connection_adapters/abstract/database_statements.rb#L164-L169
+        # https://github.com/rails/rails/blob/v7.0.0.alpha2/activerecord/lib/active_record/connection_adapters/abstract/database_statements.rb#L165-L170
         def insert(arel, name = nil, pk = nil, _id_value = nil, sequence_name = nil, binds = [])
           sql, binds = to_sql_and_binds(arel, binds)
           exec_insert(sql, name, binds, pk, sequence_name).rows.first
         end
         alias create insert
 
-        # https://github.com/rails/rails/blob/v6.0.3.2/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L115-L128
+        # https://github.com/rails/rails/blob/v7.0.0.alpha2/activerecord/lib/active_record/connection_adapters/postgresql/database_statements.rb#L73-L86
         def sql_for_insert(sql, pk, binds) # :nodoc:
           table_ref = extract_table_ref_from_insert_sql(sql)
           if pk.nil?

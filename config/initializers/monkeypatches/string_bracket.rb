@@ -1,4 +1,4 @@
-# supported_version: RUBY_VERSION '~> 2.7.1'
+# supported_version: RUBY_VERSION '~> 3.0.2'
 
 class String
   BRA2KET = { '[' => ']', '(' => ')', '{' => '}', '<' => '>' }.freeze

@@ -1,4 +1,4 @@
-# supported_version: Rails::VERSION::STRING '~> 6.0.3'
+# supported_version: Rails::VERSION::STRING '~> 7.0.0.alpha2'
 
 module ActiveRecordPluckedHash
   extend ActiveSupport::Concern
