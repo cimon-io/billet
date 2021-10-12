@@ -318,6 +318,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
+      racc (~> 1.4)
     oauth (0.5.6)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -356,7 +358,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
-    puma (5.5.0)
+    puma (5.5.1)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.5.2)
@@ -484,6 +486,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   active_record_query_trace (~> 1.5)
@@ -520,7 +523,7 @@ DEPENDENCIES
   pry (~> 0.10)
   pry-byebug (~> 3.4)
   pry-rails (~> 0.3)
-  puma (~> 5.0)
+  puma (~> 5.5)
   rails!
   rails_12factor
   redcarpet (~> 3.4)

@@ -16,7 +16,7 @@ gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'pg', '~> 1.1'
 
 # main server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.5'
 
 gem 'pry', '~> 0.10', require: false
 gem 'pry-rails', '~> 0.3'
