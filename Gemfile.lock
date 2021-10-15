@@ -12,14 +12,6 @@ GIT
       actionpack (>= 4.1.1, < 7.0)
 
 GIT
-  remote: https://github.com/cimon-io/omniauth-twitter.git
-  revision: cc19ee89d29ff19f9e74343a4508bc1800c0bbd9
-  specs:
-    omniauth-twitter (1.2.1)
-      json (~> 2.0)
-      omniauth-oauth (~> 1.1)
-
-GIT
   remote: https://github.com/cimon-io/simplecov-console.git
   revision: 7bfa9b2f918452184acfc8e9bbd05d45d3d23a63
   specs:
@@ -41,21 +33,6 @@ GIT
   specs:
     unobtrusive_resources (0.1.0)
       activesupport (>= 3.0, < 7.0)
-
-GIT
-  remote: https://github.com/jamiew/omniauth-tumblr.git
-  revision: df06d43eb547bda43c4fd19c068e959ba5922a94
-  specs:
-    omniauth-tumblr (1.2)
-      multi_json
-      omniauth-oauth (~> 1.0)
-
-GIT
-  remote: https://github.com/mkdynamic/omniauth-facebook.git
-  revision: 853dce6dc8ee8a2d5343d99fa6ca898223fa0fe4
-  specs:
-    omniauth-facebook (8.0.0)
-      omniauth-oauth2 (~> 1.2)
 
 GIT
   remote: https://github.com/rails/rails.git
@@ -142,14 +119,6 @@ GIT
       rake (>= 0.13)
       thor (~> 1.0)
       zeitwerk (~> 2.5.0.beta5)
-
-GIT
-  remote: https://github.com/ropiku/omniauth-instagram.git
-  revision: 553e6e7cbe519a95460449023ae33f0c78f47537
-  specs:
-    omniauth-instagram (1.3.0)
-      omniauth (~> 1)
-      omniauth-oauth2 (~> 1)
 
 GIT
   remote: https://github.com/sinatra/sinatra.git
@@ -253,25 +222,6 @@ GEM
       activesupport (>= 4.2.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-    faraday (1.8.0)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0.1)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.1)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      multipart-post (>= 1.2, < 3)
-      ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
     ffi (1.15.4)
     fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
@@ -294,8 +244,6 @@ GEM
     io-like (0.3.1)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    json (2.5.1)
-    jwt (2.3.0)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -310,9 +258,6 @@ GEM
     mini_mime (1.1.1)
     minitest (5.14.4)
     msgpack (1.4.2)
-    multi_json (1.15.0)
-    multi_xml (0.6.0)
-    multipart-post (2.1.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
@@ -320,24 +265,12 @@ GEM
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
-    oauth (0.5.6)
-    oauth2 (1.4.7)
-      faraday (>= 0.8, < 2.0)
-      jwt (>= 1.0, < 3.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (>= 1.2, < 3)
     oj (3.13.8)
     oj_mimic_json (1.0.1)
-    omniauth (1.9.1)
+    omniauth (2.0.4)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
-    omniauth-oauth (1.2.0)
-      oauth
-      omniauth (>= 1.0, < 3)
-    omniauth-oauth2 (1.7.1)
-      oauth2 (~> 1.4)
-      omniauth (>= 1.9, < 3)
+      rack-protection
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -513,11 +446,7 @@ DEPENDENCIES
   nokogiri (>= 1.12.5)
   oj (~> 3.5)
   oj_mimic_json (~> 1.0)
-  omniauth
-  omniauth-facebook!
-  omniauth-instagram!
-  omniauth-tumblr!
-  omniauth-twitter!
+  omniauth (>= 2.0)
   pg (~> 1.1)
   premailer-rails (~> 1.10)
   pry (~> 0.10)

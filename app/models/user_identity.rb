@@ -16,10 +16,10 @@ class UserIdentity < ApplicationRecord
   # rubocop:enable Style/MutableConstant
   include UserIdentities::Owner
   include UserIdentities::Developer if OmniAuth::Builder.providers.include?(:developer)
-  include UserIdentities::Facebook if OmniAuth::Builder.providers.include?(:facebook)
-  include UserIdentities::Twitter if OmniAuth::Builder.providers.include?(:twitter)
-  include UserIdentities::Instagram if OmniAuth::Builder.providers.include?(:instagram)
-  include UserIdentities::Tumblr if OmniAuth::Builder.providers.include?(:tumblr)
+  # include UserIdentities::Facebook if OmniAuth::Builder.providers.include?(:facebook)
+  # include UserIdentities::Twitter if OmniAuth::Builder.providers.include?(:twitter)
+  # include UserIdentities::Instagram if OmniAuth::Builder.providers.include?(:instagram)
+  # include UserIdentities::Tumblr if OmniAuth::Builder.providers.include?(:tumblr)
 
   class << self
     def omniauthable?(auth)
