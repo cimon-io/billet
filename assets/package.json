@@ -3,8 +3,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "deploy": "webpack --mode production",
-    "watch": "webpack --mode development --watch"
+    "deploy": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode production",
+    "watch": "NODE_OPTIONS=--openssl-legacy-provider webpack --mode development --watch"
   },
   "dependencies": {
     "@babel/core": "7.15.8",
@@ -15,24 +15,24 @@
     "@babel/preset-env": "7.15.8",
     "@babel/preset-react": "7.14.5",
     "@rails/ujs": "6.1.4-1",
-    "babel-loader": "8.2.2",
+    "babel-loader": "8.2.3",
     "babel-polyfill": "6.26.0",
     "better-dom": "4.1.0",
-    "clean-webpack-plugin": "3.0.0",
-    "compression-webpack-plugin": "3.1.0",
-    "copy-webpack-plugin": "5.1.2",
+    "clean-webpack-plugin": "4.0.0",
+    "compression-webpack-plugin": "9.0.0",
+    "copy-webpack-plugin": "9.0.1",
     "core-js": "3.18.3",
-    "css-loader": "3.6.0",
+    "css-loader": "6.4.0",
     "es6-promise": "4.2.8",
-    "mini-css-extract-plugin": "0.11.2",
-    "node-sass": "4.14.1",
-    "optimize-css-assets-webpack-plugin": "5.0.4",
-    "sass-loader": "7.3.1",
+    "mini-css-extract-plugin": "2.4.3",
+    "node-sass": "6.0.1",
+    "css-minimizer-webpack-plugin": "3.1.1",
+    "sass-loader": "12.2.0",
     "turbolinks": "5.2.0",
-    "uglifyjs-webpack-plugin": "2.2.0",
-    "webpack": "4.44.2",
-    "webpack-cli": "3.3.12",
-    "webpack-manifest-plugin": "2.2.0"
+    "terser-webpack-plugin": "5.2.4",
+    "webpack": "5.59.1",
+    "webpack-cli": "4.9.1",
+    "webpack-manifest-plugin": "4.0.2"
   },
   "devDependencies": {}
 }

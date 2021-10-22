@@ -1,10 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -20,16 +20,15 @@ module.exports = (env, options) => {
     cache: true,
     devtool: DEBUG ? 'source-map' : 'hidden-source-map',
     optimization: {
+      minimize: true,
       minimizer: [
-        new UglifyJsPlugin({ cache: true, parallel: true, sourceMap: false }),
-        new OptimizeCSSAssetsPlugin({})
+        new TerserPlugin({ parallel: true, terserOptions: { sourceMap: false } }),
+        new CssMinimizerPlugin({}),
       ]
     },
-    entry: {
-      application: entrypoints.reduce((a,e) => [...a, `./javascripts/${e}.js`, `./stylesheets/${e}.js`], POLYFILLS),
-    },
+    entry: Object.fromEntries(entrypoints.map(i => [i, [...POLYFILLS, `./javascripts/${i}.js`, `./stylesheets/${i}.js`]])),
     output: {
-      filename: 'javascripts/[name]-[hash].js',
+      filename: 'javascripts/[name]-[fullhash].js',
       pathinfo: !!DEBUG,
       path: path.resolve(__dirname, '../public' + ASSETS_PREFIX)
     },
@@ -72,9 +71,11 @@ module.exports = (env, options) => {
       ]
     },
     plugins: [
-      new MiniCssExtractPlugin({ filename: 'stylesheets/[name]-[hash].css' }),
-      new CopyWebpackPlugin([{ from: 'images', to: 'images/[name]-[hash].[ext]', toType: 'template' }], { copyUnmodified: true }),
-      new CompressionPlugin({ test: [/\.js$/, /\.css$/, /\.svg$/], cache: true }),
+      new MiniCssExtractPlugin({ filename: 'stylesheets/[name]-[fullhash].css' }),
+      new CopyWebpackPlugin({
+        patterns: [{ from: 'images', to: 'images/[name]-[fullhash][ext]', toType: 'template' }],
+      }),
+      new CompressionPlugin({ test: [/\.js$/, /\.css$/, /\.svg$/] }),
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [`../public${ASSETS_PREFIX}`],
         verbose: DEBUG,
