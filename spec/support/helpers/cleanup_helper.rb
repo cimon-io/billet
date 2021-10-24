@@ -36,7 +36,7 @@ module CleanupHelper
   #
   # Don't need to call cleanup if record has been creagted via `fixture` method
   #
-  def cleanup(*all_record_names)
+  def cleanup_fixtures(*all_record_names)
     after(:all) do
       all_record_names.map { |n| instance_variable_get("@#{n}") }.group_by(&:class).each do |klass, records|
         klass.where(id: records.compact.map(&:id)).delete_all

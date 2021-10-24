@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   billetdb:
-    image: postgres:10
+    image: postgres:14
     environment:
       POSTGRES_PASSWORD: billet
       POSTGRES_DB: billet

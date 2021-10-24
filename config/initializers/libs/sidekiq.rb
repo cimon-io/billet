@@ -4,8 +4,6 @@ require 'sidekiq/web'
 require 'sidekiq/scheduler'
 require 'sidekiq-scheduler/web'
 require_relative './redis.rb'
-require 'rollbar'
-require 'rollbar/delay/sidekiq'
 
 # rubocop:disable Style/ExpandPathArguments, Style/GlobalVars
 Sidekiq::Web.use Rack::Auth::Basic do |username, password|

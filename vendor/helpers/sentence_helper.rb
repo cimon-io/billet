@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 module SentenceHelper
-  # rubocop:disable Rails/OutputSafety
-  def smart_sentence(relation, options = {}, wrapper = nil)
+  def smart_sentence(relation, options = {}, wrapper = nil) # rubocop:disable Rails/OutputSafety
     if options.is_a?(Proc)
       wrapper = options
       options = {}
@@ -25,7 +24,6 @@ module SentenceHelper
     relation_links, other_word = smart_sentence_relation_links(relation, count, other_word, wrapper)
     [*(is_uniq ? relation_links.uniq : relation_links), other_word].compact.to_sentence(sentence_options).html_safe
   end
-  # rubocop:enable Rails/OutputSafety
 
   def smart_sentence_relation_links(relation, count = 6, other_word = "other", wrapper = ->(k) { display_name(k) })
     sentence_count, other_word = relation.size > count ? [(count * 0.8).to_i, other_word] : [count, nil]
