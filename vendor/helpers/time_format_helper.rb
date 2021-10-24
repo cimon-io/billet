@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 module TimeFormatHelper
-  # rubocop:disable Style/FormatStringToken
-  def formatted_time(value, fmt = :default, units = :minutes)
+  def formatted_time(value, fmt = :default, units = :minutes) # rubocop:disable Style/FormatStringToken
     value = value.to_i.public_send(units) / 60
 
     case fmt
@@ -16,6 +15,5 @@ module TimeFormatHelper
       format('%02d:%02d', *value.divmod(60))
     end
   end
-  # rubocop:enable Style/FormatStringToken
   alias ftime formatted_time
 end

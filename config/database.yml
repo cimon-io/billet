@@ -1,28 +1,12 @@
-# PostgreSQL. Versions 9.3 and up are supported.
-#
-# Install the pg driver:
-#   gem install pg
-# On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
-# On macOS with MacPorts:
-#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
-# On Windows:
-#   gem install pg
-#       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
-#
-# Configure Using Gemfile
-# gem "pg"
-#
 development: &defaults
   adapter: postgresql
   encoding: unicode
-  url: <%= ENV.fetch('DATABASE_URL', 'postgres://localhost:5432/billet_development?pool=50') %>
+  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_development?pool=#{ENV.fetch('DATABASE_POOL', '50')}") %>
 
 test:
   <<: *defaults
   min_messages: WARNING
-  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_test#{ENV['TEST_ENV_NUMBER']}?pool=50") %>
+  url: <%= ENV.fetch('DATABASE_URL', "postgres://localhost:5432/billet_test#{ENV['TEST_ENV_NUMBER']}?pool=#{ENV.fetch('DATABASE_POOL', '50')}") %>
 
 production:
   <<: *defaults

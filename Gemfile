@@ -8,55 +8,53 @@ group :development, :test do
 end
 
 gem 'config', '~> 2.0' # this gem should be load first to define configuration before initialize project
+gem 'facets', require: false # It contains a lot of language improvements. Check this lib if you want to write something.
 
-# core libraries
-gem 'rails', github: 'rails/rails', branch: 'main'
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.0.0.alpha2"
 
-# database library
-gem 'pg', '~> 1.1'
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
 
-# main server
-gem 'puma', '~> 5.5'
+# Use the Puma web server [https://github.com/puma/puma]
+gem 'puma'
 
-gem 'pry', '~> 0.10', require: false
-gem 'pry-rails', '~> 0.3'
-
-gem 'attribute_normalizer', '~> 1.2'
-gem 'cancancan', '~> 3.0'
+gem 'attribute_normalizer'
+gem 'cancancan'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 gem 'glipper', github: 'cimon-io/glipper'
-gem 'hamlit', '~> 2.8'
-gem 'has_secure_token', '~> 1.0'
-gem 'jbuilder', '~> 2.7'
-gem 'mini_magick', '~> 4.8'
-gem 'nokogiri', '>= 1.12.5'
-gem 'oj', '~> 3.5'
-gem 'oj_mimic_json', '~> 1.0'
-gem 'omniauth', '>= 2.0'
-# gem 'omniauth-facebook', github: 'mkdynamic/omniauth-facebook'
-# gem 'omniauth-instagram', github: 'ropiku/omniauth-instagram'
-# gem 'omniauth-tumblr', github: 'jamiew/omniauth-tumblr'
-# gem 'omniauth-twitter', github: 'cimon-io/omniauth-twitter'
-gem 'premailer-rails', '~> 1.10'
-gem 'redcarpet', '~> 3.4'
-gem 'redis-namespace', '~> 1.6'
-gem 'sidekiq', '~> 5.1'
-gem 'sidekiq-scheduler', '~> 3.0'
-gem 'sidekiq-unique-jobs', '~> 6.0'
-gem 'simple_form', '~> 5.0'
-gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
+gem 'hamlit'
+gem 'has_secure_token'
+gem 'jbuilder'
+gem 'oj'
+gem 'oj_mimic_json'
+gem 'simple_form'
 gem 'susanin', github: 'cimon-io/susanin'
 gem 'unobtrusive_resources', github: 'cimon-io/unobtrusive_resources'
+
+# sidekiq
+gem "redis"
+gem 'redis-namespace'
+gem 'sidekiq'
+gem 'sidekiq-scheduler'
+gem 'sidekiq-unique-jobs'
+gem 'sinatra', require: false, github: 'sinatra/sinatra' # required for the sidekiq
+
+
+# Use Redis adapter to run Action Cable in production
+# gem "redis", "~> 4.0"
 
 gem "importmap-rails", ">= 0.3.4"
 
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "bootsnap", ">= 1.4.4", require: false
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
+
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'pry-byebug', '~> 3.4'
-
   gem 'active_record_query_trace', '~> 1.5'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
@@ -67,26 +65,34 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'selenium-webdriver'
-  # gem 'teaspoon-jasmine', '~> 2.3'
   gem 'unique'
+
+  # Start debugger with binding.b [https://github.com/ruby/debug]
+  gem "debug", ">= 1.0.0", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  gem 'listen', '~> 3.1'
-  gem 'web-console', '~> 4.1'
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console", ">= 4.1.0"
+
+  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  # gem "rack-mini-profiler", ">= 2.3.3"
+
+  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # gem "spring"
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.6'
-  gem 'faker', '~> 2.1'
-  gem 'rspec-simplecov', '~> 0.2'
-  gem 'shoulda-matchers', '~> 4.1'
-  gem 'simplecov', '~> 0.14'
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'rspec-simplecov'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
   gem 'simplecov-console', github: 'cimon-io/simplecov-console' # Remove table and add separate coverage for non 100% files
-  gem 'timecop', '~> 0.9'
+  gem 'timecop'
 end
 
 group :production do
   gem 'rails_12factor'
-  gem 'rollbar', '~> 2.15'
+  # gem 'raven'
 end

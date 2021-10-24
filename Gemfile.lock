@@ -35,9 +35,19 @@ GIT
       activesupport (>= 3.0, < 7.0)
 
 GIT
-  remote: https://github.com/rails/rails.git
-  revision: 10c0b5939f8d7f3959990dd4eeb59f0b864147df
-  branch: main
+  remote: https://github.com/sinatra/sinatra.git
+  revision: d6ba201b840a96fabf2748fbad71c165beaf141c
+  specs:
+    rack-protection (2.1.0)
+      rack
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (7.0.0.alpha2)
       actionpack (= 7.0.0.alpha2)
@@ -77,6 +87,7 @@ GIT
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_record_query_trace (1.8)
     activejob (7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
       globalid (>= 0.3.6)
@@ -90,52 +101,13 @@ GIT
       activejob (= 7.0.0.alpha2)
       activerecord (= 7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
-      marcel (~> 1.0)
+      marcel (~> 1.0.0)
       mini_mime (>= 1.1.0)
     activesupport (7.0.0.alpha2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    rails (7.0.0.alpha2)
-      actioncable (= 7.0.0.alpha2)
-      actionmailbox (= 7.0.0.alpha2)
-      actionmailer (= 7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      actiontext (= 7.0.0.alpha2)
-      actionview (= 7.0.0.alpha2)
-      activejob (= 7.0.0.alpha2)
-      activemodel (= 7.0.0.alpha2)
-      activerecord (= 7.0.0.alpha2)
-      activestorage (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      bundler (>= 1.15.0)
-      railties (= 7.0.0.alpha2)
-      sprockets-rails (>= 2.0.0)
-    railties (7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      method_source
-      rake (>= 0.13)
-      thor (~> 1.0)
-      zeitwerk (~> 2.5.0.beta5)
-
-GIT
-  remote: https://github.com/sinatra/sinatra.git
-  revision: d6ba201b840a96fabf2748fbad71c165beaf141c
-  specs:
-    rack-protection (2.1.0)
-      rack
-    sinatra (2.1.0)
-      mustermann (~> 1.0)
-      rack (~> 2.2)
-      rack-protection (= 2.1.0)
-      tilt (~> 2.0)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    active_record_query_trace (1.8)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
@@ -144,14 +116,14 @@ GEM
     ast (2.4.2)
     attribute_normalizer (1.2.0)
     bindex (0.8.1)
-    bootsnap (1.9.1)
-      msgpack (~> 1.0)
     brakeman (5.1.1)
+    brpoplpush-redis_script (0.1.2)
+      concurrent-ruby (~> 1.0, >= 1.0.5)
+      redis (>= 1.0, <= 5.0)
     builder (3.2.4)
     bundler-audit (0.9.0.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    byebug (11.1.3)
     cancancan (3.3.0)
     capybara (3.35.3)
       addressable
@@ -161,20 +133,25 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    childprocess (3.0.0)
+    childprocess (4.1.0)
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    coderay (1.1.3)
     concurrent-ruby (1.1.9)
     config (2.2.3)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     connection_pool (2.2.5)
     crass (1.0.6)
-    css_parser (1.10.0)
-      addressable
-    database_cleaner (1.99.0)
+    database_cleaner (2.0.1)
+      database_cleaner-active_record (~> 2.0.0)
+    database_cleaner-active_record (2.0.1)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
+    debug (1.3.1)
+      irb (>= 1.3.6)
+      reline (>= 0.2.7)
     deep_merge (1.2.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
@@ -218,11 +195,11 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.5)
       tzinfo
+    facets (3.1.0)
     factory_bot (5.2.0)
       activesupport (>= 4.2.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-    ffi (1.15.4)
     fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
@@ -234,19 +211,17 @@ GEM
       tilt
     has_secure_token (1.0.0)
       activerecord (>= 3.0)
-    hashie (4.1.0)
     hirb (0.7.3)
-    htmlentities (4.3.4)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    importmap-rails (0.7.6)
+    importmap-rails (0.8.1)
       rails (>= 6.0.0)
+    io-console (0.5.9)
     io-like (0.3.1)
+    irb (1.3.7)
+      reline (>= 0.2.7)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    listen (3.7.0)
-      rb-fsevent (~> 0.10, >= 0.10.3)
-      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -254,50 +229,42 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     method_source (1.0.0)
-    mini_magick (4.11.0)
-    mini_mime (1.1.1)
+    mini_mime (1.1.2)
     minitest (5.14.4)
-    msgpack (1.4.2)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
-      racc (~> 1.4)
-    oj (3.13.8)
+    oj (3.13.9)
     oj_mimic_json (1.0.1)
-    omniauth (2.0.4)
-      hashie (>= 3.4.6)
-      rack (>= 1.6.2, < 3)
-      rack-protection
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
-    premailer (1.15.0)
-      addressable
-      css_parser (>= 1.6.0)
-      htmlentities (>= 4.0.0)
-    premailer-rails (1.11.1)
-      actionmailer (>= 3)
-      premailer (~> 1.7, >= 1.7.9)
-    pry (0.14.1)
-      coderay (~> 1.1)
-      method_source (~> 1.0)
-    pry-byebug (3.8.0)
-      byebug (~> 11.0)
-      pry (~> 0.10)
-    pry-rails (0.3.9)
-      pry (>= 0.10.4)
     public_suffix (4.0.6)
-    puma (5.5.1)
+    puma (5.5.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
-    racc (1.5.2)
+    racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rails (7.0.0.alpha2)
+      actioncable (= 7.0.0.alpha2)
+      actionmailbox (= 7.0.0.alpha2)
+      actionmailer (= 7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      actiontext (= 7.0.0.alpha2)
+      actionview (= 7.0.0.alpha2)
+      activejob (= 7.0.0.alpha2)
+      activemodel (= 7.0.0.alpha2)
+      activerecord (= 7.0.0.alpha2)
+      activestorage (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      bundler (>= 1.15.0)
+      railties (= 7.0.0.alpha2)
+      sprockets-rails (>= 2.0.0)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -308,18 +275,22 @@ GEM
       rails_stdout_logging
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
+    railties (7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      method_source
+      rake (>= 0.13)
+      thor (~> 1.0)
+      zeitwerk (~> 2.5.0.beta3)
     rainbow (3.0.0)
     rake (13.0.6)
-    rb-fsevent (0.11.0)
-    rb-inotify (0.10.1)
-      ffi (~> 1.0)
-    redcarpet (3.5.1)
-    redis (4.1.4)
+    redis (4.5.1)
     redis-namespace (1.8.1)
       redis (>= 3.0.4)
     regexp_parser (2.1.1)
+    reline (0.2.7)
+      io-console (~> 0.5)
     rexml (3.2.5)
-    rollbar (2.27.1)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -338,7 +309,7 @@ GEM
       rspec-support (~> 3.10)
     rspec-simplecov (0.2.2)
     rspec-support (3.10.2)
-    rubocop (1.22.1)
+    rubocop (1.22.2)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -349,7 +320,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.12.0)
       parser (>= 3.0.1.1)
-    rubocop-rails (2.12.2)
+    rubocop-rails (2.12.4)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
@@ -358,16 +329,16 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.8.0)
       fugit (~> 1.1, >= 1.1.6)
-    selenium-webdriver (3.142.7)
-      childprocess (>= 0.5, < 4.0)
+    selenium-webdriver (4.0.3)
+      childprocess (>= 0.5, < 5.0)
+      rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
-    shoulda-matchers (4.5.1)
-      activesupport (>= 4.2.0)
-    sidekiq (5.2.9)
-      connection_pool (~> 2.2, >= 2.2.2)
+    shoulda-matchers (5.0.0)
+      activesupport (>= 5.2.0)
+    sidekiq (6.2.2)
+      connection_pool (>= 2.2.2)
       rack (~> 2.0)
-      rack-protection (>= 1.5.0)
-      redis (>= 3.3.5, < 4.2)
+      redis (>= 4.2.0)
     sidekiq-scheduler (3.1.0)
       e2mmap
       redis (>= 3, < 5)
@@ -375,10 +346,11 @@ GEM
       sidekiq (>= 3)
       thwait
       tilt (>= 1.4.0)
-    sidekiq-unique-jobs (6.0.25)
+    sidekiq-unique-jobs (7.1.8)
+      brpoplpush-redis_script (> 0.1.1, <= 2.0.0)
       concurrent-ruby (~> 1.0, >= 1.0.5)
-      sidekiq (>= 4.0, < 7.0)
-      thor (>= 0.20, < 2.0)
+      sidekiq (>= 5.0, < 8.0)
+      thor (>= 0.20, < 3.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -415,71 +387,62 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.5.0.beta5)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   active_record_query_trace (~> 1.5)
-  attribute_normalizer (~> 1.2)
-  bootsnap (>= 1.4.4)
+  attribute_normalizer
   brakeman
   bundler-audit
-  cancancan (~> 3.0)
+  cancancan
   capybara
   chromedriver-helper
   config (~> 2.0)
-  database_cleaner (~> 1.6)
+  database_cleaner
   datetime_format_converter!
+  debug (>= 1.0.0)
   dotenv-rails
+  facets
   factory_bot (~> 5.0)
-  faker (~> 2.1)
+  faker
   glipper!
-  hamlit (~> 2.8)
-  has_secure_token (~> 1.0)
+  hamlit
+  has_secure_token
   importmap-rails (>= 0.3.4)
-  jbuilder (~> 2.7)
-  listen (~> 3.1)
-  mini_magick (~> 4.8)
-  nokogiri (>= 1.12.5)
-  oj (~> 3.5)
-  oj_mimic_json (~> 1.0)
-  omniauth (>= 2.0)
+  jbuilder
+  oj
+  oj_mimic_json
   pg (~> 1.1)
-  premailer-rails (~> 1.10)
-  pry (~> 0.10)
-  pry-byebug (~> 3.4)
-  pry-rails (~> 0.3)
-  puma (~> 5.5)
-  rails!
+  puma
+  rails (~> 7.0.0.alpha2)
   rails_12factor
-  redcarpet (~> 3.4)
-  redis-namespace (~> 1.6)
-  rollbar (~> 2.15)
+  redis
+  redis-namespace
   rspec-rails (~> 5.0)
-  rspec-simplecov (~> 0.2)
+  rspec-simplecov
   rubocop
   rubocop-rails
   selenium-webdriver
-  shoulda-matchers (~> 4.1)
-  sidekiq (~> 5.1)
-  sidekiq-scheduler (~> 3.0)
-  sidekiq-unique-jobs (~> 6.0)
-  simple_form (~> 5.0)
-  simplecov (~> 0.14)
+  shoulda-matchers
+  sidekiq
+  sidekiq-scheduler
+  sidekiq-unique-jobs
+  simple_form
+  simplecov
   simplecov-console!
   sinatra!
   susanin!
-  timecop (~> 0.9)
+  timecop
   tzinfo-data
   unique
   unobtrusive_resources!
-  web-console (~> 4.1)
+  web-console (>= 4.1.0)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.22
+   2.2.4
