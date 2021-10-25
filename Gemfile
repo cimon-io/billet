@@ -19,7 +19,7 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma'
 
-gem 'attribute_normalizer'
+gem 'attribute_normalizer', github: 'cimon-io/attribute_normalizer' # Add more normalizers
 gem 'cancancan'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 gem 'glipper', github: 'cimon-io/glipper'
@@ -96,5 +96,3 @@ group :production do
   gem 'rails_12factor'
   # gem 'raven'
 end
-
-gem "nokogiri", ">= 1.12.5"
