@@ -7,7 +7,7 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-gem 'config', '~> 2.0' # this gem should be load first to define configuration before initialize project
+gem 'config' # this gem should be load first to define configuration before initialize project
 gem 'facets', require: false # It contains a lot of language improvements. Check this lib if you want to write something.
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -55,12 +55,12 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'active_record_query_trace', '~> 1.5'
+  gem 'active_record_query_trace'
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'capybara'
   gem 'chromedriver-helper'
-  gem 'factory_bot', '~> 5.0'
+  gem 'factory_bot'
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
@@ -96,3 +96,5 @@ group :production do
   gem 'rails_12factor'
   # gem 'raven'
 end
+
+gem "nokogiri", ">= 1.12.5"
