@@ -138,7 +138,7 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     concurrent-ruby (1.1.9)
-    config (2.2.3)
+    config (3.1.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
     connection_pool (2.2.5)
@@ -196,8 +196,8 @@ GEM
     et-orbi (1.2.5)
       tzinfo
     facets (3.1.0)
-    factory_bot (5.2.0)
-      activesupport (>= 4.2.0)
+    factory_bot (6.2.0)
+      activesupport (>= 5.0.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     fugit (1.5.2)
@@ -393,20 +393,20 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  active_record_query_trace (~> 1.5)
+  active_record_query_trace
   attribute_normalizer
   brakeman
   bundler-audit
   cancancan
   capybara
   chromedriver-helper
-  config (~> 2.0)
+  config
   database_cleaner
   datetime_format_converter!
   debug (>= 1.0.0)
   dotenv-rails
   facets
-  factory_bot (~> 5.0)
+  factory_bot
   faker
   glipper!
   hamlit
