@@ -20,6 +20,7 @@ gem "pg", "~> 1.1"
 gem 'puma'
 
 gem 'attribute_normalizer', github: 'cimon-io/attribute_normalizer' # Add more normalizers
+gem 'page_meta_for', github: 'cimon-io/page_meta_for'
 gem 'cancancan'
 gem 'datetime_format_converter', github: 'cimon-io/datetime_format_converter'
 gem 'glipper', github: 'cimon-io/glipper'
