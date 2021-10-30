@@ -19,6 +19,14 @@ GIT
       actionpack (>= 4.1.1, < 7.0)
 
 GIT
+  remote: https://github.com/cimon-io/page_meta_for.git
+  revision: f7868979cef5e0baeee683c987a230530cbd562d
+  specs:
+    page_meta_for (0.0.1)
+      actionpack
+      activesupport
+
+GIT
   remote: https://github.com/cimon-io/simplecov-console.git
   revision: 7bfa9b2f918452184acfc8e9bbd05d45d3d23a63
   specs:
@@ -427,6 +435,7 @@ DEPENDENCIES
   jbuilder
   oj
   oj_mimic_json
+  page_meta_for!
   pg (~> 1.1)
   puma
   rails (~> 7.0.0.alpha2)
