@@ -6,6 +6,12 @@ GIT
       postrank-uri
 
 GIT
+  remote: https://github.com/cimon-io/billet_core.git
+  revision: 0c82dc7b137912c2089dd218e29889267a374642
+  specs:
+    billet (0.0.1)
+
+GIT
   remote: https://github.com/cimon-io/datetime_format_converter.git
   revision: b7a0656d2ac53281a8c02fd320ff2b8ee8adce5b
   specs:
@@ -415,6 +421,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_query_trace
   attribute_normalizer!
+  billet!
   brakeman
   bundler-audit
   cancancan
