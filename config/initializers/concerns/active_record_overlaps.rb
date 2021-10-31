@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# supported_version: Rails::VERSION::STRING '~> 7.0.0.alpha2'
-
 module ActiveRecordOverlaps
   extend ActiveSupport::Concern
 

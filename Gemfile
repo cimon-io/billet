@@ -19,6 +19,8 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma'
 
+gem 'billet', github: 'cimon-io/billet_core'
+
 gem 'attribute_normalizer', github: 'cimon-io/attribute_normalizer' # Add more normalizers
 gem 'page_meta_for', github: 'cimon-io/page_meta_for'
 gem 'cancancan'
