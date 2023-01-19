@@ -157,7 +157,7 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     config (3.1.0)
       deep_merge (~> 1.2, >= 1.2.1)
       dry-validation (~> 1.0, >= 1.0.0)
@@ -225,7 +225,7 @@ GEM
     fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
-    globalid (0.5.2)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     hamlit (2.15.1)
       temple (>= 0.8.2)
@@ -234,7 +234,7 @@ GEM
     has_secure_token (1.0.0)
       activerecord (>= 3.0)
     hirb (0.7.3)
-    i18n (1.8.10)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (0.8.1)
       rails (>= 6.0.0)
@@ -252,11 +252,13 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.14.4)
+    minitest (5.17.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.5.8)
     nokogiri (1.12.5-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     oj (3.13.9)
     oj_mimic_json (1.0.1)
@@ -399,7 +401,7 @@ GEM
       e2mmap
     tilt (2.0.10)
     timecop (0.9.4)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
     unique (0.1.0)
@@ -417,6 +419,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   active_record_query_trace
